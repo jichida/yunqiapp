@@ -1,0 +1,28 @@
+<template name="getredpackage">
+<div class="wrap">
+ 
+  {{#if isavaliable}}
+   <section class="banner"> <img src="/images/hb1.jpg" alt="">
+  <span class="loading">{{redpackage.title}}<br/>
+  <strong style="font-size:2em; color:#defe70">{{redpackage.money}}</strong>元红包<br/>
+  {{redpackage.amountcount}}个红包，剩余{{redpackage.leftcount}}个</span> 
+  </section>
+   <section class="user">
+    <ul class="applyBox">
+      <li>
+        <div id="step1">
+          <a href="#" class="btn_getredpackage">立即领取送气红包</a>
+        </div>
+      </li>
+      
+    </ul>
+ 
+</section>
+ {{else}}
+   <span class="loading">无可用红包</span> 
+
+ {{/if}}
+ 
+ 
+</div>
+</template>

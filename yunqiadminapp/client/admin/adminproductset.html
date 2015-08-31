@@ -1,0 +1,80 @@
+<template name="adminproductadd">
+	<!--
+	<form>
+		<input type="text" id="productname" placeholder="产品名">
+		<input type="number" id="productprice" placeholder="单价">
+		<input type="number" id="stockqty" placeholder="库存">
+		<input type="checkbox" id="isonline" checked="checked" value="上架"> 
+		<a href="#"  class="btnaddproduct">新增</a>
+	</form>
+	-->
+	<div class='jcd_admin_title'>
+		新增产品
+	</div>
+	<div class='row'>
+		<form class="col-xs-4">
+			<div class="form-group">
+			    <label for="productname">产品名称</label>
+			    <input type="text" id="productname" class="form-control" placeholder="请输入产品名称">
+			</div>
+			<div class="form-group">
+			    <label for="productprice">产品单价</label>
+			    <input type="number" id="productprice" class="form-control" placeholder="请输入产品单价" />
+			</div>
+			<div class="form-group">
+			    <label for="stockqty">产品库存</label>
+			    <input type="number" id="stockqty" class="form-control" placeholder="请输入产品库存" />
+			</div>
+			<div class="form-group">
+				<label for="isonline">
+			    	<input type="checkbox" id="isonline">是否上架
+			    </label>
+			</div>
+			<a href="#" class="btnaddproduct btn btn-primary btn-lg btn-block">确定新增</a>
+		</form>
+	</div>
+</template>
+
+<template name="adminproductupdate">
+	<!--
+	<form>
+		<input type="text" id="productname" value="{{curproduct.productname}}">
+		<input type="number" id="productprice" value="{{curproduct.productprice}}">
+		<input type="number" id="stockqty" value="{{curproduct.stockqty}}">
+		<br/>
+		<input type="checkbox" id="isonline">是否上架 
+		<br/>
+		<a href="#"  class="btnupdateproduct">修改</a>
+	</form>
+	-->
+	<div class='jcd_admin_title'>
+		修改产品信息
+	</div>
+	<div class='row'>
+		<form class="col-xs-4">
+			<div class="form-group">
+			    <label for="productname">产品名称</label>
+			    <input type="text" id="productname" class="form-control" value="{{curproduct.productname}}" />
+			</div>
+			<div class="form-group">
+			    <label for="productprice">产品价格</label>
+			    <input type="text" id="productprice" class="form-control" value="{{curproduct.productprice}}" />
+			</div>
+			<div class="form-group">
+			    <label for="stockqty">产品库存</label>
+			    <input type="text" id="stockqty" class="form-control" value="{{curproduct.stockqty}}" />
+			</div>
+			<div class="form-group">
+				<label for="isonline">
+			    	<input type="checkbox" id="isonline">是否上架
+			    </label>
+			</div>
+			<a href="#" class="btnupdateproduct btn btn-primary btn-lg btn-block">确定</a>
+		</form>
+	</div>
+</template>
+
+
+
+
+	

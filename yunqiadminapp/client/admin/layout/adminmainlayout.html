@@ -1,0 +1,28 @@
+<template name="adminmainlayout">
+  <header class="jcd_admin_head">
+    <div class="jcd_admin_logo_con">
+      <span>云南送气</span>
+    </div>
+  </header>
+  <div class="jcd_admin_body">
+    
+    <!-- sidebar start -->
+    <div class="jcd_admin_sidebar">
+      <adminnavbar>   
+      {{> yield "adminnavbar"}}
+      </adminnavbar>
+    </div>
+    <!-- sidebar end -->
+    
+    <div class="jcd_admin_content">
+      <div class='jcd_admin_text'>
+        <admincontent>
+        {{> yield "admincontent"}}
+        </admincontent>
+      </div>
+    </div>
+    <!-- content end -->
+  </div>
+
+
+</template>

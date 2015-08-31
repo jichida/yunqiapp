@@ -1,0 +1,12 @@
+if(Meteor.isServer){
+		Meteor.methods({
+			'insertRedpackage': function(redpackageDoc){
+				//var currentUserId = Meteor.userId();
+				SystemRedPackages.insert(redpackageDoc);
+			},
+			
+			'updateRedpackage':function(id,redpackageDoc){
+				SystemRedPackages.update(id, {$set:redpackageDoc});
+			}
+		});
+	};

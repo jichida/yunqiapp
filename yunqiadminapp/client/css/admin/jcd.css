@@ -1,0 +1,37 @@
+/*admin*/
+*{font: 14px/1.5 "\5FAE\8F6F\96C5\9ED1";list-style: none}
+a:hover,a:active{text-decoration: none}
+ul,li,p{padding: 0}
+.jcd_admin_head{ height: 50px; background: #3C8DBC }
+.jcd_admin_head .jcd_admin_logo_con{width: 180px;height: 50px;background: #367FA9;text-align: center;}
+.jcd_admin_head .jcd_admin_logo_con span{font-size: 18px;line-height: 50px; color: #FFF}
+
+.jcd_admin_title{font-size: 26px;margin-bottom: 10px;position: relative;}
+
+/*左侧导航*/
+.jcd_admin_sidebar{width:180px;background: #222D32;position: absolute;top:50px;left: 0}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul {}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul li a{display:block;color: #FFF;height: 44px;line-height: 44px;padding-left: 40px}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul li a.sel{background-image: url('images/admin/sidebarBg.png');background-repeat: repeat-y; background-position: left;}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul li a:hover{background: #2C3B41}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul li a.sel:hover{background-image: url('images/admin/sidebarBg.png');background-repeat: repeat-y; background-position: left;}
+.jcd_admin_sidebar .jcd_admin_sidebar_ul li span{margin-right: 10px}
+.jcd_admin_sidebar .jcd_icon{display: inline-block;width: 15px;height: 15px;vertical-align: center; position: relative; top: 1px;}
+.jcd_admin_sidebar .jcd_icon_offsell{background-image: url('images/admin/offsell.png'); background-repeat: no-repeat;width: 15px;height: 14px;background-size: 15px 14px}
+.jcd_admin_sidebar .jcd_icon_bonus{background-image: url('images/admin/bonus.png'); background-repeat: no-repeat;background-position: center 2px;width: 14px;height: 18px;top:2px;}
+/*内容部分*/
+.jcd_admin_content {}
+.jcd_admin_text{padding:20px}
+.jcd_admin_text .jdc_admin_table th,
+.jcd_admin_text .jdc_admin_table td{padding:10px 5px;text-indent: 5px;border-bottom: 1px solid #EEE}
+.jcd_admin_text .jdc_admin_table th{background-color: #f5f5f5;border-color: #ddd}
+.jcd_admin_text .jdc_admin_table td{text-indent: 0;padding-left: 10px;padding-right: 0;}
+.jcd_admin_addbtn {position: absolute;right: 0;}
+.jdc_admin_table_right{padding-right: 10px;text-align: right;}
+.jcd_admin_text .jdc_admin_table td.jdc_admin_table_right,
+.jcd_admin_text .jdc_admin_table th.jdc_admin_table_right{padding-right: 10px}
+
+footer{padding-left:180px;text-align:center;color: #CCC}
+
+
+

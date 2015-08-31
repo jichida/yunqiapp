@@ -1,0 +1,36 @@
+<template name="admincoupons">
+	<div class='jcd_admin_title'>
+		优惠券管理
+		<a href="/admin/addcoupon" class='btn btn-primary jcd_admin_addbtn'><span class='glyphicon glyphicon-plus'></span> 新增优惠券</a>
+	</div>
+	<div class="panel panel-default">
+		<!-- Table -->
+		<table class='table jdc_admin_table'>
+			<tr>
+				<th>优惠券id</th>
+				<th>优惠券名</th>
+				<th>生成时间</th>
+				<th>开始时间</th>
+				<th>结束时间</th>
+				<th>满金额</th>
+				<th>送金额</th>
+				<th class='jdc_admin_table_right'>操作</th>
+			</tr>
+			{{#each coupons}}
+			<tr>
+				<td>{{_id}}</td>
+				<td>{{title}}</td>
+				<td>{{createtime}}</td>
+				<td>{{starttime}}</td>
+				<td>{{endtime}}</td>
+				<td>{{conditionamout}}</td>
+				<td>{{offamout}}</td>
+				<td class='jdc_admin_table_right'>
+					<a href="/admin/updatecoupon/{{_id}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>修改</a>
+					<a href="/admin/disablecoupon/{{_id}}" class="btn btn-danger"><span class='glyphicon glyphicon-trash'></span>作废</a>
+				</td>
+			</tr>
+			{{/each}}
+		</table>
+	</div>
+</template>

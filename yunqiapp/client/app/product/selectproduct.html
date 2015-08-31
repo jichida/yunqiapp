@@ -1,0 +1,43 @@
+<template name="selectproduct">
+	<section class="content">
+  
+  <div class="cardexplain"> 
+    <section id="m-cart" class="m-component-cart">
+    <div class="m-cartlist">
+        <ul class="list-unstyled">
+            {{#each products}}
+                  {{>oneproduct}}
+            {{/each}}            
+                             
+        </ul>  
+        <li> <a  href="#"><span><em class="ok">订单金额:<strong>￥{{sessionorderamount}}</strong></em></span></a> </li>  
+    </div>        
+    </section>   
+             <div class="footReturn">
+             <a href="#" class="btnnext">选好了</a>
+            </div>
+        </div>
+</section>
+
+	</template>
+    
+    <template name="oneproduct">
+          <li type="normal">
+                <a href="#">
+                    
+                    <div class="m-cartlist-info">
+                        <h3>{{productname}}</h3>                     
+                        <h5>￥{{productprice}}</h5>                                                            
+                    </div>
+                </a>
+                                 
+                 <div class="m-cart-numswrap">
+                    <div class="num_sel_lage pull-right clearfix">
+                        <span class="dec">-</span>
+                        <input type="hidden" value="{{_id}}" autocomplete="on" class="pid" disabled="disabled">
+                        <input type="text" value="{{qty}}" autocomplete="on" class="qty" disabled="disabled">
+                        <span class="inc">+</span>
+                    </div>
+                </div>
+          </li>
+    </template>

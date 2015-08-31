@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html class="mdd-page">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>我要下单</title>
+<meta name="charset" content="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width">
+<link rel="stylesheet" href="fl_css/common.css">
+<link rel="stylesheet" href="fl_css/app.css">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+<link rel="stylesheet" href="css/onlinebooking.css">
+
+</head>
+<body>
+<header class="header"> <a href="javascript:history.back();" class="back"></a>
+  <div class="h_label">我要下单</div>
+  <a href="index.html" class="menu"></a> </header>
+<section class="content">
+  
+  <div class="cardexplain"> 
+          <!--普通用户登录时显示-->
+          
+        <ul class="round">
+    <form method="post" action="javascript:;">
+              <li class="title mb"><span class="none">请选择气瓶类型和数量</span></li>
+              <li class="nob">
+        <input type="hidden" value="2be3071a" id="formhash" name="formhash">
+       <a href="wyxd1.htm"> <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                    
+                      <td><input type="text" placeholder="还没有选择-点击选择" id="truename" class="px" name="truename"></td>
+                    </tr>
+          </tbody>
+                </table></a>
+      </li><li> <a  href="#"><span><em class="ok">订单金额:<strong>￥100</strong></em></span></a> </li>
+              
+              
+      
+      
+              
+              
+            </form>
+  </ul>  <!--后台可控制是否显示-->
+          
+          
+          <!--后台可控制是否显示-->
+          
+          <ul style="display:none;" class="round roundyellow">
+    <li class="userinfo"><a href="#"><span>请完善个人资料再填表单</span></a></li>
+  </ul>
+          
+          <!--粉丝填写过的信息的，直接就显示名字电话，粉丝没有填写过信息的话，这里就直接留空让粉丝填写-->
+          <ul class="round">
+    <form method="post" action="javascript:;">
+              <li class="title mb"><span class="none">送气地址</span></li>
+              <li class="nob">
+        <input type="hidden" value="2be3071a" id="formhash" name="formhash">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>送气地址</th>
+                      <td><input type="text" placeholder="送气地址" id="truename" class="px" name="truename"></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>联系人</th>
+                      <td><input type="tel" placeholder="请输入联系人" id="tel" class="px" name="tel"></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>联系电话</th>
+                      <td><input type="tel" placeholder="联系电话" id="tel" class="px" name="tel"></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+      
+      
+              
+              
+      
+            </form>
+  </ul><ul class="round">
+    <li>
+              
+             <a href="#"> <div class="text">使用其他地址（点击更换送气地址）</div></a>
+            </li>
+  </ul>
+  <ul class="round">
+    <form method="post" action="javascript:;">
+              
+              
+      <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>要气时间</th>
+                      <td><select name="timepart" id="timepart" class="dropdown-select">
+									<option value="19:00">19:00</option><option value="20:00">20:00</option><option value="21:00">21:00</option><option value="22:00">22:00</option><option value="23:00">23:00</option>		</select></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+      <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>备注</th>
+                      <td><input type="tel" placeholder="请输入联系电话" id="tel" class="px" name="tel"></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              
+              
+      
+            </form>
+  </ul>
+  <ul class="round">
+    <form method="post" action="javascript:;">
+              <li class="title mb"><span class="none">请选择支付方式</span></li>
+              <li class="nob">
+        <input type="hidden" value="2be3071a" id="formhash" name="formhash">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                    
+                      <td><span><input type="radio" >货到付款
+                    </span>
+                      </td>
+                    </tr>
+                    <tr>
+                    
+                      <td><span><input type="radio" >货到付款</span>
+                    
+                      </td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              
+              
+      
+      
+              
+              
+      
+            </form>
+  </ul>
+          <div class="footReturn">
+    <input type="button" onclick="location.href='ddcg.htm'" value="提交订单" class="submit" id="showcard">
+    <div id="windowcenter" class="window">
+              <div class="wtitle" id="title">操作提示<span id="alertclose" class="close"></span></div>
+              <div class="content">
+        <div id="txt"></div>
+      </div>
+            </div>
+  </div>
+        </div>
+    
+
+   <div style=" height:10px;"></div>
+ 
+</section>
+
+<!--客服电话-->
+<!--尾部Start-->
+<!--<div style="height:35px;"></div>
+<footer>
+        <div class="header_region clearfix">
+          <div class="class_nav initial_nav">
+            <ul>
+              <li> <a href="index.html" class="home_btn bd"><span><i class="icon-uniF015"></i>首页</span></a> </li>
+             
+              <li> <a href="grzx.htm" class="home_btn bd "><span><i class="icon-user"></i>我的</span></a> </li>
+              <li> <a href="more.htm" class="home_btn bd  act"><span><i class="icon-add"></i>更多</span></a> </li>
+         
+            </ul>
+          </div>
+        </div>
+      </footer>-->
+</body>
+</html>

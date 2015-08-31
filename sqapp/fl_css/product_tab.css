@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+.pointer {
+	cursor: pointer;
+}
+.product_detail_iscroll img { width:100%}
+.popup { 
+	background-color: #323232; 
+	color: #fff; 
+	opacity: 0.8; 
+	height: 45px; 
+	line-height: 45px; 
+	position: fixed; 
+	bottom: 50%; 
+	width: 90%;
+	text-align: center;
+	left: 5%;
+	border-radius: 10px; 
+	z-index: 9999; 
+}
+.layer_popup { 
+	width: 60%;
+	margin-left: 15%;
+}
+.popup-tips {
+	font-size: 18px;
+}
+.hidden {
+	display: none;
+}
+.event_p {
+	padding: 9px 18px 9px 15px; 
+}
+.event_p2 {
+	padding-left: 15px; 
+}
+.color-size-span-img {
+	text-align: center;
+}
+.color-a {
+	border-style: solid;
+	border-width: thin;
+	padding: 5px;
+	margin-right: 5%;
+	margin-bottom: 2%;
+	line-height : 40px;
+	display: inline-block;
+}
+.book_info_div {
+	margin: 5%;
+	height : 90%;
+}
+.red {
+	color: #cc3300;
+}
+.bk_gray {
+	background-color: #C0C0C0;
+}
+.bk_red {
+	background-color: #d30002;
+}
+.bk_orange {
+	background-color: #ff9600;
+}
+.unavailable_tips {
+	margin: 10px 0 10px 0;
+	font-size: 12px;
+	text-align: center;
+}
+.a_blue{color:#1a66b3}

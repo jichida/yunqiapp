@@ -1,0 +1,121 @@
+<template name="myorders">
+           <tabheader>
+          {{> yield "tabheader"}}
+        </tabheader>
+
+<div style="" id="wrapper">
+  <div style="overflow: initial; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);" class="viewport" id="scroller">
+    <section class="content">
+      <div class="block">
+        <div class="cart_list">
+
+
+         <orderscontent>
+          {{> yield "orderscontent"}}
+        </orderscontent>
+
+         
+        </div>
+      </div>
+       
+    </section>
+  </div>
+  
+</div>
+</template>
+<template name="tabheader0">
+   <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li> 
+        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
+        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
+          
+        </ul>
+</template>
+<template name="tabheader1">
+   <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li> 
+        <li role="presentation"  class="active"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
+        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
+          
+        </ul>
+</template>
+<template name="tabheader2">
+   <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation">
+        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li> 
+        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
+        <li role="presentation"  class="active"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
+          
+        </ul>
+</template>
+<template name="allorders">
+   {{#each allorders}}
+            <div class="shop_title" shop_id="6078">
+            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{orderno}}</a></div>
+            <a class="fl right_arrow" href="#"></a> <a class="c_edit on" id="e__6078"></a> 
+            </div>
+            
+          <div class="cart_item" id="1365243738" item_id="2042510373" stock="7" style="padding-left:1em">
+            <div class="detail">
+              <p>订单金额：<em style="color:#f00">￥{{orderamount}}</em></p> 
+               <p>订单状态：<em style="color:#1b6ded">{{orderstatusstring}}</em></p> 
+                  <p>下单时间：{{createtime}}</p> 
+           
+          <div class="m-orderfun" data-order="150421293466">
+      <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
+      <button type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</button>
+                                                                                </div>
+              
+          </div>
+           </div>
+            {{/each}}
+  </template>
+  
+  <template name="alltobedeliveryorders">
+   {{#each allorders}}
+            <div class="shop_title" shop_id="6078">
+            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{_id}}</a></div>
+            <a class="fl right_arrow" href="#"></a> <a class="c_edit on" id="e__6078"></a> 
+            </div>
+            
+          <div class="cart_item" id="1365243738" item_id="2042510373" stock="7" style="padding-left:1em">
+            <div class="detail">
+              <p>订单金额：<em style="color:#f00">￥{{orderamount}}</em></p> 
+               <p>订单状态：<em style="color:#1b6ded">{{orderstatusstring}}</em></p> 
+                  <p>下单时间：{{createtime}}</p> 
+           
+          <div class="m-orderfun" data-order="150421293466">
+      <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
+      <button type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</button>
+                                                                                </div>
+              
+          </div>
+           </div>
+            {{/each}}
+  </template>
+  
+  <template name="allclosedorders">
+       {{#each allorders}}
+            <div class="shop_title" shop_id="6078">
+            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{_id}}</a></div>
+            <a class="fl right_arrow" href="#"></a> <a class="c_edit on" id="e__6078"></a> 
+            </div>
+            
+          <div class="cart_item" id="1365243738" item_id="2042510373" stock="7" style="padding-left:1em">
+            <div class="detail">
+              <p>订单金额：<em style="color:#f00">￥{{orderamount}}</em></p> 
+               <p>订单状态：<em style="color:#1b6ded">{{orderstatusstring}}</em></p> 
+                  <p>下单时间：{{createtime}}</p> 
+           
+          <div class="m-orderfun" data-order="150421293466">
+      <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
+      <button type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</button>
+                                                                                </div>
+              
+          </div>
+           </div>
+            {{/each}}
+     </template>
+    

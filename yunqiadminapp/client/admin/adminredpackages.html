@@ -1,0 +1,78 @@
+<template name="adminredpackages">
+	<!--
+		红包管理
+	<a href="/admin/addredpackage">新增红包</a>
+	<table>
+		<thread>
+			<tr>
+			<td>红包id</td>
+			<td>红包名</td>
+			<td>生成时间</td>
+			<td>开始时间</td>
+			<td>结束时间</td>
+			<td>总个数</td>
+			<td>剩余个数</td>
+			<td>金额</td>
+			<td></td>
+			</tr>
+		</thread>
+		<tbody>
+			 {{#each redpackages}}
+			<tr>
+				<td>{{_id}}</td>
+				<td>{{title}}</td>
+				<td>{{createtime}}</td>
+				<td>{{starttime}}</td>
+				<td>{{endtime}}</td>
+				<td>{{amountcount}}</td>
+				<td>{{leftcount}}</td>
+				<td>{{money}}</td>
+				<td><a href="/admin/updateredpackage/{{_id}}">修改</a>
+				<a href="/admin/redpackage/{{_id}}">详情</a>
+				</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	-->
+
+
+
+	<div class='jcd_admin_title'>
+		红包管理
+		<a href="/admin/addredpackage" class='btn btn-primary jcd_admin_addbtn'><span class='glyphicon glyphicon-plus'></span> 新增红包</a>
+	</div>
+	<div class="panel panel-default">
+		<!-- Table -->
+		<table class='table jdc_admin_table'>
+			<tr>
+				<th>红包id</th>
+				<th>红包名</th>
+				<th>生成时间</th>
+				<th>开始时间</th>
+				<th>结束时间</th>
+				<th>总个数</th>
+				<th>剩余个数</th>
+				<th>金额</th>
+				<th class='jdc_admin_table_right'>操作</th>
+			</tr>
+			{{#each redpackages}}
+			<tr>
+				<td>{{_id}}</td>
+				<td>{{title}}</td>
+				<td>{{createtime}}</td>
+				<td>{{starttime}}</td>
+				<td>{{endtime}}</td>
+				<td>{{amountcount}}</td>
+				<td>{{leftcount}}</td>
+				<td>{{money}}</td>
+				<td class='jdc_admin_table_right'>
+					<a href="/admin/updateredpackage/{{_id}}" class="btn btn-default"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
+					<a href="/admin/redpackage/{{_id}}" class="btnsetoffline btn btn-danger"><span class='glyphicon glyphicon-exclamation-sign'></span> 详情</a>
+				</td>
+			</tr>
+			{{/each}}
+		</table>
+	</div>
+
+</template>

@@ -1,0 +1,38 @@
+<template name="orderquery">
+    
+              <ul class="round">
+        
+              <li class="nob">
+
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>订单号</th>
+                      <td>
+                          <input type="text" id="queryorderid" placeholder="请输入订单号">
+                        
+                          </td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>时间</th>
+                      <td><input type="date"  placeholder="请输入日期" id="queryorderdate"></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+    
+
+  
+    <a href="#" id="btnqueryorders">查询</a>
+     </ul>
+         {{#each queryorderresults}}
+            <li>订单号：{{orderno}},下单时间：{{createtime}},{{wanttime}},{{contactname}},{{deliveryaddress}},{{yunqimemo}}</li>
+        {{/each}}
+
+</template>

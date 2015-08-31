@@ -1,0 +1,72 @@
+<template name="useraddress">
+	<section class="content">
+  
+  <div class="cardexplain"> 
+   
+          
+          
+          
+          <ul class="round">
+    <form method="post" action="javascript:;">
+              
+       {{#each addresslist}}
+      <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>我的地址      {{#if isdefault}}(默认){{/if}}</th>
+                      <td><span class="px1" style="color:#488cf6">{{address}}</span></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>联系人</th>
+                      <td><span class="px1" style="color:#">{{contactname}}</span></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+              <li class="nob">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>联系电话</th>
+                      <td><span class="px1" style="color:#">{{contacttel}}</span></td>
+                    </tr>
+          </tbody>
+                </table>
+      </li>
+      
+    
+                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
+                  <tbody>
+            <tr>
+                      <th>  </th>
+                      <td><a class="btn btn-danger toggle-setdefault" href="#">设为当前为默认地址</a>
+                      </td>
+                    </tr>
+          </tbody>
+                </table>
+      
+  
+      
+       {{/each}}  
+             <input type="submit" value="添加新地址" class="submit" id="showcard">    
+      
+            </form>
+  </ul>
+  
+  
+          
+
+  </div>
+         
+
+   
+ 
+</section>
+	</template>

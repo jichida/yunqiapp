@@ -1,0 +1,11 @@
+<template name="mainlayout">
+ {{> flashMessages}}
+<content>
+    {{> yield "content"}}
+ </content>
+
+<navbar>
+    {{> yield "navbar"}}
+ </navbar>
+
+</template>
