@@ -6,11 +6,11 @@ Router.route('/', function () {
   this.render('home', {to: 'content'});
 });
 
-// Router.route('/demo', function () {
-//   console.log("demo html");
-//   this.render('demo');
+Router.route('/test', function () {
+  console.log("test html");
+  this.render('test');
 
-// });
+});
 
 
 Router.route('/profile', function () {
@@ -79,25 +79,6 @@ Router.route('/homedetail/selectproduct/:_tabindex/:_action', function () {
 
 
 
-// function getSessionOrderAmount(){
-//     var productlistsession = Session.get("productlistsession");
-//     if(productlistsession == null){
-//             return 0;
-//     }
-//     var amount = 0;
-//     for( j in productlistsession){
-//         amount += (productlistsession[j].productprice * productlistsession[j].qty);
-//     };
-//     return amount;
-// }
-// Router.route('/homedetail/wyxd/:_tabindex', function () {
-  
-//     console.log("我要下单："+this.params._tabindex);
-//     this.layout('indexdetailpagelayout',{data: {title: '我要下单',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
-//     this.render('wyxd', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,orderamount:getSessionOrderAmount()}});
-  
-// $});
-
 Router.route('/homedetail/neworder/:_tabindex', function () {
   
     
@@ -144,23 +125,40 @@ Router.route('/homedetail/myorders/:_tabindex/:_id', function () {
     Session.set("curtab",id);
 });
 
+//我的优惠券
+Router.route('/homedetail/mycoupons/:_tabindex/:_id', function () {
+  
+    this.layout('indexdetailpagelayout',{data: {title: '我的优惠券',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
+    var coupons = [];
+    var usr = Meteor.users.findOne(Meteor.userId());
+    if (usr) {
+        if(usr.couponslist){
+            coupons = usr.couponslist;
+        }	          
+    }
+    console.log("coupons:"+EJSON.stringify(coupons));
+    if(this.params._id == "0"){       
+        this.render('couponstabheader0', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
+ //       this.render('allorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    }
+    else if(this.params._id == "1"){
+        this.render('couponstabheader1', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
+ //       this.render('alltobedeliveryorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    }
+    else  if(this.params._id == "2"){
+        this.render('couponstabheader2', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
+//        this.render('allclosedorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    }
+    this.render('mycoupons', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,mycoupons:coupons}});
+      
+    var id = this.params._id; // "5"
+    Session.set("mycounponscurtab",id);
+});
+
 
 Router.route('/homedetail/orderinfo/:_tabindex/:_id', function () {
   //订单详情
-    this.layout('indexdetailpagelayout',{data: {title: '订单详情',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
-   
-    // if(this.params._id == "0"){       
-    //     this.render('tabheader0', {to: 'tabheader'});
-    //     this.render('allorders', {to: 'orderscontent'});
-    // }
-    // else if(this.params._id == "1"){
-    //     this.render('tabheader1', {to: 'tabheader'});
-    //     this.render('alltobedeliveryorders', {to: 'orderscontent'});
-    // }
-    // else  if(this.params._id == "2"){
-    //     this.render('tabheader2', {to: 'tabheader'});
-    //     this.render('allclosedorders', {to: 'orderscontent'});
-    // }
+   this.layout('indexdetailpagelayout',{data: {title: '订单详情',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
    curorder = Orders.findOne({_id:this.params._id});
    this.render('orderproduct', {data:{tabindex:this.params._tabindex,order:curorder}});
    this.render('orderinfo', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,order:curorder}});
@@ -267,10 +265,7 @@ Router.route('/homedetail/getredpackage/:_tabindex', function () {
 // });
 
 Router.route('/homedetail/myredpackages/:_tabindex', function () {
-
         this.layout('indexdetailpagelayout',{data: {title: '我的红包',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
         this.render('myredpackages', {to: 'detailpagecontent'});
-    
-
 });
 
