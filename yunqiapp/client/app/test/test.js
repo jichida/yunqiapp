@@ -59,15 +59,10 @@ Template.test.events({
             money:10,
             createtime:'2015-08-25 13:24:21',
             starttime:'2015-08-25 00:00:00',
-            endtime:'2015-08-30 13:24:21',
+            endtime:'2015-10-30 13:24:21',
         };
-        if(SystemRedPackages.find().count() === 0){
-            Meteor.call('createsystemredpackage',systemredpackage);
-            //SystemRedPackages.insert(systemredpackage);
-        }
-        else{
-            alert("系统中已经存在红包数据");
-        }
+       Meteor.call('createsystemredpackage',systemredpackage);
+         
 	},
     "click #btninsertcoupons": function () {
 		//插入系统优惠券数据

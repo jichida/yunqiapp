@@ -11,11 +11,11 @@ Meteor.startup(function(){
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
         
-       FlashMessages.configure({
-            autoHide: true,
-            hideDelay: 3000,
-            autoScroll: true
-        });
+       // FlashMessages.configure({
+        //     autoHide: true,
+        //     hideDelay: 3000,
+        //     autoScroll: true
+        // });
       //AutoForm.setDefaultTemplate("plain");
    //  AutoForm.setDefaultTemplateForType('afFieldInput', 'plain');
        // AutoForm.setDefaultTemplate('nothing');
