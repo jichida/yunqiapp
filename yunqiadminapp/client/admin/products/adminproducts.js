@@ -1,13 +1,14 @@
 Template.adminproducts.events({
-    "click .btnmodifyproduct": function () {
- 
+   
+    "click #btnsetinavaliable": function () {
+        Meteor.call("setproductavaliable",this._id,false);
     
     },    
-    "click .btnsetoffline": function () {
- 
-    
-    },    
-});
+    "click #btnsetavaliable": function () {
+ //setproductavaliable
+       Meteor.call("setproductavaliable",this._id,true);
+    },   
+ });
 Template.adminproducts.onRendered(function () {
    // $('#admin-offcanvas').offCanvas('open');
     console.log("Template.adminnavbar.onRendered");

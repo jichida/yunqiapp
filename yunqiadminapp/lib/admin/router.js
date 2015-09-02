@@ -25,11 +25,30 @@ Router.route('/admin/addproduct', function () {
  //发布促销
  Router.route('/admin/addsalespromotion', function () {
   console.log("admin addsalespromotion html");
-   this.layout('adminmainlayout');
+  this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('addsalespromotion', {to: 'admincontent'});
+  var products = [];
+  Products.find({isavaliable:true}).forEach(function (pd) {
+    products.push(pd);
+  });
+  this.render('addsalespromotion', {to: 'admincontent',data:{products:products}});
  // this.render('addsalespromotion');
  });
+ //修改促销
+  Router.route('/admin/updatesalespromotion/:id', function () {
+  console.log("admin updatesalespromotion html");
+  var products = [];
+    Products.find({isavaliable:true}).forEach(function (pd) {
+    products.push(pd);
+  });
+  var cursalespromotion = SalesPromotions.findOne({_id:this.params.id});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('updatesalespromotion', {to: 'admincontent',data:{products:products,cursalespromotion:cursalespromotion}});
+ 
+ });
+ 
+ 
  //新增优惠券
  Router.route('/admin/addcoupon', function () {
   console.log("admin addcoupon html");
@@ -62,7 +81,7 @@ Router.route('/admin/addproduct', function () {
  });
  
  //订单详情
-   Router.route('/admin/adminorderinfo/:_id', function () {
+Router.route('/admin/adminorderinfo/:_id', function () {
   console.log("admin adminorderinfo html");
   // this.render('addcoupon');
   var curorder =  Orders.findOne({_id:this.params.id});
@@ -76,9 +95,10 @@ Router.route('/admin/addproduct', function () {
  Router.route('/admin/updateproduct/:id', function () {
   console.log("admin updateproduct html");
   curproduct = Products.findOne({_id:this.params.id});
+  
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('adminproductupdate', {to: 'admincontent'});
+  this.render('adminproductupdate', {to: 'admincontent',data:{curproduct:curproduct}});
  // this.render('adminproductupdate',{data:{curproduct:curproduct}});
  });
 

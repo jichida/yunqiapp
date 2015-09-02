@@ -1,5 +1,5 @@
 Template.addredpackage.events({
-    "click .btnaddredpackage": function () {
+    "click #btnaddredpackage": function () {
            console.log("click btn add redpackage");
            event.preventDefault();
           var title= $('#title').val();
@@ -8,6 +8,7 @@ Template.addredpackage.events({
           var endtime= $('#endtime').val();//时间日期类型
           var amountcount = $('#amountcount').val();
           var offamount = $('#offamount').val();
+          var isavaliable = $("#isavaliable").is(':checked');
           var redpackageDoc = {
               title:title,
               money:money,
@@ -16,7 +17,7 @@ Template.addredpackage.events({
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
               amountcount:amountcount,
               offamount:offamount,
-              isavaliable:true
+              isavaliable:isavaliable
           }
           console.log("insert redpackage:" + EJSON.stringify(redpackageDoc));
           Meteor.call("createsystemredpackage",redpackageDoc);

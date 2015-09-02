@@ -22,10 +22,14 @@
 				<td>{{createtime}}</td>
 				<td>{{productprice}}</td>
 				<td>{{stockqty}}</td>
-				<td>{{status}}</td>
+				<td>{{#if isavaliable}}已上架{{else}}未上架{{/if}}</td>
 				<td class='jdc_admin_table_right'>
 					<a href="/admin/updateproduct/{{_id}}" class="btn btn-default"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
-					<a href="#" class="btnsetoffline btn btn-danger"><span class='glyphicon glyphicon-remove'></span> 下架</a>
+					{{#if isavaliable}}
+					<a href="#" id="btnsetinavaliable" class="btn btn-danger"><span class='glyphicon glyphicon-remove'></span>下架</a>
+					{{else}}
+					<a href="#" id="btnsetavaliable" class="btn btn-default"><span class='glyphicon glyphicon-remove'></span>上架</a>
+					{{/if}}
 				</td>
 			</tr>
 			{{/each}}

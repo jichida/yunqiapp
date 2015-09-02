@@ -1,44 +1,5 @@
 <template name="adminsalespromotions">
-	<!--
-	促销管理
-	<a href="/admin/addsalespromotion">新增促销</a>
-	<table>
-		<thread>
-			<tr>
-			<td>促销id</td>
-			<td>促销名</td>
-			<td>促销类型</td>
-			<td>详细类型</td>
-			<td>生成时间</td>
-			<td>开始时间</td>
-			<td>结束时间</td>
-			<td>针对产品</td>
-			<td>满金额</td>
-			<td></td>
-			</tr>
-		</thread>
-		<tbody>
-			 {{#each salespromotions}}
-			<tr>
-				<td>{{_id}}</td>
-				<td>{{title}}</td>
-				<td>{{typeorder}}</td>
-				<td>{{subtype}}</td>
-				<td>{{createtime}}</td>
-				<td>{{starttime}}</td>
-				<td>{{endtime}}</td>
-				<td>{{productname}}</td>
-				<td>{{conditionamout}}</td>
-				<td><a href="/admin/updatesalespromotion/{{_id}}">修改</a>
-				
-				</td>
-			</tr>
-			{{/each}}
-		</tbody>
-	</table>
-
--->
-
+	
 	<div class='jcd_admin_title'>
 		促销管理
 		<a href="/admin/addsalespromotion" class='btn btn-primary jcd_admin_addbtn'><span class='glyphicon glyphicon-plus'></span> 新增促销</a>
@@ -50,7 +11,6 @@
 				<th>促销id</th>
 				<th>促销名</th>
 				<th>促销类型</th>
-				<th>详细类型</th>
 				<th>生成时间</th>
 				<th>开始时间</th>
 				<th>结束时间</th>
@@ -62,12 +22,11 @@
 			<tr>
 				<td>{{_id}}</td>
 				<td>{{title}}</td>
-				<td>{{typeorder}}</td>
-				<td>{{subtype}}</td>
+				<td>{{typestring}}</td>
 				<td>{{createtime}}</td>
 				<td>{{starttime}}</td>
 				<td>{{endtime}}</td>
-				<td>{{productname}}</td>
+				<td>{{specialproductname}}</td>
 				<td>{{conditionamout}}</td>
 				<td class='jdc_admin_table_right'>
 					<a href="/admin/updatesalespromotion/{{_id}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>修改</a>
