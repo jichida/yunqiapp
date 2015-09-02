@@ -9,22 +9,34 @@ Router.route('/admin', function () {
 //发布产品
 Router.route('/admin/addproduct', function () {
   console.log("admin addproduct html");
-  this.render('adminproductadd');
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('adminproductadd', {to: 'admincontent'});
+ // this.render('adminproductadd');
  });
  //发布红包
  Router.route('/admin/addredpackage', function () {
   console.log("admin addredpackage html");
-  this.render('addredpackage');
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('addredpackage', {to: 'admincontent'});
+ //  this.render('addredpackage');
  });
  //发布促销
  Router.route('/admin/addsalespromotion', function () {
   console.log("admin addsalespromotion html");
-  this.render('addsalespromotion');
+   this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('addsalespromotion', {to: 'admincontent'});
+ // this.render('addsalespromotion');
  });
  //新增优惠券
  Router.route('/admin/addcoupon', function () {
   console.log("admin addcoupon html");
-  this.render('addcoupon');
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('addcoupon', {to: 'admincontent'});
+ //  this.render('addcoupon');
  });
  
  //红包详情
@@ -32,7 +44,10 @@ Router.route('/admin/addproduct', function () {
   console.log("admin redpackage html");
   // this.render('addcoupon');
   var curredpackage =  SystemRedPackages.findOne({_id:this.params.id});
-  this.render('redpackageinfo',{data:{curredpackage:curredpackage}});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('redpackageinfo', {to: 'admincontent'});
+ //  this.render('redpackageinfo',{data:{curredpackage:curredpackage}});
  });
 
  //用户详情
@@ -40,7 +55,10 @@ Router.route('/admin/addproduct', function () {
   console.log("admin adminuserinfo html");
   // this.render('addcoupon');
   var curuser =  Meteor.users.findOne({_id:this.params.id});
-  this.render('adminuserinfo',{data:{curuser:curuser}});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('adminuserinfo', {to: 'admincontent'});
+ // this.render('adminuserinfo',{data:{curuser:curuser}});
  });
  
  //订单详情
@@ -48,14 +66,20 @@ Router.route('/admin/addproduct', function () {
   console.log("admin adminorderinfo html");
   // this.render('addcoupon');
   var curorder =  Orders.findOne({_id:this.params.id});
-  this.render('adminorderinfo',{data:{curorder:curorder}});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('adminorderinfo', {to: 'admincontent'});
+ //  this.render('adminorderinfo',{data:{curorder:curorder}});
  });
  
  //修改产品
  Router.route('/admin/updateproduct/:id', function () {
   console.log("admin updateproduct html");
   curproduct = Products.findOne({_id:this.params.id});
-  this.render('adminproductupdate',{data:{curproduct:curproduct}});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('adminproductupdate', {to: 'admincontent'});
+ // this.render('adminproductupdate',{data:{curproduct:curproduct}});
  });
 
 //产品列表页面
