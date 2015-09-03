@@ -24,11 +24,11 @@
 				<td>{{stockqty}}</td>
 				<td>{{#if isavaliable}}已上架{{else}}未上架{{/if}}</td>
 				<td class='jdc_admin_table_right'>
-					<a href="/admin/updateproduct/{{_id}}" class="btn btn-default"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
+					<a href="/admin/updateproduct/{{_id}}" class="btn btn-primary"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
 					{{#if isavaliable}}
 					<a href="#" id="btnsetinavaliable" class="btn btn-danger"><span class='glyphicon glyphicon-remove'></span>下架</a>
 					{{else}}
-					<a href="#" id="btnsetavaliable" class="btn btn-default"><span class='glyphicon glyphicon-remove'></span>上架</a>
+					<a href="#" id="btnsetavaliable" class="btn btn-primary"><span class='glyphicon glyphicon-ok'></span>上架</a>
 					{{/if}}
 				</td>
 			</tr>

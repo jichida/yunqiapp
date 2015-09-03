@@ -22,6 +22,15 @@ Router.route('/admin/addproduct', function () {
   this.render('addredpackage', {to: 'admincontent'});
  //  this.render('addredpackage');
  });
+   //修改红包
+  Router.route('/admin/updateredpackage/:id', function () {
+  console.log("admin updateredpackage html");
+  var curredpackage = SystemRedPackages.findOne({_id:this.params.id});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('updateredpackage', {to: 'admincontent',data:{curredpackage:curredpackage}});
+ 
+ });
  //发布促销
  Router.route('/admin/addsalespromotion', function () {
   console.log("admin addsalespromotion html");
@@ -45,8 +54,7 @@ Router.route('/admin/addproduct', function () {
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('updatesalespromotion', {to: 'admincontent',data:{products:products,cursalespromotion:cursalespromotion}});
- 
- });
+  });
  
  
  //新增优惠券
@@ -58,6 +66,15 @@ Router.route('/admin/addproduct', function () {
  //  this.render('addcoupon');
  });
  
+  //修改优惠券
+  Router.route('/admin/updatecoupon/:id', function () {
+  console.log("admin updatecoupon html");
+  var curcoupon = Coupons.findOne({_id:this.params.id});
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('updatecoupon', {to: 'admincontent',data:{curcoupon:curcoupon}});
+ 
+ });
  //红包详情
   Router.route('/admin/redpackage/:_id', function () {
   console.log("admin redpackage html");

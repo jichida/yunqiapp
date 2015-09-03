@@ -24,6 +24,7 @@ Meteor.methods({
 		SystemRedPackages.insert(redpackageDoc);
 	},	
 	'updateRedpackage':function(id,redpackageDoc){
+		console.log("updateRedpackage:" + EJSON.stringify(redpackageDoc));
 		SystemRedPackages.update(id, {$set:redpackageDoc});
 	},		
 	'updateSalespromotion':function(id,salespromotionDoc){
@@ -35,5 +36,11 @@ Meteor.methods({
 	},
 	'setsalespromotionavaliable':function(id,isavaliable){
 		SalesPromotions.update(id, {$set:{isavaliable:isavaliable}});
+	},
+	'setredpackageavaliable':function(id,isavaliable){
+		SystemRedPackages.update(id, {$set:{isavaliable:isavaliable}});
+	},
+	'setcouponavaliable':function(id,isavaliable){
+		Coupons.update(id, {$set:{isavaliable:isavaliable}});
 	},
 });
