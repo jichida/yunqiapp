@@ -12,23 +12,28 @@ Meteor.methods({
 		SalesPromotions.insert(salespromotionDoc);
 	},	
 	'updateCoupon':function(id,couponDoc){
+		console.log("updateCoupon:" + EJSON.stringify(couponDoc));
 		Coupons.update(id, {$set:couponDoc});
 	},	
 	'updateProduct':function(id,productData){
+		console.log("updateProduct:" + EJSON.stringify(productData));
 		Products.update(id, {$set:productData});
 	},
 	'insertRedpackage': function(redpackageDoc){
 		//var currentUserId = Meteor.userId();
-			SystemRedPackages.insert(redpackageDoc);
+		SystemRedPackages.insert(redpackageDoc);
 	},	
 	'updateRedpackage':function(id,redpackageDoc){
 		SystemRedPackages.update(id, {$set:redpackageDoc});
 	},		
 	'updateSalespromotion':function(id,salespromotionDoc){
-			SalesPromotions.update(id, {$set:salespromotionDoc});		
+		console.log("updateSalespromotion:" + EJSON.stringify(salespromotionDoc));
+		SalesPromotions.update(id, {$set:salespromotionDoc});		
 	},
 	'setproductavaliable':function(id,isavaliable){
 		Products.update(id, {$set:{isavaliable:isavaliable}});
 	},
-
+	'setsalespromotionavaliable':function(id,isavaliable){
+		SalesPromotions.update(id, {$set:{isavaliable:isavaliable}});
+	},
 });

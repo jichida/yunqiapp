@@ -16,6 +16,7 @@
 				<th>结束时间</th>
 				<th>针对产品</th>
 				<th>满金额</th>
+				<th>状态</th>
 				<th class='jdc_admin_table_right'>备注</th>
 			</tr>
 			{{#each salespromotions}}
@@ -27,9 +28,15 @@
 				<td>{{starttime}}</td>
 				<td>{{endtime}}</td>
 				<td>{{specialproductname}}</td>
-				<td>{{conditionamout}}</td>
+				<td>{{conditionamount}}</td>
+				<td>{{#if isavaliable}}已启用{{else}}已禁用{{/if}}</td>
 				<td class='jdc_admin_table_right'>
-					<a href="/admin/updatesalespromotion/{{_id}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span>修改</a>
+					<a href="/admin/updatesalespromotion/{{_id}}" class="btn btn-default"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
+					{{#if isavaliable}}
+					<a href="#" id="btnsetinavaliable" class="btn btn-danger"><span class='glyphicon glyphicon-remove'></span>禁用</a>
+					{{else}}
+					<a href="#" id="btnsetavaliable" class="btn btn-default"><span class='glyphicon glyphicon-remove'></span>启用</a>
+					{{/if}}
 				</td>
 			</tr>
 			{{/each}}

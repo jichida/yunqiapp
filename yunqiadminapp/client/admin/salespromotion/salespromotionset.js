@@ -58,7 +58,8 @@ Template.addsalespromotion.events({
               conditionamount:conditionamount,
               isavaliable:isavaliable
           }
-          console.log("insert salespromotion:" + EJSON.stringify(salespromotionDoc));
+          console.log("insert salespromotion:" + EJSON.stringify(salespromotionDoc)
+            +",conditionamount:" + conditionamount);
           Meteor.call("insertSalespromotion",salespromotionDoc);
   
           Router.go("/admin/navsalespromotions");
@@ -128,8 +129,9 @@ Template.updatesalespromotion.events({
               conditionamount:conditionamount,
               isavaliable:isavaliable
           }
-          console.log("update salespromotion:" + EJSON.stringify(salespromotionDoc));
-          Meteor.call("updateSalespromotion",salespromotionDoc);
+          console.log("update salespromotion:" + EJSON.stringify(salespromotionDoc)
+            +",conditionamount:" + conditionamount);
+          Meteor.call("updateSalespromotion",this.cursalespromotion._id,salespromotionDoc);
   
           Router.go("/admin/navsalespromotions");
     
