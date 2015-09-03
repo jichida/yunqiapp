@@ -70,6 +70,7 @@ Meteor.methods({
                                       cursystempackage.leftcount--;//个数减1
                                       var detailpackage = {
                                           userid:userid,
+                                          username:Meteor.user().username(),
                                           createtime:myredpackages.createtime,
                                           money:myredpackages.money
                                       }

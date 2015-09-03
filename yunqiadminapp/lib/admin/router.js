@@ -6,6 +6,7 @@ Router.route('/admin', function () {
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('adminorders', {to: 'admincontent'});
 });
+
 //发布产品
 Router.route('/admin/addproduct', function () {
   console.log("admin addproduct html");
@@ -14,6 +15,8 @@ Router.route('/admin/addproduct', function () {
   this.render('adminproductadd', {to: 'admincontent'});
  // this.render('adminproductadd');
  });
+ 
+ 
  //发布红包
  Router.route('/admin/addredpackage', function () {
   console.log("admin addredpackage html");
@@ -24,12 +27,24 @@ Router.route('/admin/addproduct', function () {
  });
    //修改红包
   Router.route('/admin/updateredpackage/:id', function () {
-  console.log("admin updateredpackage html");
+  console.log("admin updateredpackage html,id:" + this.params.id);
   var curredpackage = SystemRedPackages.findOne({_id:this.params.id});
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('updateredpackage', {to: 'admincontent',data:{curredpackage:curredpackage}});
  
+ });
+ 
+ //红包详情
+  Router.route('/admin/redpackage/:id', function () {
+  console.log("admin redpackage html,id:" + this.params.id);
+  var curredpackage =  SystemRedPackages.findOne({_id:this.params.id});
+   console.log("红包详情:" + EJSON.stringify(curredpackage));
+  
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('redpackageinfo', {to: 'admincontent',data:{curredpackage:curredpackage}});
+ //  this.render('redpackageinfo',{data:{curredpackage:curredpackage}});
  });
  //发布促销
  Router.route('/admin/addsalespromotion', function () {
@@ -75,19 +90,11 @@ Router.route('/admin/addproduct', function () {
   this.render('updatecoupon', {to: 'admincontent',data:{curcoupon:curcoupon}});
  
  });
- //红包详情
-  Router.route('/admin/redpackage/:_id', function () {
-  console.log("admin redpackage html");
-  // this.render('addcoupon');
-  var curredpackage =  SystemRedPackages.findOne({_id:this.params.id});
-  this.layout('adminmainlayout');
-  this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('redpackageinfo', {to: 'admincontent'});
- //  this.render('redpackageinfo',{data:{curredpackage:curredpackage}});
- });
+ 
+ 
 
  //用户详情
-  Router.route('/admin/adminuserinfo/:_id', function () {
+  Router.route('/admin/adminuserinfo/:id', function () {
   console.log("admin adminuserinfo html");
   // this.render('addcoupon');
   var curuser =  Meteor.users.findOne({_id:this.params.id});
