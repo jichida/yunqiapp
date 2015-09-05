@@ -1,4 +1,8 @@
+Router.configure({
+  loadingTemplate: 'loading',
+  notFoundTemplate: 'notFound',
 
+});
 //管理端首页
 Router.route('/admin', function () {
   console.log("admin index html");
@@ -15,8 +19,8 @@ Router.route('/admin/addproduct', function () {
   this.render('adminproductadd', {to: 'admincontent'});
  // this.render('adminproductadd');
  });
- 
- 
+
+
  //发布红包
  Router.route('/admin/addredpackage', function () {
   console.log("admin addredpackage html");
@@ -32,15 +36,15 @@ Router.route('/admin/addproduct', function () {
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('updateredpackage', {to: 'admincontent',data:{curredpackage:curredpackage}});
- 
+
  });
- 
+
  //红包详情
   Router.route('/admin/redpackage/:id', function () {
   console.log("admin redpackage html,id:" + this.params.id);
   var curredpackage =  SystemRedPackages.findOne({_id:this.params.id});
    console.log("红包详情:" + EJSON.stringify(curredpackage));
-  
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('redpackageinfo', {to: 'admincontent',data:{curredpackage:curredpackage}});
@@ -70,8 +74,8 @@ Router.route('/admin/addproduct', function () {
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('updatesalespromotion', {to: 'admincontent',data:{products:products,cursalespromotion:cursalespromotion}});
   });
- 
- 
+
+
  //新增优惠券
  Router.route('/admin/addcoupon', function () {
   console.log("admin addcoupon html");
@@ -80,7 +84,7 @@ Router.route('/admin/addproduct', function () {
   this.render('addcoupon', {to: 'admincontent'});
  //  this.render('addcoupon');
  });
- 
+
   //修改优惠券
   Router.route('/admin/updatecoupon/:id', function () {
   console.log("admin updatecoupon html");
@@ -88,10 +92,10 @@ Router.route('/admin/addproduct', function () {
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('updatecoupon', {to: 'admincontent',data:{curcoupon:curcoupon}});
- 
+
  });
- 
- 
+
+
 
  //用户详情
   Router.route('/admin/adminuserinfo/:id', function () {
@@ -103,7 +107,7 @@ Router.route('/admin/addproduct', function () {
   this.render('adminuserinfo', {to: 'admincontent'});
  // this.render('adminuserinfo',{data:{curuser:curuser}});
  });
- 
+
  //订单详情
 Router.route('/admin/adminorderinfo/:_id', function () {
   console.log("admin adminorderinfo html");
@@ -114,12 +118,12 @@ Router.route('/admin/adminorderinfo/:_id', function () {
   this.render('adminorderinfo', {to: 'admincontent'});
  //  this.render('adminorderinfo',{data:{curorder:curorder}});
  });
- 
+
  //修改产品
  Router.route('/admin/updateproduct/:id', function () {
   console.log("admin updateproduct html");
   curproduct = Products.findOne({_id:this.params.id});
-  
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('adminproductupdate', {to: 'admincontent',data:{curproduct:curproduct}});
@@ -129,7 +133,7 @@ Router.route('/admin/adminorderinfo/:_id', function () {
 //产品列表页面
 Router.route('/admin/navproducts', function () {
     console.log("admin navproducts html");
-  
+
     var products = [];
     Products.find().forEach(function(pd){
         products.push(pd);
@@ -143,13 +147,13 @@ Router.route('/admin/navproducts', function () {
 //订单列表页面
 Router.route('/admin/navorders', function () {
   console.log("admin navorders html");
-  
+
     var orders = [];
     Orders.find().forEach(function(pd){
         orders.push(pd);
     });
     console.log("展示订单:" + EJSON.stringify(orders));
-  
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('adminorders', {to: 'admincontent',data:{orders:orders}});
@@ -173,7 +177,7 @@ Router.route('/admin/navsalespromotions', function () {
       salespromotions.push(sp);
   });
   console.log("展示促销活动:" + EJSON.stringify(salespromotions));
-  
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('adminsalespromotions', {to: 'admincontent',data:{salespromotions:salespromotions}});
@@ -185,14 +189,14 @@ Router.route('/admin/navcoupons', function () {
       coupons.push(cn);
   });
   console.log("展示优惠券:" + EJSON.stringify(coupons));
-  
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
   this.render('admincoupons', {to: 'admincontent',data:{coupons:coupons}});
 });
 //红包列表页面
 Router.route('/admin/navredpackages', function () {
-  
+
   var redpackages = [];
   SystemRedPackages.find().forEach(function(rk){
       redpackages.push(rk);
@@ -204,3 +208,15 @@ Router.route('/admin/navredpackages', function () {
   this.render('adminredpackages', {to: 'admincontent',data:{redpackages:redpackages}});
 });
 
+var requireLogin = function() {
+  if (! Meteor.user()) {
+    this.render('login');
+  } else {
+    this.next();
+  }
+}
+
+Router.onBeforeAction(requireLogin, {
+  only: ['admin']
+  // or except: ['routeOne', 'routeTwo']
+});

@@ -12,4 +12,3 @@ Template.adminmainlayout.onRendered(function () {
 	})
 
 });
-

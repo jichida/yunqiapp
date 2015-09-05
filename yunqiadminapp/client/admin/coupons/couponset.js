@@ -20,12 +20,12 @@ Template.addcoupon.events({
           }
           console.log("insert coupon:" + EJSON.stringify(couponDoc));
           Meteor.call("insertCoupon",couponDoc);
-            
+
           Router.go("/admin/navcoupons");
-    
-    },    
+
+    },
   });
-  
+
   Template.updatecoupon.events({
     "click .btnupdatecoupon": function () {
           console.log("click btn add coupon");
@@ -48,8 +48,8 @@ Template.addcoupon.events({
           }
           console.log("insert coupon:" + EJSON.stringify(couponDoc));
           Meteor.call("updateCoupon",this.curcoupon._id,couponDoc);
-            
+
           Router.go("/admin/navcoupons");
-    
-    },    
+
+    },
   });
