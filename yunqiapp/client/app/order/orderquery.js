@@ -1,10 +1,10 @@
 Template.orderquery.events({
     "click #btnqueryorders": function () {
       console.log("click btn btnqueryorders");
-      event.preventDefault();     
-      var queryorderid =  $('#queryorderid').val();    
-      var queryorderdate =  $('#queryorderdate').val(); 
-      var queryorderresultlistsession = [];  
+      event.preventDefault();
+      var queryorderid =  $('#queryorderid').val();
+      var queryorderdate =  $('#queryorderdate').val();
+      var queryorderresultlistsession = [];
       var orderlistdb = Orders.find() ;
       orderlistdb.forEach(function(orderdb){
            queryorderresultlistsession.push(orderdb);
@@ -24,7 +24,7 @@ Template.orderquery.events({
          return queryorderresultlistsession;
       },
  });
- 
+
  Template.orderquery.onCreated(function () {
   console.log("Template.orderquery.onCreated");
   Session.set('queryorderresultlistsession',[]);

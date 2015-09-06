@@ -1,7 +1,7 @@
 ﻿<template name="orderquery">
-    
+
             <div class="cardexplain">  <ul class="round">
-        
+
               <li class="nob">
 
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
@@ -10,7 +10,7 @@
                       <th>订单号</th>
                       <td>
                           <input type="text" id="queryorderid" placeholder="请输入订单号">
-                        
+
                           </td>
                     </tr>
           </tbody>
@@ -26,10 +26,10 @@
           </tbody>
                 </table>
       </li>
-    
 
-  
-    
+
+
+
      </ul><a href="#" id="btnqueryorders" class="submit">查询</a></div>
          {{#each queryorderresults}}
             <li class="asqwe">订单号：<strong class="asqwe_qw">{{orderno}}</strong><br/>下单时间：{{createtime}},{{wanttime}},{{contactname}},{{deliveryaddress}},{{yunqimemo}}</li>

@@ -1,14 +1,14 @@
 ﻿<template name="useraddress">
 	<section class="content">
-  
-  <div class="cardexplain"> 
-   
-          
-          
-          
+
+  <div class="cardexplain">
+
+
+
+
           <ul class="round">
     <form method="post" action="javascript:;">
-              
+
        {{#each addresslist}}
       <li class="nob">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
@@ -40,34 +40,33 @@
           </tbody>
                 </table>
       </li>
-      
-    
+
+
                 <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
-                     
-                     
+
+
                       <td style="height:50px; padding-left:15px;"><a class="btn-danger toggle-setdefault" href="#" style="color:#36F; font-size:18px; padding:5px;">设为当前为默认地址</a>
                       </td>
                     </tr>
           </tbody>
                 </table>
-      
-  
-      
-       {{/each}}  
-              
-      
+
+
+
+       {{/each}}
+
+
             </form>
   </ul>
-  
-  
-         <div class="footReturn"> <input type="submit" value="添加新地址" class="submit" style="width:100%" id="showcard">  </div> 
 
+
+        <a href="#" id="btnaddnewaddress"  class="submit">添加新地址</a>
   </div>
-         
 
-   
- 
+
+
+
 </section>
 	</template>

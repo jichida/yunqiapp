@@ -1,5 +1,5 @@
 Template.adduseraddress.events({
-  'submit form': function(event) {
+  'click #btnaddaddress': function(event) {
      event.preventDefault();
 	   var address= $('#address').val();
 	   var contactname= $('#contactname').val();
@@ -12,9 +12,9 @@ Template.adduseraddress.events({
        isdefault:false
      }
      Meteor.call('insertAddress', addressDoc);
-     
+
      console.log("address doc:"+EJSON.stringify(addressDoc));
      Router.go("/profile/useraddress");
   },
-	
+
 });
