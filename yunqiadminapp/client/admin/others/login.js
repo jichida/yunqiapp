@@ -1,5 +1,4 @@
-
-Template.signIn.events({
+Template.login.events({
     "click #btnsign": function () {
       console.log("click btn sign");
       event.preventDefault();
@@ -12,7 +11,13 @@ Template.signIn.events({
           // FlashMessages.sendError(error.reason);
         }
         else{
-          Router.go('/profile');//登录成功
+          if(Roles.userIsInRole(Meteor.user(), ['admin'])){
+            Router.go('/admin');//登录成功
+          }
+          else{
+            alert("非admin用户");
+          }
+
         }
       });
     },

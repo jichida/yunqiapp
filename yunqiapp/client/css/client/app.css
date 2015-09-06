@@ -1,12 +1,12 @@
 @charset "utf-8";
 body,button,dd,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,select,table,td,textarea,th,ul {margin: 0;padding: 0}
-body {min-width: 320px;font-size: 14px;font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;color: #000;-webkit-text-size-adjust: none}
+body {min-width: 320px;font-size: 14px;font-family: microsoft yahei,Verdana,Arial,Helvetica,sans-serif;color: #000;-webkit-text-size-adjust: none}
 fieldset,img {border: 0}
 ol,ul {list-style: none}
 address,em {font-style: normal}
 a {color: #000;text-decoration: none}
 table {border-collapse: collapse;}
-input{font-family: 'microsoft yahei',Verdana,Arial,Helvetica,sans-serif;;}
+input{font-family: microsoft yahei,Verdana,Arial,Helvetica,sans-serif;;}
 .clearfix:after {clear: both;content: " ";display: block;font-size: 0;height: 0;visibility: hidden}
 .clearfix {zoom: 1}
 .dis_tab{display: table;width: 100%;}
@@ -818,7 +818,7 @@ body{background-color: #f8f8f8;}
 }
 .f-section {
     background-color: #fff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8em;
 }
 .f-section .order-nav {
     border-bottom: 0.05rem solid #f6f6f6;
@@ -960,9 +960,9 @@ body{background-color: #f8f8f8;}
     left: 1.1em;
     position: absolute;
     top: 0.8em;
-    z-index: 3;
+    z-index: 3; width:5em
 }
-
+.user-info .user-avatar img{ height:3em; width:3em}
 
 
 
@@ -1179,14 +1179,14 @@ body{background-color: #f8f8f8;}
 	background-color:rgba(242,242,242,0.90);
 	background-position: 0 0;
 	background-repeat: repeat-x;
-	height: 50px;
+	height: 55px;
 	width:100%;
 }
 .footer-bar li{
 	position:relative;
 	float: left;
 	width:33.3%;
-	height: 50px;
+	height: 55px;
 }
 .footer-bar li a .btn-text{
 	padding-top: 30px;
@@ -1272,7 +1272,8 @@ input:-webkit-autofill {
 	background-position: 0 -482px;
 }
 
-
+.asqwe{background:#fff url(/images/order_bg1.png) repeat-x top; line-height:25px; font-size:1em; border:1px solid #ddd; border-top:none; background-size: 1.2em 0.3em; padding:8px 10px; margin:10px;}
+.asqwe_qw{color:#1b6ded; font-weight:normal}
 /*固定头尾*/
  .footer-fixed {
     left: 0;

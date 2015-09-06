@@ -1,10 +1,11 @@
 html, body, div, span, applet, object, iframe, h1, button, input, textarea, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 	border: 0 none;
-	font-family: "Microsoft Yahei", Verdana, Arial, Helvetica, sans-serif;
+	font-family: Microsoft Yahei, Verdana, Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 }
-body{ font-size:16px;}.initial_nav li i {
+body{ font-size:16px;}
+.initial_nav li i {
     font-size: 1.2em;
     height:1rem; padding-top:0.3rem;
     line-height:1rem;
@@ -1016,8 +1017,9 @@ a:hover {
 	height: 32px;
 	line-height: 32px;
 	padding: 5px 5px;
-	padding-left: 10px; border-radius:5px;
-	width:100%;
+
+ border-radius:5px;
+	/*width:100%;*/
 	
 }
 #SignInForm .log_box li.username {
@@ -1038,7 +1040,7 @@ a:hover {
 .log_box input{ font-size:1.2em
 	
 }.log_box input[type="tel"]{width: 100%;
-}.log_box input[type="text"]{width: 100%;
+}.log_box input[type="text"]{width:85%;
 }
 .log_box input[type="password"] {
 /*	-webkit-appearance: textfield;
@@ -1051,7 +1053,7 @@ a:hover {
 	margin-left: -10px;
 	padding: 5px 5px;
 	padding-left: 30px;*/
-	width: 100%;
+	width: 85%;
 }
 .log_box input[type="text"]:focus, .log_box input[type="password"]:focus {
 	outline: none;
@@ -1108,16 +1110,16 @@ a:hover {
 .log_box .login_free div label {
 	vertical-align: middle;
 }
-.log_box .btn_submit button {
+.log_box .btn_submit button,.log_box .btn_submit   {
 	background: none repeat 0 0 #1b6ded;
 	border: 0 none;
 	border-radius: 5px;
 	color: #FFFFFF;
 	font-size:1.3em;
 	height: 42px;
-	line-height: 42px;
+	line-height: 42px; text-align:center;
 	width: 100%;
-}
+}.log_box .btn_submit a{ color:#fff; text-align:center}
 .log_box .reg_findpwd {
 	padding-top: 20px;
 	text-align: right; font-size:1.3em;

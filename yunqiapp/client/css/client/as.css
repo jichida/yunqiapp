@@ -3,10 +3,6 @@
 
 
 
-
-
-
-
 .popover > .arrow {
     border-width: 11px;
 }
@@ -1459,7 +1455,7 @@ html, body {
     display: block;
 }
 .num_sel_lage {
-    background: none repeat scroll 0 0 #f1f1f1;
+    background: none repeat scroll 0 0 #fff;
     border: 1px solid #a7a7a7;
     border-radius: 5px;
     min-width: 86px;
@@ -1467,6 +1463,30 @@ html, body {
     right: 0;
     top: -3px;
 }
+.num_sel_lage span.deC, .num_sel_lage span.inC {
+    float: left;
+    height: 28px;
+    width: 28px;
+}
+.num_sel_lage span.deC, .num_sel_lage span.inC {
+    border-right: medium none;
+    font-size: 1.5em;
+    line-height: 28px;
+    text-align: center;
+}
+.num_sel_lage span.deC:active, .num_sel_lage span.inC:active {
+    background: none repeat scroll 0 0 #e1e1e1;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+}
+.num_sel_lage span.deC:active {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.num_sel_lage span.inC:active {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.num_sel_lage span.inc{ font-size:1em}
 .num_sel_lage input {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
@@ -1480,7 +1500,7 @@ html, body {
     border-right: 1px solid #a7a7a7;
     border-style: none solid;
     border-width: medium 1px;
-    float: left;
+/*    float: left;*/
     font-size: 1.32em;
     height: 28px;
     line-height: 2em;
@@ -1488,29 +1508,7 @@ html, body {
     text-align: center;
     width: 28px;
 }
-.num_sel_lage .deC, .num_sel_lage .inC {
-    float: left;
-    height: 28px;
-    width: 28px;
-}
-.num_sel_lage .deC, .num_sel_lage .inC {
-    border-right: medium none;
-    font-size: 1.5em;
-    line-height: 28px;
-    text-align: center;
-}
-.num_sel_lage .deC:active, .num_sel_lage .inC:active {
-    background: none repeat scroll 0 0 #e1e1e1;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
-}
-.num_sel_lage .deC:active {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-}
-.num_sel_lage .inC:active {
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
+
 .m-pro-tab {
     min-height: 200px;
 }
@@ -2025,7 +2023,7 @@ html, body {
     font-size: 1.5em;
 }
 .m-cart-numswrap {
-    bottom: 10px;
+    top: 20px;
     height: 46px;
 
     position: absolute;
@@ -2034,11 +2032,11 @@ html, body {
     z-index: 21;
 }
 .m-cart-numswrap .num_sel_lage {
-    bottom: 8px;
-    color: #a7a7a7;
+   
+    color: #111;
     left: 8px;
     right: 8px;
-    top: 8px;
+    top: 8px; font-size:20px
 }
 .m-cart-numswrap .num_sel_lage input {
     color: #323232;

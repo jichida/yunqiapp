@@ -217,6 +217,6 @@ var requireLogin = function() {
 }
 
 Router.onBeforeAction(requireLogin, {
-  only: ['admin']
+  except: []
   // or except: ['routeOne', 'routeTwo']
 });

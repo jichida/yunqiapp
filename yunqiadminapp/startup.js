@@ -10,57 +10,74 @@ Meteor.startup(function(){
         Meteor.subscribe("salespromotions");
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
-        
+
+        if(Meteor.users.find().count() == 0){
+            var user ={
+              username:'admin',
+              password:'admin',
+              roles:['admin'],
+            };
+            Accounts.createUser(user,function (error) {
+              if (error) {
+                //alert(error.reason);
+                console.log(error);
+              }
+              else{
+                console.log("create admin user ok");
+                //  Router.go('/profile');
+              }
+            });
+          }
       //AutoForm.setDefaultTemplate("plain");
    //  AutoForm.setDefaultTemplateForType('afFieldInput', 'plain');
        // AutoForm.setDefaultTemplate('nothing');
     //AutoForm.setDefaultTemplate('bootstrap3');
      //AutoForm.setDefaultTemplate("semanticUI");
     }
-    
+
     if(Meteor.isServer){
-    //    var productlistdb = 
-    //       [ 
+    //    var productlistdb =
+    //       [
     //       {
     //           _id:'abcd',
     //           productname:'液化气（小）',
     //           productprice:30,
     //           stockqty:100,
-          
+
     //        },
     //       {
     //           productname:'液化气（中）',
     //           productprice:100  ,
     //           stockqty:100,
-            
+
     //       },
     //       {
     //           productname:'液化气（大）',
     //           productprice:440,
     //           stockqty:100,
-         
+
     //       },
     //       {
     //           productname:'二甲醚（小）',
     //           productprice:130.00 ,
     //           stockqty:100,
-            
+
     //      },
     //       {
     //           productname:'二甲醚（中）',
     //           productprice:130.00 ,
     //            stockqty:100,
-       
+
     //                                   }];
-     
-    // // Products.remove();      
+
+    // // Products.remove();
     // if(Products.find().count() === 0){
     //     for (var i in productlistdb) {
     //         Products.insert(productlistdb[i]);
     //     }
 
     // }
-    
+
     // //系统红包
     // var systemredpackage = {
     //     title:'这是个测试红包',
@@ -75,7 +92,7 @@ Meteor.startup(function(){
     // if(SystemRedPackages.find().count() === 0){
     //     SystemRedPackages.insert(systemredpackage);
     // }
-    
+
     // var coupons = [
     //   {
     //       _id:'1234',
@@ -94,7 +111,7 @@ Meteor.startup(function(){
     //       starttime:'2015-08-25 00:00:00',
     //       endtime:'2015-08-30 13:24:21',
     //       conditionamout:20,
-    //       offamout:3,        
+    //       offamout:3,
     //   },
     //   {
     //       type:'muchless',
@@ -103,7 +120,7 @@ Meteor.startup(function(){
     //       starttime:'2015-08-25 00:00:00',
     //       endtime:'2015-08-30 13:24:21',
     //       conditionamout:30,
-    //       offamout:5,        
+    //       offamout:5,
     //   }
     // ];
     // if(Coupons.find().count() === 0){
@@ -111,7 +128,7 @@ Meteor.startup(function(){
     //         Coupons.insert(coupons[i]);
     //     }
     // }
-    
+
     // var salespromotions = [
     //     {
     //         type:'typeorder',
@@ -180,7 +197,7 @@ Meteor.startup(function(){
     //         SalesPromotions.insert(salespromotions[i]);
     //     }
     // }
-    
+
     //===================================================================
     //发布订单数据
     Meteor.publish("orders",function(){

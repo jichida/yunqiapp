@@ -5,10 +5,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 	border: 0;
 	-webkit-appearance: none;
 }
-
 html {
 	font-size: 62.5%
 }
+img{ width:100%}
 body {
 	font-family: "Microsoft Yahei", "微软雅黑", Tahoma, Arial, Helvetica, STHeiti;
 	color: #666;
@@ -32,7 +32,6 @@ ul li {
 a {
 	text-decoration: none;
 }
-
 .hidden {
 	display: none;
 }
@@ -49,7 +48,6 @@ a {
 	background-color: #ce3a38;
 	font-size: 1.4rem;
 	max-width: 640px;
-
 }
 .wrap_result {
 	background-color: #748dd0;
@@ -66,8 +64,11 @@ a {
 	text-align: center;
 	bottom: 20px;
 	left: 50%;
-	margin-left: -140px; font-weight:bold;
-	font-size: 2.4rem; top:48%; line-height:3.4rem;
+	margin-left: -140px;
+	font-weight: bold;
+	font-size:1.3em;
+	top: 48%;
+	line-height: 1.5em;
 }
 .loading i {
 	position: absolute;
@@ -121,7 +122,7 @@ top:16px;
 	position: relative;
 }
 input {
-	/*border-radius: 3px;
+/*border-radius: 3px;
 	-webkit-box-sizing: border-box;
 	width: 100%;
 	height: 40px;
@@ -154,19 +155,22 @@ color:#566197;
 .error .help_line {
 	display: block;
 }
-.btn_join, .btn_apply {
+.btn_join, .btn_apply, .btn_getredpackage {
 	display: block;
 	margin: 12px 30px;
 	width: auto;
 	background: #ffeb0f;
 	border-bottom: 5px solid #c87602;
-	border-radius:5px;
+	border-radius: 5px;
 	text-align: center;
 	color: #d80b08;
 	height: 55px;
 	line-height: 55px;
-	font-size: 2.3rem; font-weight:bold; box-shadow:1px 1px 0px #C39
+	font-size: 1.6em;
+	font-weight: bold;
+	box-shadow: 1px 1px 0px #C39
 }
+.btn_getredpackage:hover{ color:#c7000a}
 .input-wrap {
 	overflow: hidden;
 }
@@ -243,7 +247,8 @@ color:#566197;
 	clear: left;
 	color: #fff;
 	text-align: center;
-	padding-bottom:10px; padding-top:20px;
+	padding-bottom: 10px;
+	padding-top: 20px;
 	font-size: 12px;
 }
 .tabBox {
@@ -570,98 +575,145 @@ color:#566197;
 	background-color: #000;
 	opacity: .3;
 }
-
 /*头部*/
 /** 顶部导航 **/
-.header{z-index:5;position:relative;top:0;left:0;margin:0 auto;overflow:hidden;width:100%;line-height:40px;background-color:#1b6ded;color:#fff; height:40px}
-
-.header .menu{z-index:2;position:relative;float:right;width:5em;height:2.2em;background-size:1.5em;line-height:2.7em; font-size:0.8em; transition:background .3s; color:#fff; 
+.header {
+	z-index: 5;
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 100%;
+	line-height: 48px;
+	background-color: #1b6ded;
+	color: #fff;
+	height: 48px
 }
-.header .menu.active{/*background-image:url(/images/menu-active.png);background-size: 0.8rem*/}
-.header .menu.active:after{content: " ";display: block;position: absolute;bottom: 0;width: 100%;height: .35em;/*background:url(/images/connect.png) no-repeat center 0;*/}
-.header .h_label{position:absolute;width:100%;height:2.2em;text-align:center;font-weight:normal;color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box;}
-
-
-
+.header .menu {
+	z-index: 2;
+	position: relative;
+	float: right;
+	width: 5em;
+	height: 2.2em;
+	background-size: 1.5em;
+	line-height: 2.7em;
+	font-size: 0.8em;
+	transition: background .3s;
+	color: #fff;
+}
+.header .menu.active {/*background-image:url(/images/menu-active.png);background-size: 0.8rem*/
+}
+.header .menu.active:after {
+	content: " ";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: .35em;/*background:url(/images/connect.png) no-repeat center 0;*/
+}
+.header .h_label {
+	position: absolute;
+	width: 100%;
+	height: 2.2em;
+	text-align: center;
+	font-weight: normal;
+	color: #fff;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
 .content_m {
-    margin: 0 auto;
-    max-width: 640px;
-    padding: 2% 2% 0; 
+	margin: 0 auto;
+	max-width: 640px;
+	padding: 2% 2% 0;
 }
 .content_screen {
-    padding-top: 60px;
+	padding-top: 60px;
 }
 .content_s {
-    margin: 0 auto;
-    max-width: 640px;
-}.login_m {
-    border: 1px solid #ccc; border-radius:3px; border-bottom:none
-
-
+	margin: 0 auto;
+	max-width: 640px;
+}
+.login_m {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	border-bottom: none
 }
 .l_box, .pasa {
-    border-bottom: 1px solid #ccc;
-    height: 40px;
-    padding: 15px 0;
+	border-bottom: 1px solid #ccc;
+	height: 40px;
+	padding: 15px 0;
 }
 .l_box .l_box_l, .l_box .l_box_r {
-    float: left;
+	float: left;
 }
 .l_box input {
-    border: medium none;
-    color: #333;
-    font-size: 28px;
-    height: 40px;
-    width: 90%;
+	border: medium none;
+	color: #333;
+	font-size: 28px;
+	height: 40px;
+	width: 90%;
 }
 .l_box_l {
-    height: 40px;
-    text-align: center;
-    width: 30%;
+	height: 40px;
+	text-align: center;
+	width: 30%;
 }
 .l_box_r {
-    height: 40px;
-    width: 70%;
+	height: 40px;
+	width: 70%;
 }
 .coubox_m {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0 10px;background:#fff; border-radius:3px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0 10px;
+	background: #fff;
+	border-radius: 3px;
 }
 .coubox_m th {
-    color: #8e0c3a;
-    height: 60px;
-    padding-bottom: 20px; padding-top:10px; font-size:1.8em; background:url(/images/b.jpg) no-repeat center; background-size:2.3em 2.6em;
+	color: #8e0c3a;
+	height: 60px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+	font-size: 1.8em;
+	background: url(/images/b.jpg) no-repeat center;
+	background-size: 2.3em 2.6em;
 }
 .cou_mon {
-    font-size: 64px;
+	font-size: 64px;
 }
 .copy_coupons {
-    background: none repeat scroll 0 0 #8e0c3a;
-    color: #fff;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    margin: 0 auto;
-    text-align: center;
-    width: 80%;
+	background: none repeat scroll 0 0 #8e0c3a;
+	color: #fff;
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	width: 80%;
 }
 .copy_coupons:hover {
-    color: #fff;
+	color: #fff;
 }
 .l_box {
-    display: none;
+	display: none;
 }
 .coubox_m .l_box_l {
-    float: left;
+	float: left;
 }
 .coubox_m .l_box_r {
-    float: left;
+	float: left;
 }
 .float_l {
-    display: inline;
-    float: left;
+	display: inline;
+	float: left;
 }
 .float_r {
-    display: inline;
-    float: right;
-}.coubox_m p{ font-size:1em; line-height:1.5em; font-weight:normal; color:#666}
+	display: inline;
+	float: right;
+}
+.coubox_m p {
+	font-size: 1em;
+	line-height: 1.5em;
+	font-weight: normal;
+	color: #666
+}

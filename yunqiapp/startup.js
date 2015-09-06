@@ -1,4 +1,4 @@
-
+﻿
 
 Meteor.startup(function(){
     console.log("start up");
@@ -10,7 +10,7 @@ Meteor.startup(function(){
         Meteor.subscribe("salespromotions");
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
-        
+
        // FlashMessages.configure({
         //     autoHide: true,
         //     hideDelay: 3000,
@@ -22,9 +22,9 @@ Meteor.startup(function(){
     //AutoForm.setDefaultTemplate('bootstrap3');
      //AutoForm.setDefaultTemplate("semanticUI");
     }
-    
+
     if(Meteor.isServer){
-     
+
     //===================================================================
     //发布订单数据
     Meteor.publish("orders",function(){

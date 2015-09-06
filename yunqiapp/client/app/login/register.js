@@ -2,12 +2,12 @@ Template.register.events({
     "click #btnregister": function () {
       console.log("click btn btnregister");
       event.preventDefault();
-  
+
   // Collect data and validate it.
-    var username =  $('#username').val();  
-    var phone =  $('#phone').val();  
-    var password =  $('#password').val();  
-    var passwordConfirmation =  $('#passwordConfirmation').val();  
+    var username =  $('#username').val();
+    var phone =  $('#phone').val();
+    var password =  $('#password').val();
+    var passwordConfirmation =  $('#passwordConfirmation').val();
     leftamout = 0;
     // You can go about getting your data from the form any way you choose, but
     // in the end you want something formatted like so:
@@ -28,10 +28,10 @@ Template.register.events({
         console.log(error);
       }
       else{
-          Router.go('/profile'); 
+          Router.go('/profile');
       }
     });
 
-    return false;   
-    },    
+    return false;
+    },
   });
