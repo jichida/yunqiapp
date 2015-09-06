@@ -3,15 +3,15 @@ Template.selectproduct.helpers({
               //订单总金额
           var productlistsession = Session.get("productlistsession");
            var amount = 0;
-          
-          if(productlistsession != null){           
+
+          if(productlistsession != null){
               for( j in productlistsession){
                  amount += (productlistsession[j].productprice * productlistsession[j].qty);
              };
           }
-          console.log("sessionorderamount:" + amount);  
+          console.log("sessionorderamount:" + amount);
           return amount;
-      
+
       },
       'products': function () {
           //列出所有产品,来自db
@@ -35,23 +35,51 @@ Template.selectproduct.helpers({
                  productlistret.push(productdb);
              });
           }
-          
+
         //保持session
         productlistsession = [];
         for( j in  productlistret){
             if (productlistret[j].qty > 0){
                 productlistsession.push(productlistret[j]);
-                
+
             }
         };
         Session.set("productlistsession",productlistsession);
-  
+
         return productlistret;
      }
 });
 
+Template.oneproduct.helpers({
+  'isproductinsalespromotions':function(){
+      var isspecialproductdiscount = false;
+      var isbuyonefreeone = false;
+      var title1 = '';
+      var title2 = '';
+      var query = {specialproductid:this._id,isavaliable:true};
+      SalesPromotions.find(query).forEach(function(sp){
+        if(sp.typevalue == '201'){
+          isspecialproductdiscount = true;
+          title1 = sp.title;
+        }
+        else if(sp.typevalue == '202'){
+          isbuyonefreeone = true;
+          title2 = sp.title;
+        }
+      });
+      var result ={
+        isspecialproductdiscount:isspecialproductdiscount,
+        isbuyonefreeone:isbuyonefreeone,
+        title1:title1,
+        title2:title2
+      };
+      console.log("result:"+EJSON.stringify(result)+",id:"+this._id);
+      return result;
+  },
 
-Template.selectproduct.events({  
+});
+
+Template.selectproduct.events({
     'click .btnnext': function(event, template) {
        event.preventDefault();
        var tabindex = this.tabindex;
@@ -60,10 +88,10 @@ Template.selectproduct.events({
        ///homedetail/neworder/
        Router.go("/homedetail/neworder/" + tabindex);
     }
-    
+
     });
-    
-   Template.oneproduct.events({  
+
+   Template.oneproduct.events({
         'click .dec':function(event,template){
             //产品减1
             var productlistret = [];
@@ -71,7 +99,7 @@ Template.selectproduct.events({
             if(productlistsession == null){
                 productlistsession = [];
             }
-             
+
             var pid = template.find('.pid').value;
             var qty = parseInt(template.find('.qty').value,10);
             if(qty > 0){
@@ -79,7 +107,7 @@ Template.selectproduct.events({
                 for( j in  productlistsession){
                     if (productlistsession[j]._id != pid){
                         productlistret.push(productlistsession[j]);
-                        
+
                     }
                 };
                 var curproduct = Products.findOne({_id:pid});
@@ -97,7 +125,7 @@ Template.selectproduct.events({
             if(productlistsession == null){
                 productlistsession = [];
             }
-             
+
             var pid = template.find('.pid').value;
             var qty = parseInt(template.find('.qty').value,10);
             if(qty >= 0){
@@ -118,7 +146,3 @@ Template.selectproduct.events({
             }
         },
     });
-    
-   
-  
-    

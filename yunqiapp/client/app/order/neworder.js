@@ -1,8 +1,8 @@
 ﻿Template.neworder.events({
     "click #btnsubmit": function () {
       console.log("click btn btnsubmit");
-      event.preventDefault();     
-  
+      event.preventDefault();
+
       var productlistsession = Session.get("productlistsession");
       if(productlistsession == null){
           productlistsession = [];
@@ -30,5 +30,5 @@
 			};
    		Meteor.call('insertOrder', orderData);
       Router.go('/profile');
-    },    
+    },
   });
