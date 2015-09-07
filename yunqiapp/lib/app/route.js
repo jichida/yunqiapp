@@ -14,6 +14,8 @@ Router.route('/test', function () {
 
 Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
+Router.route('/updateAddress');
+
 
 Router.route('/profile', function () {
   this.layout('mainlayout');
@@ -66,6 +68,8 @@ Router.route('/tabhome/:_tabindex', function () {
     }
 
 });
+
+Router.route('/orderselectaddress');
 
 // Router.route('/homedetail/producttype/:_tabindex', function () {
 //     console.log("/homedetail/producttype");
