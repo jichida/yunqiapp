@@ -55,12 +55,18 @@
   </ul><ul class="round">
 
 
-            <li class="nob">
+            <li id="btnuseorderselectredpackage">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
                       <th>红包</th>
-                      <td ><a href="#"><span  class="swrrtt sweqq">10使用红包</span></a></td>
+                      <td ><span  class="swrrtt sweqq">
+                        {{#if selectordersalepromotion.useredpackage}}
+                          {{selectordersalepromotion.redpackagetitle}}
+                        {{else}}
+                          无
+                        {{/if}}
+                      </span></td>
                     </tr>
           </tbody>
                 </table>
@@ -70,12 +76,18 @@
   <ul class="round">
 
 
-            <li class="nob">
+            <li id="btnuseorderselectcoupon">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
                       <th>优惠券</th>
-                      <td><a href="#"><span  class="swrrtt sweqq">10元优惠券</span></a></td>
+                      <td><span  class="swrrtt sweqq">
+                        {{#if selectordersalepromotion.usecoupon}}
+                          {{selectordersalepromotion.coupontitle}}
+                        {{else}}
+                        无
+                        {{/if}}</span>
+                      </td>
                     </tr>
           </tbody>
                 </table>

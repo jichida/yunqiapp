@@ -1,9 +1,9 @@
 <template name="orderinfo">
 	<section class="content">
-  
-  <div class="cardexplain"> 
-              
-          
+
+  <div class="cardexplain">
+
+
           <ul class="round">
     <form method="post" action="javascript:;">
               <li class="title mb bwe ">基本信息</li>
@@ -48,8 +48,8 @@
           </tbody>
                 </table>
       </li>
-      
-      
+
+
               <li class="nob">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
@@ -69,32 +69,32 @@
           </tbody>
                 </table>
       </li>
-              
-      
+
+
             </form>
   </ul>
   {{> orderproduct}}
-  
-              
-              
-        
-          
-        </div>
-    
 
-   
- 
+
+
+
+
+        </div>
+
+
+
+
 </section>
 
 
 </template>
 <template name = "orderproduct">
   <ul class="round">
- 
+
               <li class="title serqw">气瓶信息</li>
               <li class="nob">
 
-        
+
         {{#each order.orderproductlists}}
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang bwe"  style=" padding:0 -10px">
                   <tbody>
@@ -115,6 +115,6 @@
                 <p></p>
       {{/each}}
        <a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}</strong></em></a> </li>
-       
+
        </ul>
 </template>

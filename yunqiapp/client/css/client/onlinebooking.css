@@ -32,7 +32,8 @@ body {
 	border:0;
 	min-width:320px;
 }
-
+.xiug{color:#fff; background:#F93; font-size:18px; border-radius:5px; margin-right:20px;  padding:6px 48px;}
+.sc{color:#fff; background:#888; font-size:18px; border-radius:5px; padding:6px 48px;}
 .qiandaobanner  span {
     background-color: rgba(0, 0, 0, 0.5);
     bottom: 0;
@@ -1401,4 +1402,42 @@ vertical-align: middle;
 }
 #onlinebooking-list .cardexplain .round li .text table tbody tr td table tbody .c th .ckdiv a:hover {
 	color: #fff;
+}
+
+
+/*优惠券*/
+.ui-input-dis {
+    background: none repeat scroll 0 0 #fff;
+    border-top: 1px solid #c8c8c8;
+    height: 60px; max-width:640px; min-width:320px; margin: 0 auto
+}
+.ui-input-dis .ui-span-input {
+    display: inline-block;
+    float: left;
+    margin: 0.714em;
+    position: relative; width:65%
+}
+.ui-input-dis .ui-text-input, .ui-input-dis .ui-use {
+    float: left;
+}
+.ui-input-dis .ui-text-input {
+    background: none repeat scroll 0 0 #f0f0f0;
+    border: 1px solid #969696;
+    border-radius: 2.058em;
+    color: #969696;
+    font-size: 1em;
+    height: 40px; padding-left:2%;
+    
+    width:98%;
+}
+.ui-input-dis .ui-use {
+    color: #fff; background:#1b6ded;
+    display: inline-block;
+    font-size: 1.214em;
+    height: 25px;
+   
+    width: 25%; margin-right:2%; float:right; text-align:center; border-radius:10px; height:40px; line-height:40px; margin-top:10px;
+}
+.ui-input-search.ui-input-has-clear .ui-btn.ui-input-clear, .ui-input-text.ui-input-has-clear .ui-btn.ui-input-clear {
+    top: 66%;
 }

@@ -31,4 +31,23 @@
    		Meteor.call('insertOrder', orderData);
       Router.go('/profile');
     },
+    'click #btnuseorderselectredpackage':function(){
+      Router.go('/orderselectredpackage');
+    },
+    'click #btnuseorderselectcoupon':function(){
+      Router.go('/orderselectcoupon');
+    },
+  });
+
+  ﻿Template.neworder.helpers({
+    'selectordersalepromotion':function(){
+      var selectordersalepromotion = Session.get("selectordersalepromotion");
+      if(selectordersalepromotion == null){
+        selectordersalepromotion = {
+          useredpackage:false,
+          usecoupon:false
+        };
+      }
+      return selectordersalepromotion;
+    }
   });

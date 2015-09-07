@@ -4,8 +4,8 @@
             return Session.get("curtab");
       },
  });
- 
- 
+
+
  Template.allorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
@@ -14,7 +14,7 @@
          return orders;
       },
  });
- 
+
   Template.alltobedeliveryorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
@@ -23,7 +23,7 @@
          return orders;
       },
  });
- 
+
   Template.allclosedorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
