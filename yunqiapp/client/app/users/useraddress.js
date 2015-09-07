@@ -14,7 +14,7 @@ Template.useraddress.events({
       event.preventDefault();
       var address = this;
       console.log("click delete address:" + EJSON.stringify(address));
-      Meteor.call('deleteAddress',this._id);
+      Meteor.call('deleteAddress',address.addressid);
   },
 
 });

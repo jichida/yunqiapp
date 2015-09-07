@@ -11,5 +11,5 @@ Meteor.methods({
 		console.log("insertSalespromotion:" + EJSON.stringify(salespromotionDoc));
 		SalesPromotions.insert(salespromotionDoc);
 	}
-	
+
 });

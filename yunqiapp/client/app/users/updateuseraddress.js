@@ -10,7 +10,7 @@ Template.updateuseraddress.events({
        contacttel:contacttel,
        isdefault:false
      }
-     Meteor.call('updateAddress',this._id, addressDoc);
+     Meteor.call('updateAddress',this.addressid, addressDoc);
 
      console.log("address doc:"+EJSON.stringify(addressDoc));
      Router.go("/profile/useraddress");
