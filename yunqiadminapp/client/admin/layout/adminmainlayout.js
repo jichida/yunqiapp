@@ -1,6 +1,12 @@
-Template.adminmainlayout.onRendered(function () {
+﻿Template.adminmainlayout.onRendered(function () {
+	resizeBox();
+	$(window).resize(function() {
+		resizeBox();
+	});
+	function resizeBox(){
 	var jcd_viewHeight = document.documentElement.clientHeight;//获取屏幕宽度
 	var jcd_viewWidth = document.documentElement.clientWidth;//获取屏幕高度
+		var jcd_bodyHeight = document.body.scrollHeight;//获取页面高度
 	var jcd_adminHeadHeight = $('.jcd_admin_logo_con').height();
 	var jcd_admin_sidebar = $('.jcd_admin_sidebar');
 	var jcd_admin_content = $('.jcd_admin_content');
@@ -8,7 +14,10 @@ Template.adminmainlayout.onRendered(function () {
 		'height' : (jcd_viewHeight-jcd_adminHeadHeight)+'px'
 	})
 	jcd_admin_content.css({
-		'padding-left' : jcd_admin_sidebar.width()+'px'
+			'padding-left' : jcd_admin_sidebar.width()+'px',
+			'height' : (jcd_viewHeight-jcd_adminHeadHeight)+'px',
+			'overflow' : 'auto'
 	})
+	}
 
 });

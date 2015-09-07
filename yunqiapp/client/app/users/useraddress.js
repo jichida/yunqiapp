@@ -11,7 +11,8 @@ Template.useraddress.events({
      Router.go("/updateuseraddress",{address:address});
   },
   'click #btnaddressdelete':function(event){
-      event.preventDefault();
+    //  event.preventDefault();
+    console.trace();
       var address = this;
       console.log("click delete address:" + EJSON.stringify(address));
       Meteor.call('deleteAddress',address.addressid);
@@ -25,10 +26,8 @@ Template.useraddress.helpers({
           var currentUserId = Meteor.userId();
           var usr = Meteor.users.findOne(currentUserId);
           if (usr) {
-            console.log("user is here ...");
-            if(usr.addresslist){
-              console.log("address is here ...");
-              addresslist = usr.addresslist;
+              if(usr.addresslist){
+                addresslist = usr.addresslist;
             }
           }
           //console.log("addresslist:" + addresslist.count());
@@ -54,6 +53,7 @@ Template.useraddress.events({
                addresslist[i].isdefault = false;
             }
         }
+        console.log("set deleteAddress...");
         Meteor.call('setAddress', addresslist);
 
     },

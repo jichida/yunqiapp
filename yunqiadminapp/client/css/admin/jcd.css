@@ -31,6 +31,16 @@ ul,li,p{padding: 0}
 .jcd_admin_text .jdc_admin_table td.jdc_admin_table_right,
 .jcd_admin_text .jdc_admin_table th.jdc_admin_table_right{padding-right: 10px}
 
+/*红包详情界面*/
+.jcd_redpackage_con{overflow: hidden;margin-bottom: 10px;}
+.jcd_redpackage_con .redImg{float: left;margin-right: 20px}
+.jcd_redpackage_con .online .redImgCon {background: url('images/admin/redpackage.png');height:157px;width: 233px;text-align: center;line-height:200px;color: #FFF;font-size: 30px;}
+.jcd_redpackage_con .online .redImgCon b{font-size: 36px;color: #FFF;}
+.jcd_redpackage_con .banOnline .redImgCon {background: url('images/admin/redpackage2.png');height:157px;width: 233px;text-align: center;line-height:200px;color: #FFF;font-size: 30px;}
+.jcd_redpackage_con .banOnline .redImgCon b{font-size: 36px;color: #FFF;}
+.jcd_redpackage_con .redPackageLnk a{margin-right: 20px}
+.jcd_redpackage_con .redTxt p span{color: #999}
+
 footer{padding-left:180px;text-align:center;color: #CCC}
 
 

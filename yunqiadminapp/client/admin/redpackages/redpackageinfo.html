@@ -2,38 +2,38 @@
 	<div class='jcd_admin_title'>
 		红包详情
 	</div>
-	<div class='row'>
-
-			<div class="form-group">
-			    <label for="title">红包名</label>
-			   {{curredpackage.title}}
-			</div>
-			<div class="form-group">
-			    <label for="money">红包金额</label>
-			    {{curredpackage.money}}
-			</div>
-			<div class="form-group">
-			    <label for="amountcount">红包个数</label>
-			   {{curredpackage.amountcount}}
-			   		</div>
-			<div class="form-group">
-			    <label for="starttime">开始时间</label>
-			    {{curredpackage.starttime}}
-			</div>
-			<div class="form-group">
-			    <label for="endtime">结束时间</label>
-			    {{curredpackage.endtime}}
-			</div>
-			<div class="form-group">
-				<label for="isonline">
-					{{#if curredpackage.isavaliable}}
-			    	启用
-					{{else}}
-			    	禁用
-					{{/if}}
-			    </label>
-			</div>
-
+	<div class='jcd_redpackage_con'>
+		<!--启用状态-->
+		{{#if curredpackage.isavaliable}}
+		<div class='redImg online'>
+			<p class='redImgCon'><b>{{curredpackage.money}}</b>元红包</p>
+			<p>红包Id：{{curredpackage._id}}</p>
+			<p class='redPackageLnk'><a href='#' class='btn btn-danger' id='btnsetinavaliable'><span class='glyphicon glyphicon-remove'></span> 禁用</a><a href="/admin/updateredpackage/{{curredpackage._id}}"><span class='glyphicon glyphicon-pencil'></span> 修改</a><a href='#'><span class='glyphicon glyphicon-trash'></span>删除</a></p>
+		</div>
+		<div class='redTxt'>
+			<p><span>名称：</span>{{curredpackage.title}}</p>
+			<p><span>金额：</span>{{curredpackage.money}}元</p>
+			<p><span>个数：</span>{{curredpackage.amountcount}}个</p>
+			<p><span>开始时间：</span>{{curredpackage.starttime}}</p>
+			<p><span>结束时间：</span>{{curredpackage.endtime}}</p>
+			<p><span>状态：</span>已启用</p>
+		</div>
+		<!--禁用状态-->
+		{{else}}
+		<div class='redImg banOnline'>
+			<p class='redImgCon'><b>{{curredpackage.money}}</b>元红包</p>
+			<p>红包Id：{{curredpackage._id}}</p>
+			<p class='redPackageLnk'><a href='#' id='btnsetavaliable' class='btn btn-primary'>启用</a><a href="/admin/updateredpackage/{{curredpackage._id}}"><span class='glyphicon glyphicon-pencil'></span> 修改</a><a href='#'><span class='glyphicon glyphicon-trash'></span>删除</a></p>
+		</div>
+		<div class='redTxt'>
+			<p><span>名称：</span>{{curredpackage.title}}</p>
+			<p><span>金额：</span>{{curredpackage.money}}元</p>
+			<p><span>个数：</span>{{curredpackage.amountcount}}个</p>
+			<p><span>开始时间：</span>{{curredpackage.starttime}}</p>
+			<p><span>结束时间：</span>{{curredpackage.endtime}}</p>
+			<p><span>状态：</span>被禁用</p>
+		</div>
+		{{/if}}
 	</div>
 	<div class="panel panel-default">
 		<!-- Table -->
@@ -45,10 +45,13 @@
 			</tr>
 			<tr>
 			{{#each curredpackage.details}}
-			<td><a href="/admin/adminuserinfo/{{userid}}">{{username}}</a></td>
+				<td><a href="/admin/adminuserinfo/{{userid}}">{{username}}</a></td>
 				<td>{{createtime}}</td>
 				<td>{{money}}</td>
 			{{/each}}
+				<td><a href="/admin/adminuserinfo/{{userid}}">asdadasd</a></td>
+				<td>asdfasdfasdf</td>
+				<td>wefwef</td>
 			</tr>
 		</table>
 	</div>
