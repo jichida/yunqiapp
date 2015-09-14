@@ -22,10 +22,10 @@ Template.addredpackage.events({
           console.log("insert redpackage:" + EJSON.stringify(redpackageDoc));
           Meteor.call("createsystemredpackage",redpackageDoc);
           Router.go("/admin/navredpackages");
-    
-    },    
+
+    },
   });
-  
+
   Template.updateredpackage.events({
     "click #btnupdateredpackage": function () {
            console.log("click btn add redpackage");
@@ -50,6 +50,6 @@ Template.addredpackage.events({
           console.log("update redpackage:" + EJSON.stringify(redpackageDoc));
           Meteor.call("updateRedpackage",this.curredpackage._id,redpackageDoc);
           Router.go("/admin/navredpackages");
-    
-    },    
+
+    },
   });

@@ -1,15 +1,15 @@
 Template.adminredpackages.events({
-   
+
     "click #btnsetinavaliable": function () {
         Meteor.call("setredpackageavaliable",this._id,false);
-    
-    },    
+
+    },
     "click #btnsetavaliable": function () {
  //setproductavaliable
        Meteor.call("setredpackageavaliable",this._id,true);
-    },   
+    },
  });
- 
+
 Template.adminredpackages.onRendered(function () {
 	// $('#admin-offcanvas').offCanvas('open');
     console.log("Template.adminnavbar.onRendered");

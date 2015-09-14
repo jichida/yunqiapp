@@ -1,0 +1,2 @@
+PORT=50000 MONGO_URL=mongodb://localhost:28045/yunqidb ROOT_URL=http://yunqi.czjcd.com /usr/sbin/node /root/app/yunqiapp/bundle/main.js &
+PORT=50001 MONGO_URL=mongodb://localhost:28045/yunqidb ROOT_URL=http://yunqiadmin.czjcd.com /usr/sbin/node /root/app/yunqiadminapp/bundle/main.js &

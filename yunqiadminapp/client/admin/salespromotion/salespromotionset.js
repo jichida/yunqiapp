@@ -38,6 +38,7 @@ Template.addsalespromotion.events({
           var starttime= $('#starttime').val();//时间日期类型
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
+          var specialdiscount =$('specialdiscount').val();
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();
@@ -54,6 +55,7 @@ Template.addsalespromotion.events({
               specialproductname:specialproductname,
               starttime:starttime,
               endtime:endtime,
+              specialdiscount:specialdiscount,
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
               conditionamount:conditionamount,
               isavaliable:isavaliable
@@ -109,6 +111,7 @@ Template.updatesalespromotion.events({
           var starttime= $('#starttime').val();//时间日期类型
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
+          var specialdiscount =$('specialdiscount').val();
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();
@@ -127,6 +130,7 @@ Template.updatesalespromotion.events({
               endtime:endtime,
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
               conditionamount:conditionamount,
+              specialdiscount:specialdiscount,
               isavaliable:isavaliable
           }
           console.log("update salespromotion:" + EJSON.stringify(salespromotionDoc)

@@ -15,14 +15,14 @@ Template.adminproductadd.events({
        }
        console.log("insert product:" + EJSON.stringify(productDoc));
        Meteor.call("insertProduct",productDoc);
-      // Products.insert(productDoc);        
+      // Products.insert(productDoc);
        Router.go("/admin/navproducts");
      }
-    
+
 });
 
 
-Template.adminproductupdate.events({  
+Template.adminproductupdate.events({
     'click .btnupdateproduct': function(event, template) {
        console.log("click btn update product");
        event.preventDefault();
@@ -30,7 +30,7 @@ Template.adminproductupdate.events({
 	   var productprice= $('#productprice').val();
 	   var stockqty= $('#stockqty').val();
        var isavaliable = $("#isavaliable").is(':checked');
-       
+
        var productDoc = {
             productname:productname,
             productprice:productprice,
@@ -39,8 +39,8 @@ Template.adminproductupdate.events({
             isavaliable:isavaliable
        }
        Meteor.call("updateProduct",this.curproduct._id,productDoc);
-      // Products.insert(productDoc);        
+      // Products.insert(productDoc);
        Router.go("/admin/navproducts");
      }
-    
+
 });

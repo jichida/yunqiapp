@@ -3,6 +3,14 @@ Router.configure({
   notFoundTemplate: 'notFound',
 
 });
+
+Router.route('/', function () {
+  console.log("admin index html");
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('adminorders', {to: 'admincontent'});
+});
+
 //管理端首页
 Router.route('/admin', function () {
   console.log("admin index html");

@@ -11,23 +11,7 @@ Meteor.startup(function(){
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
 
-        if(Meteor.users.find().count() == 0){
-            var user ={
-              username:'admin',
-              password:'admin',
-              roles:['admin'],
-            };
-            Accounts.createUser(user,function (error) {
-              if (error) {
-                //alert(error.reason);
-                console.log(error);
-              }
-              else{
-                console.log("create admin user ok");
-                //  Router.go('/profile');
-              }
-            });
-          }
+
       //AutoForm.setDefaultTemplate("plain");
    //  AutoForm.setDefaultTemplateForType('afFieldInput', 'plain');
        // AutoForm.setDefaultTemplate('nothing');
@@ -227,5 +211,15 @@ Meteor.startup(function(){
      Meteor.publish("salespromotions", function () {
         return SalesPromotions.find();
      });
+
+
+     if(Meteor.users.find().count() == 0){
+         var user ={
+           username:'admin',
+           password:'admin',
+         };
+         var userid = Accounts.createUser(user);
+         Roles.addUsersToRoles(userid, ['admin']);
+     }
  }
 });

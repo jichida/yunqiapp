@@ -1,16 +1,16 @@
 Template.adminorders.events({
     "click .btnmodifyproduct": function () {
- 
-    
-    },    
+
+
+    },
     "click .btnsetoffline": function () {
- 
-    
+
+
     },
 
     "click .jdc_admin_changeEMS": function(){
 		console.log(this)
-    },    
+    },
 });
 Template.adminorders.onRendered(function () {
    // $('#admin-offcanvas').offCanvas('open');

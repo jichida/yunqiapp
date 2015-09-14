@@ -1,4 +1,4 @@
-Template.register.events({
+Template.forgetpassword.events({
   "click #btngetauthcode": function () {
     console.log("click btn btngetauthcode");
     event.preventDefault();
@@ -9,20 +9,19 @@ Template.register.events({
       }
       else{
         console.log("getauthcode:" +EJSON.stringify(result));
-        Session.set('registerauthcode',result);
+        Session.set('resetpasswordauthcode',result);
       }
 
     });
 
   },
-  "click #btnregister": function () {
+  "click #btnsetnewpassword": function () {
       console.log("click btn sign");
       event.preventDefault();
-      var truename =  $('#truename').val();
       var phonenumber =  $('#phonenumber').val();
       var authcode = $('#authcode').val();
       var password = $('#password').val();
-      var sessionauthcode = Session.get('registerauthcode');
+      var sessionauthcode = Session.get('resetpasswordauthcode');
       if(sessionauthcode){
         if(sessionauthcode.phonenumber == phonenumber && sessionauthcode.authcode == authcode ){
 
@@ -41,9 +40,8 @@ Template.register.events({
       {
         username:phonenumber,
         password:password,
-        truename:truename,
       };
-      Meteor.call('createuser',newuser,['user'], function(error,result){
+      Meteor.call('resetpassword',newuser,function(error,result){
         if(!error){
           Router.go('/profile');//登录成功
         }

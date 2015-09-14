@@ -1,5 +1,37 @@
+
+function isproductinsalespromotions(productdoc){
+  var isspecialproductdiscount = false;
+  var isbuyonefreeone = false;
+  var title1 = '';
+  var title2 = '';
+  var cursp = {};
+
+  var query = {specialproductid:productdoc._id,isavaliable:true};
+  SalesPromotions.find(query).forEach(function(sp){
+    if(sp.typevalue == '201'){
+      cursp = sp;
+      isspecialproductdiscount = true;
+      title1 = sp.title;
+    }
+    else if(sp.typevalue == '202'){
+      cursp = sp;
+      isbuyonefreeone = true;
+      title2 = sp.title;
+    }
+  });
+  var result ={
+    isspecialproductdiscount:isspecialproductdiscount,
+    isbuyonefreeone:isbuyonefreeone,
+    title1:title1,
+    title2:title2,
+    cursp:cursp
+  };
+  console.log("result:"+EJSON.stringify(result)+",productdoc:"+productdoc._id);
+  return result;
+}
+
 Template.selectproduct.helpers({
-          'sessionorderamount':function(){
+      'sessionorderamount':function(){
               //订单总金额
           var productlistsession = Session.get("productlistsession");
            var amount = 0;
@@ -50,32 +82,26 @@ Template.selectproduct.helpers({
      }
 });
 
+Template.oneproduct.onCreated(function () {
+   Session.set('currentprice',{});
+});
 Template.oneproduct.helpers({
   'isproductinsalespromotions':function(){
-      var isspecialproductdiscount = false;
-      var isbuyonefreeone = false;
-      var title1 = '';
-      var title2 = '';
-      var query = {specialproductid:this._id,isavaliable:true};
-      SalesPromotions.find(query).forEach(function(sp){
-        if(sp.typevalue == '201'){
-          isspecialproductdiscount = true;
-          title1 = sp.title;
-        }
-        else if(sp.typevalue == '202'){
-          isbuyonefreeone = true;
-          title2 = sp.title;
-        }
-      });
-      var result ={
-        isspecialproductdiscount:isspecialproductdiscount,
-        isbuyonefreeone:isbuyonefreeone,
-        title1:title1,
-        title2:title2
-      };
-      console.log("result:"+EJSON.stringify(result)+",id:"+this._id);
-      return result;
+      return isproductinsalespromotions(this);
   },
+  'currentprice':function(template){
+      var obj1 = Session.get('currentprice');
+      var obj = {};
+      if(obj1){
+        var cur = "{\"" + this._id + "\":\"aaa\"}";
+        console.log("cur json:" + cur);
+            var obj2 = EJSON.parse(cur);
+        console.log("obj2:" + EJSON.stringify(obj2));
+            obj = _.extend(obj1, obj2);
+      }
+      console.log("current currentprice:" + EJSON.stringify(obj));
+      return obj[this._id];
+  }
 
 });
 
@@ -100,7 +126,7 @@ Template.selectproduct.events({
                 productlistsession = [];
             }
 
-            var pid = template.find('.pid').value;
+            var pid = this._id;
             var qty = parseInt(template.find('.qty').value,10);
             if(qty > 0){
                 qty = qty - 1;
@@ -117,6 +143,36 @@ Template.selectproduct.events({
                 }
                 Session.set("productlistsession", productlistret);
             }
+
+            var currentpricetitle = '';
+            var doc = isproductinsalespromotions(this);
+            if(doc.isspecialproductdiscount){
+              currentpricetitle = "￥" + qty*this.productprice*doc.cursp*specialdiscount;
+            }
+            else if(doc.isbuyonefreeone){
+              if(qty % 2 == 0){
+                currentpricetitle = "￥" + qty*this.productprice*doc.cursp*0.5;
+              }
+              else{
+                currentpricetitle = "￥" + qty*this.productprice*doc.cursp-(qty-1)*this.productprice*doc.cursp*0.5;
+              }
+            }
+            else{
+              currentpricetitle = "￥" + qty*this.productprice;
+            }
+            var obj1 = Session.get('currentprice');
+            if(obj1){
+              var cur = "{\"" + pid + "\":\"" + currentpricetitle + "\"}";
+              console.log("cur json:" + cur);
+              var obj2 = EJSON.parse(cur)
+              var obj = _.extend(obj1, obj2);
+              console.log("click dec,current:" + EJSON.stringify(obj));
+              Session.set('currentprice',obj);
+            }
+            else{
+              console.log("why here...???");
+            }
+
         },
         'click .inc':function(event,template){
             //产品+1
@@ -126,7 +182,7 @@ Template.selectproduct.events({
                 productlistsession = [];
             }
 
-            var pid = template.find('.pid').value;
+            var pid = this._id;
             var qty = parseInt(template.find('.qty').value,10);
             if(qty >= 0){
                 qty = qty + 1;
@@ -143,6 +199,35 @@ Template.selectproduct.events({
                     productlistret.push(curproduct);
                 }
                 Session.set("productlistsession", productlistret);
+            }
+
+            var currentpricetitle = '';
+            var doc = isproductinsalespromotions(this);
+            if(doc.isspecialproductdiscount){
+              currentpricetitle = "￥" + qty*this.productprice*doc.cursp*specialdiscount;
+            }
+            else if(doc.isbuyonefreeone){
+              if(qty % 2 == 0){
+                currentpricetitle = "￥" + qty*this.productprice*doc.cursp*0.5;
+              }
+              else{
+                currentpricetitle = "￥" + qty*this.productprice*doc.cursp-(qty-1)*this.productprice*doc.cursp*0.5;
+              }
+            }
+            else{
+              currentpricetitle = "￥" + qty*this.productprice;
+            }
+            var obj1 = Session.get('currentprice');
+            if(obj1){
+              var cur = "{\"" + pid + "\":\"" + currentpricetitle + "\"}";
+              console.log("cur json:" + cur);
+              var obj2 = EJSON.parse(cur)
+              var obj = _.extend(obj1, obj2);
+              console.log("click inc,current:" + EJSON.stringify(obj));
+              Session.set('currentprice',obj);
+            }
+            else{
+              console.log("why here...???");
             }
         },
     });

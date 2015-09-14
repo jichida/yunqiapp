@@ -1,8 +1,15 @@
 #!/bin/bash
 BASEPATH=$(cd `dirname $0`;pwd)
+
 sudo apt-get update
 sudo apt-get install dos2unix  -y
 sudo apt-get install nginx -y
+
+apt-get install curl
+curl https://install.meteor.com/ | sh
+
+apt-get install mongodb -y
+
 chmod +x node/installnode.sh
 dos2unix node/installnode.sh
 cd node
@@ -19,6 +26,15 @@ meteor build .
 tar -zxf yunqiapp.tar.gz
 cd bundle/programs/server 
 npm install
+cd ../../../
+
+cd ../yunqiadminapp
+meteor build .
+tar -zxf yunqiadminapp.tar.gz
+cd bundle/programs/server 
+npm install
+cd ../../../
+
 cd ${BASEPATH}
 
 chmod +x ./startyunqi.sh
