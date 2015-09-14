@@ -9,7 +9,9 @@ Meteor.methods({
             }
         }
         addresslist.push(addressDoc);
-        Meteor.call('setAddress', addresslist);
+
+        console.log("insertAddress:" + EJSON.stringify(addresslist));
+      Meteor.call('setAddress', addresslist);
 	},
   'setAddress':function(addresslist){
         console.log("setAddress:" + EJSON.stringify(addresslist));
@@ -29,11 +31,12 @@ Meteor.methods({
           addresslist[i] = addressDoc;
         }
       }
+      console.log("update methods:" + id +",resultlist:"+EJSON.stringify(addresslist));
       Meteor.call('setAddress', addresslist);
     },
 
     'deleteAddress':function(id){
-
+      console.trace();
       var addresslist = [];
       var currentUserId = Meteor.userId();
       var usr = Meteor.users.findOne(currentUserId);
@@ -47,6 +50,7 @@ Meteor.methods({
           }
       }
       console.log("deleteAddress methods:" + id +",resultlist:"+EJSON.stringify(addresslist));
-      Meteor.call('setAddress', addresslist);
+        Meteor.users.update(Meteor.userId(), {$set: {addresslist: addresslist}});
+    //  Meteor.call('setAddress', addresslist);
     },
 });
