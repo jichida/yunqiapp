@@ -41,10 +41,10 @@ Template.addsalespromotion.events({
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();
-    
+
           var specialproductid =  $("#specialproduct").val();
           var specialproductname =  $("#specialproduct").find("option:selected").text();
-        
+
           var isavaliable = $("#isavaliable").is(':checked');
           var salespromotionDoc = {
               title:title,
@@ -61,14 +61,14 @@ Template.addsalespromotion.events({
           console.log("insert salespromotion:" + EJSON.stringify(salespromotionDoc)
             +",conditionamount:" + conditionamount);
           Meteor.call("insertSalespromotion",salespromotionDoc);
-  
+
           Router.go("/admin/navsalespromotions");
-    
-    },    
+
+    },
   });
-  
-  
-  
+
+
+
 Template.updatesalespromotion.helpers({
   'promotionlist':[
     {
@@ -112,10 +112,10 @@ Template.updatesalespromotion.events({
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();
-    
+
           var specialproductid =  $("#specialproduct").val();
           var specialproductname =  $("#specialproduct").find("option:selected").text();
-        
+
           var isavaliable = $("#isavaliable").is(':checked');
           var salespromotionDoc = {
               title:title,
@@ -132,8 +132,8 @@ Template.updatesalespromotion.events({
           console.log("update salespromotion:" + EJSON.stringify(salespromotionDoc)
             +",conditionamount:" + conditionamount);
           Meteor.call("updateSalespromotion",this.cursalespromotion._id,salespromotionDoc);
-  
+
           Router.go("/admin/navsalespromotions");
-    
-    },    
+
+    },
   });

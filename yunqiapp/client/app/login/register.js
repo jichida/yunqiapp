@@ -1,37 +1,53 @@
 Template.register.events({
-    "click #btnregister": function () {
-      console.log("click btn btnregister");
-      event.preventDefault();
-
-  // Collect data and validate it.
-    var username =  $('#username').val();
-    var phone =  $('#phone').val();
-    var password =  $('#password').val();
-    var passwordConfirmation =  $('#passwordConfirmation').val();
-    leftamout = 0;
-    // You can go about getting your data from the form any way you choose, but
-    // in the end you want something formatted like so:
-    user = {
-      username: username,
-      password: password,
-      phone: phone,
-      profile: {
-        leftamout: leftamout,
-        // etc...
-      }
-    }
-
-    // Post the user to the server for creation
-    Accounts.createUser(user, function (error) {
-      if (error) {
+  "click #btngetauthcode": function () {
+    console.log("click btn btngetauthcode");
+    event.preventDefault();
+    var phonenumber =  $('#phonenumber').val();
+    Meteor.call('getauthcode',phonenumber,function(error, result){
+      if(error){
         alert(error.reason);
-        console.log(error);
       }
       else{
-          Router.go('/profile');
+        console.log("getauthcode:" +EJSON.stringify(result));
+        Session.set('registerauthcode',result);
       }
+
     });
 
-    return false;
+  },
+  "click #btnregister": function () {
+      console.log("click btn sign");
+      event.preventDefault();
+      var truename =  $('#truename').val();
+      var phonenumber =  $('#phonenumber').val();
+      var authcode = $('#authcode').val();
+      var password = $('#password').val();
+      var sessionauthcode = Session.get('registerauthcode');
+      if(sessionauthcode){
+        if(sessionauthcode.phonenumber == phonenumber && sessionauthcode.authcode == authcode ){
+
+        }
+        else{
+          alert("验证码错误，请重新获取");
+          return;
+        }
+      }
+      else{
+        alert("请先获取验证码");
+        return;
+      }
+
+      var newuser =
+      {
+        username:phonenumber,
+        password:password,
+        truename:truename,
+      };
+      Meteor.call('createuser',newuser,['user'], function(error,result){
+        if(!error){
+          Router.go('/profile');//登录成功
+        }
+      });
+
     },
   });

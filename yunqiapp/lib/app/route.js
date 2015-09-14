@@ -15,6 +15,7 @@ Router.route('/test', function () {
 Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
 Router.route('/updateAddress');
+Router.route('/forgetpassword');
 
 
 Router.route('/profile', function () {
