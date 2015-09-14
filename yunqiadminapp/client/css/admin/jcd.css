@@ -43,5 +43,20 @@ ul,li,p{padding: 0}
 
 footer{padding-left:180px;text-align:center;color: #CCC}
 
-
-
+*{font-family:"\5FAE\8F6F\96C5\9ED1"}
+body{background:#0066CA;}
+#jcd_admin_container input{outline:none}
+#jcd_admin_container #jcd_admin_loginform{width:700px;height: 330px;margin: auto;}
+#jcd_admin_container .jcd_admin_t {text-align:center;font-size:22px;color:#FFF;margin-bottom:10px;}
+#jcd_admin_container .jcd_form{background:url(images/admin/login.png) no-repeat;height:260px;margin-bottom:15px;position:relative}
+#jcd_admin_container .jcd_dmin_foot{text-align:center;font-size:14px;color:#80B3E5;}
+#jcd_admin_container .jcd_admin_loginName,
+#jcd_admin_container .jcd_admin_loginBtn,
+#jcd_admin_container .jcd_admin_loginPwd{background:#FFF;position:absolute;top:50px;right:140px;padding-left:30px;}
+#jcd_admin_container .jcd_admin_loginPwd{top:100px;right:140px;}
+#jcd_admin_container .jcd_admin_loginBtn{top:170px;right:140px;width:210px;padding:0;background:none}
+#jcd_admin_container .jcd_admin_loginBtn .jcd_adminLogin_subBtn{width:110px;background:#096;color:#FFF;margin-right:20px;}
+#jcd_admin_container .jcd_admin_loginBtn a.jcd_admin_forgetPwd{color:#FFF;text-decoration:none}
+#jcd_admin_container .jcd_form input{background:none;border:none;padding:10px;width:160px;}
+#jcd_admin_container .jcd_admin_loginName_img{background:url(images/admin/loginBg.png) no-repeat;display:block;position:absolute;width:18px;height:18px;left:10px;top:10px}
+#jcd_admin_container .jcd_admin_loginPwd .jcd_admin_loginName_img{background-position:left -113px;}
