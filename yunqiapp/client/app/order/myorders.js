@@ -75,7 +75,7 @@ Template.myorders.helpers({
       },
  });
 
- Template.alltobedeliveryorders.events({
+ Template.allclosedorders.events({
    'click #btnfinishorder':function(){
      console.log("click btnfinishorder:" + EJSON.stringify(this._id));
      var setDoc = {
