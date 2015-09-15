@@ -37,6 +37,32 @@ Template.neworder.events({
     'click #btnuseorderselectcoupon':function(){
       Router.go('/orderselectcoupon');
     },
+    'click #btnusemyaddress':function(){
+      console.log('click btnuse my address');
+       var addresslist = [];
+       var deliveryaddress = '';
+       var contactname = '';
+       var contacttel = '';
+       if(Meteor.user().profile.addresslist){
+         addresslist = Meteor.user().profile.addresslist;
+       }
+       console.log('click btnuse my address:'+EJSON.stringify(addresslist));
+       if(addresslist.length > 0){
+         var curaddress = addresslist[0];
+         for(var i=0;i<addresslist.length;i++){
+           if(addresslist[i].isdefault){
+             curaddress = addresslist[i];
+           }
+         }
+         deliveryaddress = curaddress.address;
+         contactname = curaddress.contactname;
+         contacttel = curaddress.contacttel;
+       }
+ console.log('deliveryaddress:'+deliveryaddress);
+       $('#contactname').val(contactname);
+       $('#contacttel').val(contacttel);
+       $('#deliveryaddress').val(deliveryaddress);
+    }
   });
 
   ﻿Template.neworder.helpers({
