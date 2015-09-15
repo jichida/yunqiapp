@@ -19,5 +19,22 @@
 			'overflow' : 'auto'
 	})
 	}
-
+	$('body').css('backgroundColor','#FFF');
+	$('body').click(function(){
+		$('#admin_user .admin_user_con').removeClass('admin_user_con_hover');
+		$('#admin_user .admin_user_list').hide();
+	})
 });
+
+Template.adminmainlayout.events({
+	"click #admin_user": function (oEvent) {
+		$('#admin_user .admin_user_con').addClass('admin_user_con_hover');
+		$('#admin_user .admin_user_list').show();
+		oEvent = oEvent || window.event;
+		if(document.all){
+			oEvent.cancelBubble = true;
+		}else{
+			oEvent.stopPropagation();
+		}
+	},
+})

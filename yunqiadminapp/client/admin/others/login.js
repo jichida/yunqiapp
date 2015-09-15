@@ -22,6 +22,6 @@
       });
     },
   });
-  // Template.login.onCreate(function () {
-	//    $('body').css('backgroundColor','#0066CA');
-  // });
+Template.login.rendered=(function () {
+   $('body').css('backgroundColor','#0066CA');
+});
