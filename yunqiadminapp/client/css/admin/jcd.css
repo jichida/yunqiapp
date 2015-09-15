@@ -44,7 +44,6 @@ ul,li,p{padding: 0}
 footer{padding-left:180px;text-align:center;color: #CCC}
 
 *{font-family:"\5FAE\8F6F\96C5\9ED1"}
-body{background:#0066CA;}
 #jcd_admin_container input{outline:none}
 #jcd_admin_container #jcd_admin_loginform{width:700px;height: 330px;margin: auto;}
 #jcd_admin_container .jcd_admin_t {text-align:center;font-size:22px;color:#FFF;margin-bottom:10px;}

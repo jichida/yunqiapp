@@ -1,4 +1,4 @@
-Template.login.events({
+﻿Template.login.events({
     "click #btnsign": function () {
       console.log("click btn sign");
       event.preventDefault();
@@ -21,4 +21,7 @@ Template.login.events({
         }
       });
     },
+  });
+  Template.login.onCreate(function () {
+	$('body').css('backgroundColor','#0066CA');
   });
