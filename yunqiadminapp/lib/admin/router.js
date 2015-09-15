@@ -117,13 +117,15 @@ Router.route('/admin/addproduct', function () {
  });
 
  //订单详情
-Router.route('/admin/adminorderinfo/:_id', function () {
+Router.route('/admin/adminorderinfo/:id', function () {
   console.log("admin adminorderinfo html");
   // this.render('addcoupon');
   var curorder =  Orders.findOne({_id:this.params.id});
+  console.log("click adminorderinfo:" + EJSON.stringify(curorder));
+
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('adminorderinfo', {to: 'admincontent'});
+  this.render('adminorderinfo', {to: 'admincontent',data:{curorder:curorder}});
  //  this.render('adminorderinfo',{data:{curorder:curorder}});
  });
 
@@ -131,6 +133,7 @@ Router.route('/admin/adminorderinfo/:_id', function () {
  Router.route('/admin/updateproduct/:id', function () {
   console.log("admin updateproduct html");
   curproduct = Products.findOne({_id:this.params.id});
+  console.log("click updateproduct:" + EJSON.stringify(curproduct));
 
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});

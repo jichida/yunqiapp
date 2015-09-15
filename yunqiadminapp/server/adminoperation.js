@@ -1,9 +1,9 @@
 Meteor.methods({
-    'insertProduct': function(productDoc){
+  'insertProduct': function(productDoc){
 		console.log("insertProduct:" + EJSON.stringify(productDoc));
 		Products.insert(productDoc);
 	},
-     'insertCoupon': function(couponDoc){
+  'insertCoupon': function(couponDoc){
 		console.log("insertCoupon:" + EJSON.stringify(couponDoc));
 		Coupons.insert(couponDoc);
 	},
@@ -43,4 +43,9 @@ Meteor.methods({
 	'setcouponavaliable':function(id,isavaliable){
 		Coupons.update(id, {$set:{isavaliable:isavaliable}});
 	},
+  'setOrderStatus':function(id,setDoc){
+    console.log("before updateSalespromotion:" + EJSON.stringify(Orders.findOne(id)));
+    Orders.update(id, {$set:setDoc});
+    console.log("after updateSalespromotion:" + EJSON.stringify(Orders.findOne(id)));
+  },
 });

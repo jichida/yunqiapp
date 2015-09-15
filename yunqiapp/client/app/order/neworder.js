@@ -21,7 +21,7 @@
 				yunqimemo:$('#yunqimemo').val(),
 				wanttime:$('#wanttime').val(),
 				paytype:$('#paytype').val(),
-				paytypestring:"paytypestring",
+				paytypestring:"货到付款",
         orderstatus:'neworder',
         orderstatusstring:'待支付',
         orderamount:amount,

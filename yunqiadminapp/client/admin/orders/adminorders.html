@@ -18,27 +18,7 @@
 			</tr>
 			{{#each orders}}
 			<tr>
-				<td><a href="/admin/adminorderinfo/{{_id}}">{{orderno}}</a></td>
-				<td>{{createuser}}</td>
-				<td>{{createtime}}</td>
-				<td>{{orderamount}}</td>
-				<td>{{deliveryaddress}}</td>
-				<td>{{contactname}}</td>
-				<td>{{contacttel}}</td>
-				<td>{{yunqimemo}}</td>
-				<td class='jdc_admin_table_right'>
-
-			    	<div class="input-group jdc_admin_yunqiInputEMS" style='width:200px;float:right'>
-			      		<input type="text" class="form-control" placeholder="请输入快递编号">
-			      		<span class="input-group-btn">
-			        		<button class="btn btn-default" type="button">确定</button>
-			      		</span>
-			    	</div>
-
-				</td>
-			</tr>
-			<tr>
-				<td><a href="/admin/adminorderinfo/{{_id}}">{{orderno}}</a></td>
+				<td><a href="/admin/adminorderinfo/{{_id}}">{{_id}}</a></td>
 				<td>{{createuser}}</td>
 				<td>{{createtime}}</td>
 				<td>{{orderamount}}</td>
@@ -49,7 +29,6 @@
 				<td class='jdc_admin_table_right'>
 
 			    	<div class='jdc_admin_yunqiEMSinf'>
-			    		<span>455354587222450</span>
 			    		<a href="#" class="btn btn-primary jdc_admin_changeEMS"><span class='glyphicon glyphicon-pencil'></span> 修改</a>
 			    	</div>
 

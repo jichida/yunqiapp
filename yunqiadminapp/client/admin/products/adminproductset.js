@@ -1,4 +1,4 @@
-Template.adminproductadd.events({  
+Template.adminproductadd.events({
     'click .btnaddproduct': function(event, template) {
        console.log("click btn add product");
        event.preventDefault();

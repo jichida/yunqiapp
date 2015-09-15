@@ -1,3 +1,38 @@
 <template name="adminorderinfo">
-	订单详情
+	<div class='jcd_admin_title'>
+		订单详情
+	</div>
+	<div class='jcd_redpackage_con'>
+		<div class='redImg online'>
+			<p>订单Id：{{curorder._id}}</p>
+			<p class='redPackageLnk'>
+					<a href='#' id="btndelivery"><span class='glyphicon glyphicon-pencil'></span>发货</a></p>
+		</div>
+		<div class='redTxt'>
+			<p><span>联系人名字：</span>{{curorder.contactname}}</p>
+			<p><span>联系人电话：</span>{{curorder.contacttel}}</p>
+			<p><span>收货地址：</span>{{curorder.deliveryaddress}}个</p>
+			<p><span>支付方式：</span>{{curorder.paytypestring}}</p>
+			<p><span>订单状态：</span>{{curorder.orderstatusstring}}</p>
+			<p><span>金额：</span>{{curorder.orderamount}}</p>
+			<p><span>下单时间：</span>{{curorder.createtime}}</p>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<!-- Table -->
+		<table class='table jdc_admin_table'>
+			<tr>
+				<th>订购产品</th>
+				<th>订购数量</th>
+				<th>金额</th>
+			</tr>
+			<tr>
+			{{#each curorder.orderproductlists}}
+				<td><a href="/admin/productinfo/{{productid}}">{{productname}}</a></td>
+				<td>{{qty}}</td>
+				<td>{{money}}</td>
+			{{/each}}
+			</tr>
+		</table>
+	</div>
 </template>
