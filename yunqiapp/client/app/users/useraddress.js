@@ -8,11 +8,11 @@ Template.useraddress.events({
      event.preventDefault();
      var address = this;
      console.log("click update address:" + EJSON.stringify(address));
-     Router.go("/updateuseraddress",{address:address});
+     Router.go("/updateuseraddress/" + this.addressid);
   },
   'click #btnaddressdelete':function(event){
     //  event.preventDefault();
-    console.trace();
+  //  console.trace();
       var address = this;
       console.log("click delete address:" + EJSON.stringify(address));
       Meteor.call('deleteAddress',address.addressid);
@@ -26,8 +26,8 @@ Template.useraddress.helpers({
           var currentUserId = Meteor.userId();
           var usr = Meteor.users.findOne(currentUserId);
           if (usr) {
-              if(usr.addresslist){
-                addresslist = usr.addresslist;
+              if(usr.profile.addresslist){
+                addresslist = usr.profile.addresslist;
             }
           }
           //console.log("addresslist:" + addresslist.count());
@@ -35,26 +35,26 @@ Template.useraddress.helpers({
       },
 });
 
-Template.useraddress.events({
-    "click .toggle-setdefault": function () {
-        var currentUserId = Meteor.userId();
-        var addresslist = [];
-        var usr = Meteor.users.findOne(currentUserId);
-        if (usr) {
-          if(usr.addresslist){
-            addresslist = usr.addresslist;
-          }
-        }
-        for(i in addresslist){
-            if (addresslist[i].addressid == this.addressid){
-               addresslist[i].isdefault = true;
-            }
-            else{
-               addresslist[i].isdefault = false;
-            }
-        }
-        console.log("set deleteAddress...");
-        Meteor.call('setAddress', addresslist);
-
-    },
-  });
+// Template.useraddress.events({
+//     "click .toggle-setdefault": function () {
+//         var currentUserId = Meteor.userId();
+//         var addresslist = [];
+//         var usr = Meteor.users.findOne(currentUserId);
+//         if (usr) {
+//           if(usr.addresslist){
+//             addresslist = usr.profile.addresslist;
+//           }
+//         }
+//         for(i in addresslist){
+//             if (addresslist[i].addressid == this.addressid){
+//                addresslist[i].isdefault = true;
+//             }
+//             else{
+//                addresslist[i].isdefault = false;
+//             }
+//         }
+//         console.log("set deleteAddress...");
+//         Meteor.call('setAddress', addresslist);
+//
+//     },
+//   });

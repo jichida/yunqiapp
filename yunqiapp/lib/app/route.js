@@ -14,7 +14,21 @@ Router.route('/test', function () {
 
 Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
-Router.route('/updateAddress');
+Router.route('/updateuseraddress/:addressid', function () {
+    this.layout('indexdetailpagelayout',{data: {title: '修改地址',returnurl:"/profile/useraddress",returnhome:'/profile'}});
+
+    var currentaddress = {};
+    if(Meteor.user().profile.addresslist){
+      for(var i = 0;i < Meteor.user().profile.addresslist.length; i++){
+        if(Meteor.user().profile.addresslist[i].addressid == this.params.addressid){
+           currentaddress = Meteor.user().profile.addresslist[i];
+        }
+      }
+    }
+    this.render('updateuseraddress', {to: 'detailpagecontent',data:currentaddress});
+
+
+});
 Router.route('/forgetpassword');
 
 
@@ -183,7 +197,7 @@ Router.route('/homedetail/salespromotions/:_tabindex', function () {
     });
     console.log("促销活动:" + EJSON.stringify(salespromotions));
     this.render('salespromotions', {to: 'detailpagecontent',data:{salespromotions:salespromotions}});
-});
+},{name: 'salespromotions'});
 
 
 
@@ -274,4 +288,28 @@ Router.route('/homedetail/getredpackage/:_tabindex', function () {
 Router.route('/homedetail/myredpackages/:_tabindex', function () {
         this.layout('indexdetailpagelayout',{data: {title: '我的红包',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
         this.render('myredpackages', {to: 'detailpagecontent'});
+});
+
+Router.onBeforeAction(function() {
+  if (! Meteor.user()) {
+    console.log("onBeforeAction not login");
+    this.layout('mainlayout');
+    this.render('navbar1', {to: 'navbar'});
+    this.render('signIn', {to: 'content'});
+  }
+  else {
+    console.log("onBeforeAction login");
+    if(Roles.userIsInRole(Meteor.user(), ['user'])){
+        console.log("onBeforeAction is user");
+        this.next();
+    }
+    else{
+      console.log("onBeforeAction is not user");
+      this.layout('mainlayout');
+      this.render('navbar1', {to: 'navbar'});
+      this.render('signIn', {to: 'content'});
+    }
+  }
+},{
+  except:['salespromotions','register','forgetpassword']
 });

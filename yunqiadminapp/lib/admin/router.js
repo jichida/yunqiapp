@@ -219,15 +219,17 @@ Router.route('/admin/navredpackages', function () {
   this.render('adminredpackages', {to: 'admincontent',data:{redpackages:redpackages}});
 });
 
-var requireLogin = function() {
+
+Router.onBeforeAction(function() {
   if (! Meteor.user()) {
     this.render('login');
-  } else {
-    this.next();
   }
-}
-
-Router.onBeforeAction(requireLogin, {
-  except: []
-  // or except: ['routeOne', 'routeTwo']
+  else {
+    if(Roles.userIsInRole(Meteor.user(), ['admin'])){
+        this.next();
+    }
+    else{
+      this.render('login');
+    }
+  }
 });
