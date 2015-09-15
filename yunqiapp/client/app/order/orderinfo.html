@@ -13,7 +13,7 @@
                   <tbody>
             <tr>
                       <th>订单编号</th>
-                      <td><span class="px1" style="color:#488cf6">{{order.orderno}}</span></td>
+                      <td><span class="px1" style="color:#488cf6">{{order._id}}</span></td>
                     </tr>
           </tbody>
                 </table>
@@ -24,6 +24,12 @@
             <tr>
                       <th>订单状态</th>
                       <td><span class="px1" style="color:#f80">{{order.orderstatusstring}}</span></td>
+											{{#if orderisnotpaid}}
+											<a href="#" id="btnpayorder">立即支付</a>
+											{{/if}}
+											{{#if orderisdevelied}}
+											<a href="#" id="btnfinishorder">立即支付</a>
+											{{/if}}
                     </tr>
           </tbody>
                 </table>

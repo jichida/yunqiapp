@@ -55,6 +55,17 @@ Template.myorders.helpers({
       },
  });
 
+ Template.allorders.events({
+   'click #btnpayorder':function(){
+     console.log("click btnpayorder:" + EJSON.stringify(this._id));
+     var setDoc = {
+       orderstatus:'paidorder',
+       orderstatusstring:'已支付',
+     };
+     Meteor.call("setOrderStatus",this._id,setDoc);
+   },
+ });
+
   Template.alltobedeliveryorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
@@ -63,6 +74,18 @@ Template.myorders.helpers({
          return orders;
       },
  });
+
+ Template.alltobedeliveryorders.events({
+   'click #btnfinishorder':function(){
+     console.log("click btnfinishorder:" + EJSON.stringify(this._id));
+     var setDoc = {
+       orderstatus:'finishedorder',
+       orderstatusstring:'已完成',
+     };
+     Meteor.call("setOrderStatus",this._id,setDoc);
+   },
+ });
+
 
   Template.allclosedorders.helpers({
       'allorders':function(){

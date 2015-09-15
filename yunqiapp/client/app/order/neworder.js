@@ -1,4 +1,4 @@
-﻿Template.neworder.events({
+Template.neworder.events({
     "click #btnsubmit": function () {
       console.log("click btn btnsubmit");
       event.preventDefault();

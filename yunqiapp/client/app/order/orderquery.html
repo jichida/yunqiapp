@@ -29,10 +29,14 @@
 
 
 
-
      </ul><a href="#" id="btnqueryorders" class="submit">查询</a></div>
          {{#each queryorderresults}}
-            <li class="asqwe">订单号：<strong class="asqwe_qw">{{orderno}}</strong><br/>下单时间：{{createtime}},{{wanttime}},{{contactname}},{{deliveryaddress}},{{yunqimemo}}</li>
+            <li class="asqwe">
+            订单号：<strong class="asqwe_qw"><a href="/homedetail/orderinfo/0/{{_id}}">{{_id}}</a></strong><br/>
+            下单时间：<strong class="asqwe_qw">{{createtime}}</strong><br/>
+            联系人：<strong class="asqwe_qw">{{contactname}}</strong><br/>
+            下单地址：<strong class="asqwe_qw">{{deliveryaddress}}</strong><br/>
+            </li>
         {{/each}}
 
 </template>

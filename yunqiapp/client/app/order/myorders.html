@@ -33,7 +33,7 @@
 <template name="allorders">
    {{#each allorders}}
             <div class="shop_title" shop_id="6078">
-            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{orderno}}</a></div>
+            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{_id}}</a></div>
             <a class="fl right_arrow" href="#"></a> <a class="c_edit on" id="e__6078"></a>
             </div>
 
@@ -45,7 +45,7 @@
 
           <div class="m-orderfun" data-order="150421293466">
       <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
-      <button type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</button>
+      <a href="#" id="btnpayorder" type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</a>
                                                                                 </div>
 
           </div>
@@ -68,7 +68,7 @@
 
           <div class="m-orderfun" data-order="150421293466">
       <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
-      <button type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</button>
+      <a href="#" id="btnfinishorder" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">确认收货</a>
                                                                                 </div>
 
           </div>
