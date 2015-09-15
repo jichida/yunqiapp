@@ -47,6 +47,9 @@ Template.register.events({
         if(!error){
           Router.go('/profile');//登录成功
         }
+        else{
+          alert(error.reason);
+        }
       });
 
     },

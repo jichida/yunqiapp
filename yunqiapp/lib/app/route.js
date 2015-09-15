@@ -114,18 +114,18 @@ Router.route('/homedetail/myorders/:_tabindex/:_id', function () {
 
     this.layout('indexdetailpagelayout',{data: {title: '我的订单',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
 
-    if(this.params._id == "0"){
-        this.render('tabheader0', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
-        this.render('allorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
-    else if(this.params._id == "1"){
-        this.render('tabheader1', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
-        this.render('alltobedeliveryorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
-    else  if(this.params._id == "2"){
-        this.render('tabheader2', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
-        this.render('allclosedorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
+    // if(this.params._id == "0"){
+    //     this.render('tabheader0', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
+    //     this.render('allorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    // }
+    // else if(this.params._id == "1"){
+    //     this.render('tabheader1', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
+    //     this.render('alltobedeliveryorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    // }
+    // else  if(this.params._id == "2"){
+    //     this.render('tabheader2', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
+    //     this.render('allclosedorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
+    // }
     this.render('myorders', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex}});
 
     var id = this.params._id; // "5"

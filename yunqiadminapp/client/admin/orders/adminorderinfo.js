@@ -4,7 +4,7 @@ Template.adminorderinfo.events({
         var order = this.curorder;
         console.log("click btndelivery:" + EJSON.stringify(order));
         var setDoc = {
-          orderstatus:'deliveried',
+          orderstatus:'deliveredorder',
           orderstatusstring:'已发货',
         };
         Meteor.call("setOrderStatus",order._id,setDoc);

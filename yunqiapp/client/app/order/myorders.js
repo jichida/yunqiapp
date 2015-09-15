@@ -1,4 +1,44 @@
-  Template.myorders.helpers({
+Template.myorders.events({
+  'click #tabone1':function(event,template){
+    event.preventDefault();
+    template.$('#tabone1').addClass('active');
+    template.$('#tabone2').removeClass('active');
+    template.$('#tabone3').removeClass('active');
+
+    template.$('#con_one_1').css({'display':'block'});
+    template.$('#con_one_2').css({'display':'none'});
+    template.$('#con_one_3').css({'display':'none'});
+
+    console.log("click tab1");
+  },
+  'click #tabone2':function(event,template){
+    event.preventDefault();
+    template.$('#tabone2').addClass('active');
+    template.$('#tabone1').removeClass('active');
+    template.$('#tabone3').removeClass('active');
+
+    template.$('#con_one_2').css({'display':'block'});
+    template.$('#con_one_1').css({'display':'none'});
+    template.$('#con_one_3').css({'display':'none'});
+
+    console.log("click tab2");
+  },
+  'click #tabone3':function(event,template){
+    event.preventDefault();
+    template.$('#tabone3').addClass('active');
+    template.$('#tabone1').removeClass('active');
+    template.$('#tabone2').removeClass('active');
+
+    template.$('#con_one_3').css({'display':'block'});
+    template.$('#con_one_1').css({'display':'none'});
+    template.$('#con_one_2').css({'display':'none'});
+
+    console.log("click tab3");
+  },
+});
+
+
+Template.myorders.helpers({
       'curtab':function(){
             console.log("curtab:"+Session.get("curtab"));
             return Session.get("curtab");
@@ -18,7 +58,7 @@
   Template.alltobedeliveryorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
-         var orders = Orders.find({createuser:currentUserId,orderstatus:'neworder'});
+         var orders = Orders.find({createuser:currentUserId,orderstatus:'paidorder'});
          console.log("alltobedeliveryorders:"+orders.count());
          return orders;
       },
@@ -27,7 +67,7 @@
   Template.allclosedorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
-         var orders = Orders.find({createuser:currentUserId,orderstatus:'payedorder'});
+         var orders = Orders.find({createuser:currentUserId,orderstatus:'deliveredorder'});
          console.log("allpayedorders:"+orders.count());
          return orders;
       },

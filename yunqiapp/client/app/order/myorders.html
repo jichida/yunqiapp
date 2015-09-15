@@ -1,7 +1,9 @@
 <template name="myorders">
-        <tabheader>
-          {{> yield "tabheader"}}
-        </tabheader>
+  <ul class="nav nav-tabs" role="tablist">
+       <li  id="tabone1" role="presentation" class="active"><a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
+       <li  id="tabone2" role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
+       <li  id="tabone3" role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
+   </ul>
 
 <div style="" id="wrapper">
   <div style="overflow: initial; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);" class="viewport" id="scroller">
@@ -9,11 +11,15 @@
       <div class="block">
         <div class="cart_list">
 
-
-         <orderscontent>
-          {{> yield "orderscontent"}}
-        </orderscontent>
-
+          <div id="con_one_1">
+            {{> allorders}}
+          </div>
+          <div id="con_one_2"  style="display:none">
+            {{> alltobedeliveryorders}}
+          </div>
+          <div id="con_one_3"  style="display:none">
+            {{> allclosedorders}}
+          </div>
 
         </div>
       </div>
@@ -23,33 +29,7 @@
 
 </div>
 </template>
-<template name="tabheader0">
-   <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
-        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
-        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
 
-        </ul>
-</template>
-<template name="tabheader1">
-   <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation">
-        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
-        <li role="presentation"  class="active"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
-        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
-
-        </ul>
-</template>
-<template name="tabheader2">
-   <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation">
-        <a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
-        <li role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
-        <li role="presentation"  class="active"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待评价</a></li>
-
-        </ul>
-</template>
 <template name="allorders">
    {{#each allorders}}
             <div class="shop_title" shop_id="6078">
