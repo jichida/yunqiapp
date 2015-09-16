@@ -48,4 +48,5 @@ Meteor.methods({
     Orders.update(id, {$set:setDoc});
     console.log("after updateSalespromotion:" + EJSON.stringify(Orders.findOne(id)));
   },
+
 });
