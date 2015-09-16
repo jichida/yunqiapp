@@ -4,7 +4,7 @@
 	</div>
 	<div class='jcd_redpackage_con'>
 		<div class='redTxt'>
-            <p><span>订单Id：</span>{{curorder._id}}</p>
+      <p><span>订单Id：</span>{{curorder._id}}</p>
 			<p><span>联系人名字：</span>{{curorder.contactname}}</p>
 			<p><span>联系人电话：</span>{{curorder.contacttel}}</p>
 			<p><span>收货地址：</span>{{curorder.deliveryaddress}}个</p>
@@ -12,7 +12,12 @@
 			<p><span>订单状态：</span>{{curorder.orderstatusstring}}</p>
 			<p><span>金额：</span>{{curorder.orderamount}}</p>
 			<p><span>下单时间：</span>{{curorder.createtime}}</p>
-            <p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btndelivery"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发货</a></p>
+			{{#if orderispaid}}
+      <p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btndelivery"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发货</a></p>
+			{{/if}}
+			{{#if orderisdevelied}}
+      <p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btnfinished"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 确认完成</a></p>
+			{{/if}}
 		</div>
 	</div>
 	<div class="panel panel-default">

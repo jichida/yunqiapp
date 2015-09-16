@@ -37,4 +37,12 @@ Template.adminmainlayout.events({
 			oEvent.stopPropagation();
 		}
 	},
+	'click #btnlogout': function(event){
+        event.preventDefault();
+        Meteor.logout();
+    },
+		'click #btnchangepassword': function(event){
+					//event.preventDefault();
+					Router.go('/changepassword');
+			}
 })

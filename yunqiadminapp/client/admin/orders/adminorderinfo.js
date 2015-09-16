@@ -10,3 +10,12 @@ Template.adminorderinfo.events({
         Meteor.call("setOrderStatus",order._id,setDoc);
     },
   });
+
+  Template.adminorderinfo.helpers({
+    'orderispaid':function(){
+        return this.curorder.orderstatus == "paidorder";
+    },
+    'orderisdevelied':function(){
+        return this.curorder.orderstatus == "deliveredorder";
+    }
+  });

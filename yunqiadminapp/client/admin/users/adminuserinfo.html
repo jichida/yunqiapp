@@ -1,3 +1,32 @@
 <template name="adminuserinfo">
-	用户信息
+	<div class='jcd_admin_title'>
+		用户信息
+	</div>
+	<div class='jcd_redpackage_con'>
+		<div class='redTxt'>
+      <p><span>用户姓名：</span>{{user.profile.truename}}</p>
+			<p><span>用户id:</span>{{user._id}}</p>
+			<p><span>用户注册手机号：</span>{{user.username}}</p>
+
+			<p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btnsendcoupon"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发优惠券</a></p>
+			<p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btnsendredpackage"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发红包</a></p>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<!-- Table -->
+		<table class='table jdc_admin_table'>
+			<tr>
+				<th>地址</th>
+				<th>联系人名字</th>
+				<th>联系人姓名</th>
+			</tr>
+			<tr>
+				{{#each user.profile.addresslist}}
+					<td></td>
+					<td></td>
+					<td></td>					
+				{{/each}}
+			</tr>
+		</table>
+	</div>
 </template>

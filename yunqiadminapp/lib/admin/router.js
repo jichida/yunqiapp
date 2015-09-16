@@ -11,6 +11,13 @@ Router.route('/', function () {
   this.render('adminorders', {to: 'admincontent'});
 });
 
+Router.route('/changepassword',function(){
+  console.log("admin index html");
+  this.layout('adminmainlayout');
+  this.render('adminnavbar', {to: 'adminnavbar'});
+  this.render('changepassword', {to: 'admincontent'});
+});
+
 //管理端首页
 Router.route('/admin', function () {
   console.log("admin index html");
@@ -221,7 +228,7 @@ Router.route('/admin/navredpackages', function () {
 
 
 Router.onBeforeAction(function() {
-  if (! Meteor.user()) {
+  if (!Meteor.user()) {
     this.render('login');
   }
   else {
