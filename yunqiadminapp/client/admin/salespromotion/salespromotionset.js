@@ -38,7 +38,7 @@ Template.addsalespromotion.events({
           var starttime= $('#starttime').val();//时间日期类型
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
-          var specialdiscount =$('specialdiscount').val();
+          var specialdiscount =$('#specialdiscount').val();
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();
@@ -111,7 +111,7 @@ Template.updatesalespromotion.events({
           var starttime= $('#starttime').val();//时间日期类型
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
-          var specialdiscount =$('specialdiscount').val();
+          var specialdiscount =$('#specialdiscount').val();
 
           var typestring = $("#saleprotomotiontype").find("option:selected").text();
           var typevalue = $("#saleprotomotiontype").val();

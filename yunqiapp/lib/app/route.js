@@ -111,13 +111,13 @@ Router.route('/homedetail/neworder/:_tabindex', function () {
     }
     var amount = 0;
     for( j in productlistsession){
-        amount += (productlistsession[j].productprice * productlistsession[j].qty);
+        amount += productlistsession[j].price;
     };
     var curorder = {
         orderamount:amount,
         orderproductlists:productlistsession
     };
-     console.log("我要下单neworder：orderamount:"+amount);
+    console.log("我要下单neworder：orderamount:"+amount);
     //this.render('orderproduct', {data:{tabindex:this.params._tabindex,order:curorder}});
     this.render('neworder', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,order:curorder}});
 

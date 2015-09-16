@@ -20,25 +20,25 @@ Meteor.startup(function(){
     }
 
     if(Meteor.isServer){
-      var orderData = {
-      //  orderno:Random.id([8]),
-		//		createuser:currentUserId,
-				contactname:'wxq',
-				contacttel:'18118003691',
-				deliveryaddress:'address',
-				yunqimemo:'memo',
-				wanttime:'2015-08',
-				paytype:'2',
-				paytypestring:"货到付款",
-        orderstatus:'neworder',
-        orderstatusstring:'待支付',
-        orderamount:100,
-        createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
-        //orderproductlists:productlistsession
-      };
-      if(Orders.find().count() == 0){
-        Orders.insert(orderData);
-      }
+    //   var orderData = {
+    //   //  orderno:Random.id([8]),
+		// //		createuser:currentUserId,
+		// 		contactname:'wxq',
+		// 		contacttel:'18118003691',
+		// 		deliveryaddress:'address',
+		// 		yunqimemo:'memo',
+		// 		wanttime:'2015-08',
+		// 		paytype:'2',
+		// 		paytypestring:"货到付款",
+    //     orderstatus:'neworder',
+    //     orderstatusstring:'待支付',
+    //     orderamount:100,
+    //     createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
+    //     //orderproductlists:productlistsession
+    //   };
+    //   if(Orders.find().count() == 0){
+    //     Orders.insert(orderData);
+    //   }
     //    var productlistdb =
     //       [
     //       {
@@ -232,7 +232,7 @@ Meteor.startup(function(){
      });
 
 
-     if(Meteor.users.find().count() == 0){
+     if(Meteor.users.find({username:'admin'}).count() == 0){
          var user ={
            username:'admin',
            password:'admin',

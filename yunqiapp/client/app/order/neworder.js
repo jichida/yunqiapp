@@ -9,7 +9,7 @@ Template.neworder.events({
       }
       var amount = 0;
       for( j in productlistsession){
-          amount += (productlistsession[j].productprice * productlistsession[j].qty);
+          amount += productlistsession[j].price;
       };
 			var currentUserId = Meteor.userId();
 			var orderData = {

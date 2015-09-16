@@ -1,7 +1,7 @@
 ﻿<template name="mycoupons">
 	<section class="content">
-  
-  <div class="cardexplain"> 
+
+  <div class="cardexplain">
 	   <div class="c-wrap">
          <couponstabheader>
           {{> yield "couponstabheader"}}
@@ -11,7 +11,7 @@
 		<div class="bonusViewTab" id="bonusViewTab">
 			<!-- <div class="SwipeItem item dn">
 			<div class="SwipeItem item"> -->
-		
+
 			<div class="SwipeItem item dn" style="display: none;">
 									<ul class="C">
 						<li class="pt10">
@@ -26,7 +26,7 @@
 									<p class="wh mb5">
 										{{title}}
 									</p>
-									
+
 									<p class="desc">满{{conditionamount}}减{{offamount}}</p>
 								</div>
 								<div class="right vc">
@@ -36,21 +36,21 @@
 										<p class="cc-gray mb2">{{endtime}}</p>
 									</div>
 								</div>
-						<img class="pct100" alt="" src="/images/bonus3.png">		
+						<img class="pct100" alt="" src="/images/bonus3.png">
 											</div>
 			 {{/each}}
-							
+
 						</ul>
 							</div>
 		</div>
-	</div> 
+	</div>
         </div>
-    
+
 </section>
 
 
 	</template>
-	
+
 	<template name="couponstabheader0">
 				<ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
 			<li class="item SwipeBtn tc "> <a href="/homedetail/mycoupons/{{tabindex}}/0" class=" active">未使用</a></li>
