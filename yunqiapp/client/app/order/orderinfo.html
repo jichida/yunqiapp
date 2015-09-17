@@ -116,7 +116,22 @@
                       <th>气瓶单价</th>
                       <td><span class="px1">￥{{productprice}}</span></td>
                     </tr>
-          </tbody>
+										{{#if notdiscount}}
+										<tr>
+                      <th>现价</th>
+                      <td><span class="px1">￥{{price}}</span></td>
+                    </tr>
+										{{else}}
+										<tr>
+										      <th>原价</th>
+										      <td><span class="px1">￥{{orginprice}}</span></td>
+										    </tr>
+												<tr>
+										      <th>现价</th>
+										      <td><span class="px1">￥{{price}}</span></td>
+										    </tr>
+										{{/if}}
+					          </tbody>
                 </table>
                 <p></p>
       {{/each}}

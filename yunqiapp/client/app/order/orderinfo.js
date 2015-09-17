@@ -25,3 +25,12 @@ Template.orderinfo.helpers({
       return this.order.orderstatus == "deliveredorder";
   }
 });
+
+Template.orderproduct.helpers({
+  'notdiscount':function(){
+    return this.qty* this.productprice==this.price
+  },
+  'orginprice':function(){
+    return this.qty*this.productprice;
+  }
+});

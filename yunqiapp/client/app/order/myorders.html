@@ -45,8 +45,14 @@
 
           <div class="m-orderfun" data-order="150421293466">
       <a href="/homedetail/orderinfo/0/{{_id}}" class="btnq btn-default btn-sm btn-order-cancal" data-order="150421293466">订单详情</a>
+      {{#if orderisnew}}
       <a href="#" id="btnpayorder" type="button" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">立即支付</a>
-                                                                                </div>
+      {{/if}}
+      {{#if orderisdevelied}}
+      <a href="#" id="btnfinishorder" class="btnq btn-warning btn-sm btn-order-pay" data-order="150421293466">确认收货</a>
+      {{/if}}
+
+                        </div>
 
           </div>
            </div>

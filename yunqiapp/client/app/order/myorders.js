@@ -53,7 +53,15 @@ Template.myorders.helpers({
          console.log("allorders:"+EJSON.stringify(orders));
          return orders;
       },
+      'orderisnew':function(){
+          return this.orderstatus == "neworder";
+      },
+      'orderisdevelied':function(){
+          return this.orderstatus == "deliveredorder";
+      }
  });
+
+
 
  Template.allorders.events({
    'click #btnpayorder':function(){
@@ -61,6 +69,14 @@ Template.myorders.helpers({
      var setDoc = {
        orderstatus:'paidorder',
        orderstatusstring:'已支付',
+     };
+     Meteor.call("setOrderStatus",this._id,setDoc);
+   },
+   'click #btnfinishorder':function(){
+     console.log("click btnfinishorder:" + EJSON.stringify(this._id));
+     var setDoc = {
+       orderstatus:'finishedorder',
+       orderstatusstring:'已完成',
      };
      Meteor.call("setOrderStatus",this._id,setDoc);
    },

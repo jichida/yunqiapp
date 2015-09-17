@@ -7,6 +7,7 @@
 		<table class='table jdc_admin_table'>
 			<tr>
 				<th>订单号</th>
+				<th>订单状态</th>
 				<th>订单内容</th>
 				<th>下单时间</th>
 				<th>总金额</th>
@@ -19,6 +20,7 @@
 			{{#each orders}}
 			<tr>
 				<td><a href="/admin/adminorderinfo/{{_id}}">{{_id}}</a></td>
+				<td>{{orderstatusstring}}</td>
 				<td>{{createuser}}</td>
 				<td>{{createtime}}</td>
 				<td>{{orderamount}}</td>
