@@ -116,11 +116,11 @@ Router.route('/admin/addproduct', function () {
   Router.route('/admin/adminuserinfo/:id', function () {
   console.log("admin adminuserinfo html");
   // this.render('addcoupon');
-  var curuser =  Meteor.users.findOne({_id:this.params.id});
+  var curuser =  Meteor.users.findOne(this.params.id);
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('adminuserinfo', {to: 'admincontent'});
- // this.render('adminuserinfo',{data:{curuser:curuser}});
+  this.render('adminuserinfo', {to: 'admincontent',data:{curuser:curuser}});
+  //this.render('adminuserinfo',{data:{curuser:curuser}});
  });
 
  //订单详情

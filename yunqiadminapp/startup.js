@@ -10,6 +10,7 @@ Meteor.startup(function(){
         Meteor.subscribe("salespromotions");
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
+        Meteor.subscribe("users");
 
 
       //AutoForm.setDefaultTemplate("plain");
@@ -229,6 +230,10 @@ Meteor.startup(function(){
      //发布促销活动（全部）
      Meteor.publish("salespromotions", function () {
         return SalesPromotions.find();
+     });
+     //发布促销活动（全部）
+     Meteor.publish("users", function () {
+        return Meteor.users.find();
      });
 
 
