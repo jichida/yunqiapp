@@ -8,7 +8,7 @@
             {{#each products}}
                   {{>oneproduct}}
             {{/each}}
-
+             <!---没有促销 -->
         </ul>
         <li> <a  href="#"><span><em class="ok">订单金额:<strong>￥{{sessionorderamount}}</strong></em></span></a> </li>
     </div>
@@ -23,11 +23,17 @@
 
     <template name="oneproduct">
           <li type="normal">
-                <a href="#">
 
                     <div class="m-cartlist-info">
-                        <h3>{{productname}}</h3>
-                        <h5>￥{{productprice}}</h5>
+                        <h3>{{productname}}(单价:￥{{productprice}})</h3>
+
+
+ <!---促销价-->
+{{#if currentprice.isdiscount}}
+<div><span class="gmyjq">促销价:<span class="gmcx">￥{{currentprice.currentprice}}</span></span><span class="gmyj">原价<del style="text-decoration:line-through">￥{{currentprice.orginprice}}</del></span></div>
+{{/if}}
+
+
 												<div style="margin-top:10px;">
 												{{#if isproductinsalespromotions.isspecialproductdiscount}}
 												<span class="youhui" style="background:#F03">{{isproductinsalespromotions.title1}}</span>
@@ -36,8 +42,7 @@
 												<span class="youhui">{{isproductinsalespromotions.title2}}</span>
 												{{/if}}
 												</div>
-                    </div>
-                </a>
+	</div>
 
                  <div class="m-cart-numswrap">
                     <div class="num_sel_lage pull-right clearfix">
@@ -46,6 +51,6 @@
                         <span class="inc">+</span>
                     </div>
                 </div>
-								<div>{{currentprice}}</div>
+
           </li>
     </template>

@@ -84,7 +84,7 @@ ul.round li {
 ul.round li:only-of-type {
 	border-width:0;
 }
-ul.round li tr{ border-bottom:1px solid #f2f2f2; line-height:46px}
+ul.round li tr{ border-bottom:1px solid #f2f2f2; line-height:30px}
 ul.round li:last-of-type {
 	border-width:0;
 }
@@ -151,7 +151,6 @@ ul.round li:last-of-type {
 	background-color: #FFFFFF;
 	 color:#888;
 	margin: 5px  0px;
-	padding: 5px 0px;
 }
 
 .m-order-item {

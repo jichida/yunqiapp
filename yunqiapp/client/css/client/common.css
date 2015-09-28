@@ -20,6 +20,8 @@ input[type="submit"],input[type="reset"],input[type="button"],input[type="passwo
 
 .icon-user{ background:url(/images/user1.png) no-repeat center}
 .icon-key{background:url(/images/login.png) no-repeat center}
+.icon-an{background:url(/images/q1.png) no-repeat center}
+
 .icon-phone{background:url(/images/phone.png) no-repeat center}
 .sdl{ width:85%}
 /** 全局控件(遮罩，弹窗等) **/

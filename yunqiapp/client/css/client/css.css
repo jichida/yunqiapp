@@ -51,6 +51,9 @@ a:hover {
 :focus {
 	outline: none;
 }
+.gmcx{ color:#f20; font-weight:bold; font-size:18px; padding-top:5PX;}
+.gmyj{margin-left:20px; font-size:14px}
+.gmyjq{ font-size:15px}
 /*select*/
 .selectOption {
 	display: inline-block;

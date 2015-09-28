@@ -154,6 +154,7 @@ Template.oneproduct.helpers({
       return isproductinsalespromotions(this);
   },
 
+
   'currentprice':function(template){
     var currentprice = 0;
     var orginprice = 0;
@@ -166,14 +167,20 @@ Template.oneproduct.helpers({
               currentprice = thisproduct.price;
               orginprice = thisproduct.productprice*thisproduct.qty;
           }
-      }
+        }
     }
     console.log("currentid:"+this._id + ",price:" + currentprice);
+    var isdiscount = false;
     var priceshow = "￥" + currentprice;
     if(orginprice != currentprice){
+      isdiscount = true;
       priceshow = "原价:￥" + orginprice + ",优惠价:￥" + currentprice;
     }
-    return priceshow;
+    return {
+      isdiscount:isdiscount,
+      orginprice:orginprice,
+      currentprice:currentprice
+    };
   }
 });
 
