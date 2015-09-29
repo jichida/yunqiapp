@@ -77,3 +77,7 @@ Template.neworder.events({
       return selectordersalepromotion;
     }
   });
+
+  Template.neworder.rendered=function() {
+    $('#wanttime').pickadate();
+}
