@@ -12,6 +12,10 @@ Router.route('/test', function () {
 
 });
 
+Router.route('/signIn',function(){
+  this.render('signIn');
+});
+
 Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
 Router.route('/updateuseraddress/:addressid', function () {
@@ -49,7 +53,8 @@ Router.route('/profile', function () {
   }
   else{
       console.log("not login");
-      this.render('signIn', {to: 'content'});
+      this.redirect("/signIn");
+
    }
 
 });
@@ -293,9 +298,8 @@ Router.route('/homedetail/myredpackages/:_tabindex', function () {
 Router.onBeforeAction(function() {
   if (! Meteor.user()) {
     console.log("onBeforeAction not login");
-    this.layout('mainlayout');
-    this.render('navbar1', {to: 'navbar'});
-    this.render('signIn', {to: 'content'});
+    this.redirect("/signIn");
+    this.next();
   }
   else {
     console.log("onBeforeAction login");
@@ -305,9 +309,8 @@ Router.onBeforeAction(function() {
     }
     else{
       console.log("onBeforeAction is not user");
-      this.layout('mainlayout');
-      this.render('navbar1', {to: 'navbar'});
-      this.render('signIn', {to: 'content'});
+      this.redirect("/signIn");
+      this.next();
     }
   }
 },{

@@ -62,5 +62,3 @@ body .mainmenu li:nth-child(8n+8) {background-color:#fc5366}*/
 .class_nav li a { display:block; color:#FFF; }
 .class_nav li i { color:#777; display:block; margin:0 auto; }
 .class_nav li a:hover span, .class_nav li a:hover i , .class_nav li a.act i, .class_nav li a.act span{color:#77b400}
-
-

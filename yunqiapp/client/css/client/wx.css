@@ -117,7 +117,7 @@ Explanation: The station generic CSS style
 .block_f { display: block; }
 .i_block_f { display: inline-block; }
 .auto_f { margin-left: auto; margin-right: auto; }
-.auto_f .order_infor_box { padding:0;} 
+.auto_f .order_infor_box { padding:0;}
 .lf_f { float: left; }
 .rt_f { float: right; }
 .pa_f { position: absolute; }
@@ -176,7 +176,7 @@ Explanation: The station generic CSS style
 .initial_nav ul li a{ padding-top:0.7rem; font-family:microsoft yahei;}
 .initial_nav li i { width:3rem; height:2.2rem; line-height:2.2rem; font-size:2.2rem; }
 .initial_nav li span { /*font-size:1.2rem;*/ color:#555; display:block; }
-.header_region.clearfix .class_nav.initial_nav ul li  span { 
+.header_region.clearfix .class_nav.initial_nav ul li  span {
 }
 /*导航固定顶部滚动后图标样式*/
 .scroll_nav ul { margin-top:1rem; overflow:hidden; padding-bottom:1rem; }
@@ -278,7 +278,7 @@ Explanation: The station generic CSS style
 .goodsPostDay b { }
 /*================================*/
 .load_goodslist { width: 98%; margin: 0 auto; padding:0.8rem 0; }
-.load_goodslist a { width:98%; margin:0 auto; text-align:center; min-height:4.4rem; line-height:4.4rem; font-size:1.4rem; display:block; background:#fff; color:#333; 
+.load_goodslist a { width:98%; margin:0 auto; text-align:center; min-height:4.4rem; line-height:4.4rem; font-size:1.4rem; display:block; background:#fff; color:#333;
 -webkit-box-shadow:0 1px 2px rgba(0,0,0,.2);font-weight:600; }
 .load_goodslist a i { font-size:1.6rem; margin-right:0.5rem; }
 /*================================*/
@@ -524,7 +524,7 @@ display: inline-block; background-color: rgba(0,0,0,.2); }
 .order_infor_defray dt, .order_infor_coupon dt, .order_infor_message dt, .order_infor_convey dt { width:25%; min-width:7rem; text-align: right; }
 .items_defray, .items_coupon, .items_message, .items_convey { width:68%; margin-left:2%; }
 .items_defray .items input { display:none; }
-.items_defray .items label { width:45%; height:3rem; font-size:1.2rem; border:1px solid #d8d8d8; font-weight:bold; color:#5e5e5e; line-height:3rem; text-align:center; display:inline-block; margin:0 1.5% 1rem 0; 
+.items_defray .items label { width:45%; height:3rem; font-size:1.2rem; border:1px solid #d8d8d8; font-weight:bold; color:#5e5e5e; line-height:3rem; text-align:center; display:inline-block; margin:0 1.5% 1rem 0;
 cursor:pointer; }
 .items_defray .items label.select { border-color:#E76540; color:#FFF; background:#E76540;  }
 .order_model .btn_edit { margin-top:0; font-size:14px; color:#999}
@@ -901,12 +901,12 @@ width: 300px; overflow:hidden;}
 /*.class_but li#m1 a:{background-image:url(../img/class_ico_h.png);}*/
 
 /*梯形*/
-.trapezoid { 
-border-bottom: 50px solid #c5c5c5; 
+.trapezoid {
+border-bottom: 50px solid #c5c5c5;
 -moz-border-bottom-colors:#c5c5c5 #e1e1e1;
-border-left: 50px solid transparent; 
+border-left: 50px solid transparent;
 border-right: 50px solid transparent;
-height: 0; width: 100%; 
+height: 0; width: 100%;
 background: -webkit-gradient(linear, 0 0, 0 100%, from(#c5c5c5), to(#e1e1e1));
 background: -moz-linear-gradient(top, #070707, #282828);
 }
@@ -1597,5 +1597,3 @@ position: relative; color: #fff; display: block; width: 100%; text-indent: 5px; 
 .footer_list li:nth-of-type(1) ul{ width:90px;}
 .footer_list li:nth-of-type(2),.footer_list li:nth-of-type(3),.footer_list li:nth-of-type(4){width:28%;}
 .more_btn { width:100%; height:50px; cursor:pointer; display:block; color:#269bd1; font-size:2em; background:none;}
-
-

@@ -78,6 +78,6 @@ Template.neworder.events({
     }
   });
 
-  Template.neworder.rendered=function() {
+Template.neworder.rendered=function() {
     $('#wanttime').pickadate();
 }
