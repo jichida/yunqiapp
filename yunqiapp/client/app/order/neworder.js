@@ -39,29 +39,23 @@ Template.neworder.events({
     },
     'click #btnusemyaddress':function(){
       console.log('click btnuse my address');
-       var addresslist = [];
-       var deliveryaddress = '';
        var contactname = '';
-       var contacttel = '';
-       if(Meteor.user().profile.addresslist){
-         addresslist = Meteor.user().profile.addresslist;
+       var contacttel='';
+       var address ='';
+       if(Meteor.user().profile.defaultaddressid){
+          curaddress = UserAddress.findOne(Meteor.user().profile.defaultaddressid);
        }
-       console.log('click btnuse my address:'+EJSON.stringify(addresslist));
-       if(addresslist.length > 0){
-         var curaddress = addresslist[0];
-         for(var i=0;i<addresslist.length;i++){
-           if(addresslist[i].isdefault){
-             curaddress = addresslist[i];
-           }
-         }
-         deliveryaddress = curaddress.address;
+       else{
+         curaddress = UserAddress.findOne();
+       }
+       if(curaddress){
          contactname = curaddress.contactname;
          contacttel = curaddress.contacttel;
+         address = curaddress.address;
        }
- console.log('deliveryaddress:'+deliveryaddress);
        $('#contactname').val(contactname);
        $('#contacttel').val(contacttel);
-       $('#deliveryaddress').val(deliveryaddress);
+       $('#deliveryaddress').val(address);
     }
   });
 

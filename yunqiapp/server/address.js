@@ -1,56 +1,24 @@
 Meteor.methods({
     'insertAddress': function(addressDoc){
-		    var currentUserId = Meteor.userId();
-        var addresslist = [];
-        var usr = Meteor.users.findOne(currentUserId);
-        if (usr) {
-            if(usr.profile.addresslist){
-                addresslist = usr.profile.addresslist;
-            }
-        }
-        addresslist.push(addressDoc);
+        addressDoc = _.extend(addressDoc,{
+          userid:Meteor.userId()
+        });
+        console.log("insertAddress:" + EJSON.stringify(addressDoc));
+        UserAddress.insert(addressDoc);
 
-        console.log("insertAddress:" + EJSON.stringify(addresslist));
-        Meteor.call('setAddress', addresslist);
 	},
-  'setAddress':function(addresslist){
-        console.log("setAddress:" + EJSON.stringify(addresslist));
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.addresslist": addresslist}});
-    },
     'updateAddress':function(id,addressDoc){
-      var addresslist = [];
-      var currentUserId = Meteor.userId();
-      var usr = Meteor.users.findOne(currentUserId);
-      if (usr) {
-          if(usr.profile.addresslist){
-              addresslist = usr.profile.addresslist;
-          }
-      }
-      for(var i = 0;i < addresslist.length; i++){
-        if(addresslist[i].addressid == id){
-          addresslist[i] = addressDoc;
-        }
-      }
-      console.log("update methods:" + id +",resultlist:"+EJSON.stringify(addresslist));
-      Meteor.call('setAddress', addresslist);
+      addressDoc = _.extend(addressDoc,{
+        userid:Meteor.userId()
+      });
+      console.log("updateAddress:" + EJSON.stringify(addressDoc));
+      UserAddress.update(id,addressDoc);
     },
 
     'deleteAddress':function(id){
-      console.trace();
-      var addresslist = [];
-      var currentUserId = Meteor.userId();
-      var usr = Meteor.users.findOne(currentUserId);
-      if (usr) {
-          if(usr.profile.addresslist){
-            for(var i = 0;i < usr.profile.addresslist.length; i++){
-              if(usr.profile.addresslist[i].addressid != id){
-                addresslist.push(usr.profile.addresslist[i]);
-              }
-            }
-          }
-      }
-      console.log("deleteAddress methods:" + id +",resultlist:"+EJSON.stringify(addresslist));
-        Meteor.users.update(Meteor.userId(), {$set: {"profile.addresslist": addresslist}});
-    //  Meteor.call('setAddress', addresslist);
+      UserAddress.remove(id);
     },
+    'setdefaultaddress':function(id){
+      Meteor.users.update({_id:Meteor.userId()}, { $set:{"profile.defaultaddressid":id}} )
+    }
 });

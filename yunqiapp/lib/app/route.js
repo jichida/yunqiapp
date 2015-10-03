@@ -21,14 +21,7 @@ Router.route('/orderselectcoupon');
 Router.route('/updateuseraddress/:addressid', function () {
     this.layout('indexdetailpagelayout',{data: {title: '修改地址',returnurl:"/profile/useraddress",returnhome:'/profile'}});
 
-    var currentaddress = {};
-    if(Meteor.user().profile.addresslist){
-      for(var i = 0;i < Meteor.user().profile.addresslist.length; i++){
-        if(Meteor.user().profile.addresslist[i].addressid == this.params.addressid){
-           currentaddress = Meteor.user().profile.addresslist[i];
-        }
-      }
-    }
+    var currentaddress = UserAddress.findOne(this.params.addressid);
     this.render('updateuseraddress', {to: 'detailpagecontent',data:currentaddress});
 
 

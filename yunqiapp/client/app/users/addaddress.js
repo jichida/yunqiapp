@@ -9,8 +9,7 @@ Template.adduseraddress.events({
        address:address,
        contactname:contactname,
        contacttel:contacttel,
-       isdefault:false
-     }
+    }
      Meteor.call('insertAddress', addressDoc);
 
      console.log("address doc:"+EJSON.stringify(addressDoc));

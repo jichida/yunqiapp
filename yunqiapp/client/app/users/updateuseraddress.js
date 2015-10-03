@@ -8,9 +8,8 @@ Template.updateuseraddress.events({
        address:address,
        contactname:contactname,
        contacttel:contacttel,
-       isdefault:false
      }
-     Meteor.call('updateAddress',this.addressid, addressDoc);
+     Meteor.call('updateAddress',this._id, addressDoc);
 
      console.log("address doc:"+EJSON.stringify(addressDoc));
      Router.go("/profile/useraddress");

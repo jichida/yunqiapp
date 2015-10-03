@@ -10,6 +10,8 @@ Meteor.startup(function(){
         Meteor.subscribe("salespromotions");
         Meteor.subscribe("products");
         Meteor.subscribe("orders");
+        Meteor.subscribe('usermoney');
+        Meteor.subscribe('useraddress');
 
        // FlashMessages.configure({
         //     autoHide: true,
@@ -54,5 +56,13 @@ Meteor.startup(function(){
      Meteor.publish("salespromotions", function () {
         return SalesPromotions.find();
      });
+     Meteor.publish("usermoney", function () {
+        return UserMoney.find();
+     });
+     Meteor.publish("useraddress", function () {
+        return UserAddress.find();
+     });
+
+
  }
 });
