@@ -24,7 +24,7 @@ Template.useraddress.helpers({
           var addresslist = [];
           UserAddress.find({userid:Meteor.userId()}).forEach(function(address){
             addresslist.push(address);
-          })
+          });
           return addresslist;
       },
       'isdefault':function(){

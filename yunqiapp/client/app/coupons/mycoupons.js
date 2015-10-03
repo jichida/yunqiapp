@@ -10,7 +10,7 @@ Template.mycoupons.helpers({
               });
               mycoupons.push(cp);
             }
-          )
+          );
           return mycoupons;
       },
 });

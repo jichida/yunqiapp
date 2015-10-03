@@ -20,14 +20,10 @@
 </section>
 
 	</template>
-
     <template name="oneproduct">
           <li type="normal">
-
                     <div class="m-cartlist-info">
                         <h3>{{productname}}(单价:￥{{productprice}})</h3>
-
-
  <!---促销价-->
 {{#if currentprice.isdiscount}}
 <div><span class="gmyjq">促销价:<span class="gmcx">￥{{currentprice.currentprice}}</span></span><span class="gmyj">原价<del style="text-decoration:line-through">￥{{currentprice.orginprice}}</del></span></div>
