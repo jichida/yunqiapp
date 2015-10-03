@@ -69,7 +69,14 @@ Template.addsalespromotion.events({
     },
   });
 
-
+  Template.addsalespromotion.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }
+  Template.updatesalespromotion.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }
 
 Template.updatesalespromotion.helpers({
   'promotionlist':[

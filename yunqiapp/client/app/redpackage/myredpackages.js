@@ -1,13 +1,16 @@
 Template.myredpackages.helpers({
       'myredpackages': function () {
           var myredpackages = [];
-          var currentUserId = Meteor.userId();
-          var usr = Meteor.users.findOne(currentUserId);
-          if (usr) {
-            if(usr.myredpackages){
-              myredpackages = usr.myredpackages;
+          UserMoney.find({userid:Meteor.userId(),moneytype:'redpackage'}).forEach(
+            function(usermoney){
+              var redpackage = SystemRedPackages.findOne(usermoney.moneyid);
+              var rp = _.extend(redpackage,{
+                status:usermoney.status,
+                orderid:usermoney.orderid,
+              });
+              myredpackages.push(rp);
             }
-          }
+          )
           return myredpackages;
       },
 });

@@ -25,15 +25,16 @@ Meteor.methods({
              console.log("cursystempackage:" + EJSON.stringify(cursystempackage));
              if (cursystempackage){
                   if(cursystempackage.leftcount > 0){
-                        if(cursystempackage.detail){
-                                for( i in cursystempackage.detail){
-                                        if(cursystempackage.detail[i].userid == userid){
-                                                isavaliable = false;
-                                                info = "已经抢过该红包";
-                                                break;
-                                        }
-                                }
-                        }
+                      if(UserMoney.findOne(
+                        {
+                          userid:Meteor.userId(),
+                          moneyid:systemredpackageid,
+                          moneytype:'redpackage'
+                        })){
+                          info = "已经抢过啦";
+                          isavaliable = false;
+                      }
+
                   }
                   else{//无可用个数
                       info = "已经抢光啦";
@@ -55,35 +56,15 @@ Meteor.methods({
                           if(!error && result.isavaliable){//如果可以
                                 cursystempackage = SystemRedPackages.findOne({_id:systemredpackageid});
                                 if (cursystempackage){
-                                      var myredpackages =  {
-                                              title:cursystempackage.title,
-                                              systemredpackageid:cursystempackage._id,
-                                              money:cursystempackage.money,
-                                              createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
-                                              avaliablemoney:cursystempackage.money,
-                                              frozenmoney:0
-                                      };//生成一个用户红包
+                                      //生成一个用户红包
                                       //将红包放入用户账户
                                       //to do
-                                      Meteor.call('addredpackagetouser',userid,myredpackages);
+                                      Meteor.call('addredpackagetouser',userid,cursystempackage);
                                       //更新系统红包
                                       cursystempackage.leftcount--;//个数减1
-                                      var detailpackage = {
-                                          userid:userid,
-                                          username:Meteor.user().username(),
-                                          createtime:myredpackages.createtime,
-                                          money:myredpackages.money
-                                      }
-                                      var details = [];
-                                      if(cursystempackage.details){
-                                           details =  cursystempackage.details;
-                                      }
-                                      details.push(detailpackage);
-                                      console.log("cursystempackage:" + EJSON.stringify(cursystempackage));
                                       //更新
                                       SystemRedPackages.update(cursystempackage._id,{$set:
-                                               {detail: details,
-                                               leftcount:cursystempackage.leftcount}});
+                                               { leftcount:cursystempackage.leftcount}});
                                 }
                           }
                 });
@@ -92,16 +73,14 @@ Meteor.methods({
 
         'addredpackagetouser':function(userid,myredpackage){
               console.log("myredpackages:" + EJSON.stringify(myredpackage));
+              var usermoneyDoc = {
+                userid:userid,
+                moneytype:'redpackage',
+                moneyid:myredpackage._id,
+                status:'notused',
+              };
+              UserMoney.insert(usermoneyDoc);
 
-                var myredpackages = [];
-                var usr = Meteor.users.findOne(userid);
-                if (usr) {
-                        if(usr.myredpackages){
-                        myredpackages = usr.myredpackages;
-                }
-              }
-              myredpackages.push(myredpackage);
-              Meteor.users.update(userid, {$set: {myredpackages: myredpackages}});
         },
 
 

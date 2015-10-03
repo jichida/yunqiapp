@@ -8,12 +8,11 @@
 			<p><span>用户id:</span>{{curuser._id}}</p>
 			<p><span>用户注册手机号：</span>{{curuser.username}}</p>
 
-			<p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btnsendcoupon"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发优惠券</a></p>
-			<p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btnsendredpackage"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发红包</a></p>
+			<p class='redPackageLnk'><a href='/admin/sendusercoupon/{{curuser._id}}' class="btn btn-primary"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发优惠券</a></p>
+			<p class='redPackageLnk'><a href='/admin/sendredpackage/{{curuser._id}}' class="btn btn-primary"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发红包</a></p>
 		</div>
 	</div>
-	<div class="panel panel-default">
-		<!-- Table -->
+	<div class="panel panel-default">		<!-- Table -->
 		<table class='table jdc_admin_table'>
 			<tr>
 				<th>地址</th>

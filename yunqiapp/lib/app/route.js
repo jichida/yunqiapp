@@ -20,7 +20,6 @@ Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
 Router.route('/updateuseraddress/:addressid', function () {
     this.layout('indexdetailpagelayout',{data: {title: '修改地址',returnurl:"/profile/useraddress",returnhome:'/profile'}});
-
     var currentaddress = UserAddress.findOne(this.params.addressid);
     this.render('updateuseraddress', {to: 'detailpagecontent',data:currentaddress});
 

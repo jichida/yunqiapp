@@ -123,6 +123,20 @@ Router.route('/admin/addproduct', function () {
   //this.render('adminuserinfo',{data:{curuser:curuser}});
  });
 
+ Router.route('/admin/sendusercoupon/:userid', function () {
+ console.log("admin adminuserinfo html");
+ var userid = this.params.userid;
+ this.layout('adminmainlayout');
+ this.render('adminnavbar', {to: 'adminnavbar'});
+ var data = {
+   userid:userid,
+   usertruename:Meteor.users.findOne(userid).profile.truename
+ };
+ this.layout('adminmainlayout');
+ this.render('adminnavbar', {to: 'adminnavbar'});
+ this.render('sendusercoupon',{to: 'admincontent',data:data});
+ });
+
  //订单详情
 Router.route('/admin/adminorderinfo/:id', function () {
   console.log("admin adminorderinfo html");

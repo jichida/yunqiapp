@@ -16,6 +16,7 @@ Template.addredpackage.events({
               endtime:endtime,
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
               amountcount:amountcount,
+              leftcount:amountcount,
               offamount:offamount,
               isavaliable:isavaliable
           }
@@ -53,3 +54,12 @@ Template.addredpackage.events({
 
     },
   });
+
+  Template.addredpackage.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }
+  Template.updateredpackage.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }

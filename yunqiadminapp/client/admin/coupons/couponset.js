@@ -53,3 +53,12 @@ Template.addcoupon.events({
 
     },
   });
+
+  Template.addcoupon.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }
+  Template.updatecoupon.rendered=function() {
+    $('#starttime').pickadate();
+    $('#endtime').pickadate();
+  }
