@@ -115,14 +115,27 @@
 										    </tr>
 												<tr>
 										      <th>现价</th>
-										      <td><span class="px1">￥{{price}}</span></td>
+										      <td><span class="px1">￥{{price}}
+													</span></td>
 										    </tr>
 										{{/if}}
 					          </tbody>
                 </table>
                 <p></p>
       {{/each}}
-       <a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}</strong></em></a> </li>
+
+		{{#if usepaymoneylist}}
+		<a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}
+			{{#each order.paymoneylist}}
+			 -￥{{money}}
+		 {{/each}} = ￥{{order.finalmoney}}
+	 </strong></em></a>
+		{{else}}
+		<a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}</strong></em></a>
+		{{/if}}
+
+
+		 </li>
 
        </ul>
 </template>

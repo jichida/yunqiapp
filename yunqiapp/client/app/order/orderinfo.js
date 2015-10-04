@@ -32,5 +32,14 @@ Template.orderproduct.helpers({
   },
   'orginprice':function(){
     return this.qty*this.productprice;
-  }
+  },
+  'usepaymoneylist':function(){
+    var result = false;
+    if(this.order.paymoneylist){
+      result = this.order.paymoneylist.length > 0;
+    }
+    console.log("usepaymoneylist" + result);
+    return result;
+  },
+
 });

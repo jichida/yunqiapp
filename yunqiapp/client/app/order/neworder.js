@@ -102,10 +102,43 @@ Template.neworder.events({
       for( j in productlistsession){
           amount += productlistsession[j].price;
       };
+      finalmoney = amount;
+
+      var paymoneylist = [];
+      var usecouponid = this.usecouponid.get();
+      var useredpackageid = this.useredpackageid.get();
+      var coupon = Coupons.findOne(usecouponid);
+      if(coupon){
+        paymoneylist.push({
+          type:'coupon',
+          money:coupon.offamount,
+          id:usecouponid
+        });
+        finalmoney = finalmoney - coupon.offamount;
+      }
+      var redpackage = SystemRedPackages.findOne(useredpackageid);
+      if(redpackage){
+        paymoneylist.push({
+          type:'redpackage',
+          money:redpackage.money,
+          id:useredpackageid
+        });
+        finalmoney = finalmoney - redpackage.money;
+      }
+
+      var redpackage = SystemRedPackages.findOne(useredpackageid);
+      if(redpackage){
+        useredpackage = true;
+        redpackagetitle = redpackage.title;
+      }
+
       var order = {
         orderproductlists:productlistsession,
         orderamount:amount,
+        paymoneylist:paymoneylist,
+        finalmoney:finalmoney,
       };
+      console.log("order:" + EJSON.stringify(order));
       return {order:order};
 
     }
