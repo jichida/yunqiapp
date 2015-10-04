@@ -1,7 +1,8 @@
 Template.orderselectredpackage.events({
     'click #btnselredpackage':function(){
         console.log("btnselredpackage:this" + EJSON.stringify(this));
-        this.curnewpagename.set('newmyorder');
+        this.useredpackageid.set(this._id);
+        this.curnewpagename.set('neworder');
     },
   });
 
@@ -10,7 +11,8 @@ Template.orderselectredpackage.events({
       var redpackagelist = globalgetmyredpackage('allisvalid');
       var self=this;
       redpackagelist = _.map(redpackagelist,function(p){
-        return _.extend(p,{curnewpagename:self.curnewpagename});
+        return _.extend(p,{curnewpagename:self.curnewpagename,
+        useredpackageid:self.useredpackageid});
       });
       return redpackagelist;
     }

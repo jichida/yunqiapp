@@ -64,14 +64,34 @@ Template.neworder.events({
 
   ﻿Template.neworder.helpers({
     'selectordersalepromotion':function(){
-      var selectordersalepromotion = Session.get("selectordersalepromotion");
-      if(selectordersalepromotion == null){
-        selectordersalepromotion = {
-          useredpackage:false,
-          usecoupon:false
-        };
+      var usecoupon = false;
+      var useredpackage = false;
+      var usecouponid = this.usecouponid.get();
+      var useredpackageid = this.useredpackageid.get();
+      var coupon = Coupons.findOne(usecouponid);
+      var coupontitle = '';
+      var redpackagetitle = '';
+      if(coupon){
+        usecoupon = true;
+        coupontitle = coupon.title;
       }
-      return selectordersalepromotion;
+
+      var redpackage = SystemRedPackages.findOne(useredpackageid);
+      if(redpackage){
+        useredpackage = true;
+        redpackagetitle = redpackage.title;
+      }
+
+      var data = {
+        usecoupon:usecoupon,
+        coupontitle:coupontitle,
+        useredpackage:useredpackage,
+        redpackagetitle:redpackagetitle,
+        usecouponid:usecouponid,
+        useredpackageid:useredpackageid,
+      };
+      console.log("selectordersalepromotion data:" + EJSON.stringify(data));
+      return data;
     },
     'getcurrentorderdata':function(){
       var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
