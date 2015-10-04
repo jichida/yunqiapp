@@ -1,0 +1,24 @@
+﻿<template name="newmyorder">
+  <header class="header"> <a href="#" id="btnreturn" class="back"></a>
+    <div class="h_label">下单</div>
+    </header>
+  <div style="{{#if iscurpagename 'selectproduct'}}display:block{{else}}display:none{{/if}}">
+    {{> selectproduct getNewOrderDataInstance}}
+  </div>
+
+  <div style="{{#if iscurpagename 'neworder'}}display:block{{else}}display:none{{/if}}">
+  {{> neworder getNewOrderDataInstance}}
+  </div>
+
+  <div style="{{#if iscurpagename 'orderselectaddress'}}display:block{{else}}display:none{{/if}}">
+  {{> orderselectaddress getNewOrderDataInstance}}
+  </div>
+
+  <div style="{{#if iscurpagename 'orderselectcoupon'}}display:block{{else}}display:none{{/if}}">
+  {{> orderselectcoupon getNewOrderDataInstance}}
+  </div>
+
+  <div style="{{#if iscurpagename 'orderselectredpackage'}}display:block{{else}}display:none{{/if}}">
+  {{> orderselectredpackage getNewOrderDataInstance}}
+  </div>
+</template>

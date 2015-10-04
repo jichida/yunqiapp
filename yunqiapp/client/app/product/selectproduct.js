@@ -1,5 +1,7 @@
 //产品是否在促销列表中
 function isproductinsalespromotions(productdoc){
+  console.log("isproductinsalespromotions:" + EJSON.stringify(this));
+
   var isspecialproductdiscount = false;
   var isbuyonefreeone = false;
   var title1 = '';
@@ -31,12 +33,16 @@ function isproductinsalespromotions(productdoc){
 }
 
 //在session中更新某个产品和对应的数量
-function updateandrecalc(productid,qty){
-  var productlistsession = Session.get("productlistsession");
+function updateandrecalc(productDoc,productid,qty){
+  console.log("===============updateandrecalc productDoc:" + EJSON.stringify(productDoc));
+  var productlistsession = productDoc.productlistsession.get();
+  console.log("updateandrecalc:" + EJSON.stringify(productlistsession));
+
   if(productlistsession == null){
      productlistsession = new Array();
   }
   var curproduct = Products.findOne(productid);
+  console.log("curproduct:" + EJSON.stringify(curproduct) + "productid:" + productid);
   if(curproduct){
     var isinarray = false;
     var araryindex = 0;
@@ -98,8 +104,8 @@ function updateandrecalc(productid,qty){
     if(qty > 0){
       productlistsession.push(sessionproduct);
     }
-
-    Session.set("productlistsession",productlistsession);
+    productDoc.productlistsession.set(productlistsession);
+    //Session.set("productlistsession",productlistsession);
   }
 
 }
@@ -108,8 +114,9 @@ function updateandrecalc(productid,qty){
 
 Template.selectproduct.helpers({
       'sessionorderamount':function(){
+        console.log("sessionorderamount:" + EJSON.stringify(this));
               //订单总金额
-          var productlistsession = Session.get("productlistsession");
+          var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
           var amount = 0;
 
           if(productlistsession != null){
@@ -122,10 +129,11 @@ Template.selectproduct.helpers({
 
       },
       'products': function () {
+        console.log("products:" + EJSON.stringify(this));
           //列出所有产品,来自db
           var productlistret = [];
           var productlistdb = Products.find();
-          var productlistsession = Session.get("productlistsession");
+          var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
           if(productlistsession == null){
              productlistdb.forEach(function(productdb){
                  productdb.qty = 0;
@@ -144,6 +152,11 @@ Template.selectproduct.helpers({
              });
           }
         console.log("productlist:"+ EJSON.stringify(productlistret));
+        var self = this;
+        productlistret = _.map(productlistret,function(p) {
+            return _.extend(p,{curnewpagename:self.curnewpagename,
+            productlistsession:self.productlistsession});
+        });
         return productlistret;
      }
 });
@@ -156,9 +169,11 @@ Template.oneproduct.helpers({
 
 
   'currentprice':function(template){
+    console.log("currentprice:" + EJSON.stringify(this));
+
     var currentprice = 0;
     var orginprice = 0;
-    var productlistsession = Session.get("productlistsession");
+    var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
     if(productlistsession){
       for( var index = 0 ;index < productlistsession.length;index++){
          var thisproduct = productlistsession[index];
@@ -187,18 +202,14 @@ Template.oneproduct.helpers({
 Template.selectproduct.events({
     'click .btnnext': function(event, template) {
        event.preventDefault();
-       var productlistsession = Session.get("productlistsession");
+       var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
        if(productlistsession){
          if(productlistsession.length == 0){
            alert("请至少选择一种商品");
            return;
          }
        }
-       var tabindex = this.tabindex;
-       var action  = this.action;
-       console.log("tabindex:"+tabindex +",action:" + action);
-       ///homedetail/neworder/
-       Router.go("/homedetail/neworder/" + tabindex);
+       this.curnewpagename.set('neworder');
     }
 
     });
@@ -210,7 +221,7 @@ Template.selectproduct.events({
             var qty = parseInt(template.find('.qty').value,10);
             if(qty > 0){
                 qty = qty - 1;
-                updateandrecalc(pid,qty);
+                updateandrecalc(this,pid,qty);
             }
         },
         'click .inc':function(event,template){
@@ -219,7 +230,7 @@ Template.selectproduct.events({
             var qty = parseInt(template.find('.qty').value,10);
             if(qty >= 0){
                 qty = qty + 1;
-                updateandrecalc(pid,qty);
+                updateandrecalc(this,pid,qty);
             }
         },
     });

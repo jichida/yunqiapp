@@ -26,7 +26,7 @@ Router.route('/updateuseraddress/:addressid', function () {
 
 });
 Router.route('/forgetpassword');
-
+Router.route('/newmyorder');
 
 Router.route('/profile', function () {
   this.layout('mainlayout');

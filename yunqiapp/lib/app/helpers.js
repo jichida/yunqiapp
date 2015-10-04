@@ -25,7 +25,7 @@ globalgetmyredpackage = function(conditiontype){
          }
        }
      );
-    console.log("redpackagelist:" + EJSON.stringify(redpackagelist));
+    console.log("globalgetmyredpackage redpackagelist:" + EJSON.stringify(redpackagelist));
     return redpackagelist;
 };
 
@@ -55,6 +55,6 @@ globalgetmycoupon = function(conditiontype){
       }
     }
   );
-  console.log("couponlist:" + EJSON.stringify(couponlist));
+  console.log("globalgetmycoupon couponlist:" + EJSON.stringify(couponlist));
   return couponlist;
 }

@@ -3,7 +3,7 @@ Template.neworder.events({
       console.log("click btn btnsubmit");
       event.preventDefault();
 
-      var productlistsession = Session.get("productlistsession");
+      var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
       if(productlistsession == null){
           productlistsession = [];
       }
@@ -32,10 +32,13 @@ Template.neworder.events({
       Router.go('/profile');
     },
     'click #btnuseorderselectredpackage':function(){
-      Router.go('/orderselectredpackage');
+      console.log("btnuseorderselectredpackage:this" + EJSON.stringify(this));
+      this.curnewpagename.set('orderselectredpackage');
+    //  Router.go('/orderselectredpackage');
     },
     'click #btnuseorderselectcoupon':function(){
-      Router.go('/orderselectcoupon');
+      this.curnewpagename.set('orderselectcoupon');
+    //  Router.go('/orderselectcoupon');
     },
     'click #btnusemyaddress':function(){
       console.log('click btnuse my address');
@@ -69,6 +72,22 @@ Template.neworder.events({
         };
       }
       return selectordersalepromotion;
+    },
+    'getcurrentorderdata':function(){
+      var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
+      if(productlistsession == null){
+          productlistsession = [];
+      }
+      var amount = 0;
+      for( j in productlistsession){
+          amount += productlistsession[j].price;
+      };
+      var order = {
+        orderproductlists:productlistsession,
+        orderamount:amount,
+      };
+      return {order:order};
+
     }
   });
 

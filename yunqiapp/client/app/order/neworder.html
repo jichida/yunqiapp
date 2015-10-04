@@ -1,16 +1,15 @@
 ﻿<template name="neworder">
-    <fieldset>
+
+  <fieldset>
    <!-- <legend>订单信息</legend>-->
-   {{> orderproduct}}
+   {{> orderproduct getcurrentorderdata}}
    </fieldset>
   <form><ul class="round">
-
-
-            <li class="nob">
+      <li class="nob">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
-                      <th>其他地址</th>
+                  <th>其他地址</th>
                       <td><a href="#" id="btnusemyaddress"><span  class="swrrtt sweqq">使用我的地址</span></a></td>
                     </tr>
           </tbody>

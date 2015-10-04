@@ -1,7 +1,7 @@
 <template name="orderselectredpackage">
 <div id="content">
 	<div class="content_m">
-		 {{#each getmyredpackage 'allisvalid'}}
+		 {{#each mylistredpackage}}
 			<a href="#" id="btnselredpackage">
 				<div style="margin-top:10px;" class="login_m">
 			<div class="coubox">
@@ -23,8 +23,6 @@
 		  </div>
 		</a>
 		{{/each}}
-
-
 	</div>
 </div>
 </template>
