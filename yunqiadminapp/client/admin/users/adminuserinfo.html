@@ -24,7 +24,9 @@
 			{{#each couponlist}}
 			<tr>
 				<td>{{title}}</td>
-				<td>{{status}}</td>
+				<td>{{#if isequal status 'notused'}}未使用{{/if}}
+				{{#if isequal status 'used'}}已使用{{/if}}
+			{{#if isequal status 'invalid'}}无效{{/if}}</td>
 				<td>
 					{{#if isEmptyString orderid}}
 					{{else}}
@@ -52,7 +54,9 @@
 			{{#each redpackagelist}}
 			<tr>
 				<td>{{title}}</td>
-				<td>{{status}}</td>
+				<td>{{#if isequal status 'notused'}}未使用{{/if}}
+				{{#if isequal status 'used'}}已使用{{/if}}
+			{{#if isequal status 'invalid'}}无效{{/if}}</td>
 				<td>
 					{{#if isEmptyString orderid}}
 					{{else}}

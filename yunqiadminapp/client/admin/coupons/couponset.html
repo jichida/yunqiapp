@@ -15,6 +15,17 @@
 				</select>
 			</div>
 			<div class="form-group">
+					<label for="invalidtype">优惠券失效类型</label>
+				<select id="invalidtype">
+					<option value="fixedendtime" selected="selected">固定截止日期</option>
+					<option value="fixeddays" selected="selected">固定天数</option>
+				</select>
+			</div>
+			<div class="form-group">
+			    <label for="invaliddays">失效天数</label>
+			    <input type="text" id="invaliddays" class="form-control" placeholder="请输入失效天数">
+			</div>
+			<div class="form-group">
 			    <label for="starttime">开始时间</label>
 			    <input type="text" id="starttime" class="form-control" placeholder="请输入开始时间">
 			</div>
@@ -55,6 +66,17 @@
 				<select id="coupontype">
 					<option value="101" selected="selected">满就减</option>
 				</select>
+			</div>
+			<div class="form-group">
+					<label for="invalidtype">优惠券失效类型</label>
+				<select id="invalidtype">
+					<option value="fixedendtime" selected="selected">固定截止日期</option>
+					<option value="fixeddays" selected="selected">固定天数</option>
+				</select>
+			</div>
+			<div class="form-group">
+					<label for="invaliddays">失效天数</label>
+					<input type="text" id="invaliddays" class="form-control" placeholder="{{curcoupon.invaliddays}}">
 			</div>
 			<div class="form-group">
 			    <label for="starttime">开始时间</label>

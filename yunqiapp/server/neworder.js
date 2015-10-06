@@ -1,7 +1,13 @@
 	Meteor.methods({
 		'insertOrder': function(orderData){
-		//var currentUserId = Meteor.userId();
-  			Orders.insert(orderData);
+				 var orderid =	Orders.insert(orderData);
+				 if(orderData.paymoneylist){
+					 for (var i = 0; i < orderData.paymoneylist.length; i ++ ){
+						 var paymoney = orderData.paymoneylist[i];
+						 UserMoney.update(UserMoney.findOne({userid:Meteor.userId(),moneytype:paymoney.type,moneyid:paymoney.id})._id,
+						{status:'used',orderid:orderid});
+					 }
+				 }
 		},
 		'setOrderStatus':function(id,setDoc){
 				console.log("before updateSalespromotion:" + EJSON.stringify(Orders.findOne(id)));

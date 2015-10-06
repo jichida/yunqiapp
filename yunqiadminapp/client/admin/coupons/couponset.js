@@ -8,11 +8,15 @@ Template.addcoupon.events({
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
           var offamount = $('#offamount').val();
+          var invaliddays = parseInt($('#invaliddays').val(),10);
+          var invalidtype = $('#invalidtype').val();
           var couponDoc = {
               title:title,
               coupontype:coupontype,
+              invalidtype:invalidtype,
               starttime:starttime,
               endtime:endtime,
+              invaliddays:invaliddays,
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
               conditionamount:conditionamount,
               offamount:offamount,
@@ -36,9 +40,13 @@ Template.addcoupon.events({
           var endtime= $('#endtime').val();//时间日期类型
           var conditionamount = $('#conditionamount').val();
           var offamount = $('#offamount').val();
+          var invaliddays = parseInt($('#invaliddays').val(),10);
+          var invalidtype = $('#invalidtype').val();
           var couponDoc = {
               title:title,
               coupontype:coupontype,
+              invalidtype:invalidtype,
+              invaliddays:invaliddays,
               starttime:starttime,
               endtime:endtime,
               createtime:moment().format('YYYY-MM-DD HH:mm:ss'),

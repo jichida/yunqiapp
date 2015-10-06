@@ -11,6 +11,7 @@
 			<p><span>支付方式：</span>{{curorder.paytypestring}}</p>
 			<p><span>订单状态：</span>{{curorder.orderstatusstring}}</p>
 			<p><span>金额：</span>{{curorder.orderamount}}</p>
+			<p><span>应付金额：</span>{{curorder.finalmoney}}</p>
 			<p><span>下单时间：</span>{{curorder.createtime}}</p>
 			{{#if orderispaid}}
       <p class='redPackageLnk'><a href='#' class="btn btn-primary" id="btndelivery"><span class='glyphicon glyphicon-pencil' style="color: #FFF;"></span> 发货</a></p>
@@ -37,4 +38,22 @@
 			</tr>
 		</table>
 	</div>
+	{{#each curorder.paymoneylist}}
+	<div class="panel panel-default">
+		<!-- Table -->
+		<table class='table jdc_admin_table'>
+			<tr>
+				<th>类型</th>
+				<th>抵扣金额</th>
+				<th>关联ID</th>
+			</tr>
+			<tr>
+				<td>{{#if isequal type 'redpackage'}}红包{{/if}}
+				{{#if isequal type 'coupon'}}优惠券{{/if}}</td>
+				<td>{{money}}</td>
+				<td>{{id}}</td>
+			</tr>
+		</table>
+	</div>
+	{{/each}}
 </template>

@@ -11,6 +11,31 @@ Template.neworder.events({
       for( j in productlistsession){
           amount += productlistsession[j].price;
       };
+
+      var finalmoney = amount;
+
+      var paymoneylist = [];
+      var usecouponid = this.usecouponid.get();
+      var useredpackageid = this.useredpackageid.get();
+      var coupon = Coupons.findOne(usecouponid);
+      if(coupon){
+        paymoneylist.push({
+          type:'coupon',
+          money:coupon.offamount,
+          id:usecouponid
+        });
+        finalmoney = finalmoney - coupon.offamount;
+      }
+      var redpackage = SystemRedPackages.findOne(useredpackageid);
+      if(redpackage){
+        paymoneylist.push({
+          type:'redpackage',
+          money:redpackage.money,
+          id:useredpackageid
+        });
+        finalmoney = finalmoney - redpackage.money;
+      }
+
 			var currentUserId = Meteor.userId();
 			var orderData = {
         orderno:Random.id([8]),
@@ -26,9 +51,13 @@ Template.neworder.events({
         orderstatusstring:'待支付',
         orderamount:amount,
         createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
-        orderproductlists:productlistsession
+        orderproductlists:productlistsession,
+        finalmoney:finalmoney,
+        paymoneylist:paymoneylist
 			};
-   		Meteor.call('insertOrder', orderData);
+   		Meteor.call('insertOrder', orderData,function(error,result){
+
+      });
       Router.go('/profile');
     },
     'click #btnuseorderselectredpackage':function(){

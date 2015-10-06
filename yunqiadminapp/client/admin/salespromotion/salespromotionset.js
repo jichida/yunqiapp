@@ -1,22 +1,22 @@
 
 Template.addsalespromotion.helpers({
   'promotionlist':[
-    {
-      typevalue:'101',
-      typestring:'全场包邮',
-    },
-    {
-      typevalue:'102',
-      typestring:'满额包邮',
-    },
-    {
-      typevalue:'103',
-      typestring:'满就赠指定商品',
-    },
-    {
-      typevalue:'104',
-      typestring:'满就赠优惠券',
-    },
+    // {
+    //   typevalue:'101',
+    //   typestring:'全场包邮',
+    // },
+    // {
+    //   typevalue:'102',
+    //   typestring:'满额包邮',
+    // },
+    // {
+    //   typevalue:'103',
+    //   typestring:'满就赠指定商品',
+    // },
+    // {
+    //   typevalue:'104',
+    //   typestring:'满就赠优惠券',
+    // },
     {
       typevalue:'201',
       typestring:'购买指定商品打折',
@@ -80,22 +80,22 @@ Template.addsalespromotion.events({
 
 Template.updatesalespromotion.helpers({
   'promotionlist':[
-    {
-      typevalue:'101',
-      typestring:'全场包邮',
-    },
-    {
-      typevalue:'102',
-      typestring:'满额包邮',
-    },
-    {
-      typevalue:'103',
-      typestring:'满就赠指定商品',
-    },
-    {
-      typevalue:'104',
-      typestring:'满就赠优惠券',
-    },
+    // {
+    //   typevalue:'101',
+    //   typestring:'全场包邮',
+    // },
+    // {
+    //   typevalue:'102',
+    //   typestring:'满额包邮',
+    // },
+    // {
+    //   typevalue:'103',
+    //   typestring:'满就赠指定商品',
+    // },
+    // {
+    //   typevalue:'104',
+    //   typestring:'满就赠优惠券',
+    // },
     {
       typevalue:'201',
       typestring:'购买指定商品打折',
