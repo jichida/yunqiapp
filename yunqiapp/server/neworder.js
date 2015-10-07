@@ -4,8 +4,7 @@
 				 if(orderData.paymoneylist){
 					 for (var i = 0; i < orderData.paymoneylist.length; i ++ ){
 						 var paymoney = orderData.paymoneylist[i];
-						 UserMoney.update(UserMoney.findOne({userid:Meteor.userId(),moneytype:paymoney.type,moneyid:paymoney.id})._id,
-						{status:'used',orderid:orderid});
+						 UserMoney.update(paymoney.id,{$set:{status:'used',orderid:orderid}});
 					 }
 				 }
 		},

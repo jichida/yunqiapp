@@ -14,6 +14,8 @@ if(Meteor.isServer){
 					userid:userid,
 					moneyid:couponid,
 					invalidtime:invalidtime,
+					usefulmoney:coupon.offamount,
+					moneytitle:coupon.title,
 					moneytype:'coupon',
 					status:'notused',
 					orderid:''

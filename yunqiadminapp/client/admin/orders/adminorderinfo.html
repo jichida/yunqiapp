@@ -29,13 +29,15 @@
 				<th>订购数量</th>
 				<th>金额</th>
 			</tr>
-			<tr>
+
 			{{#each curorder.orderproductlists}}
+			<tr>
 				<td><a href="/admin/productinfo/{{productid}}">{{productname}}</a></td>
 				<td>{{qty}}</td>
 				<td>{{productprice}}</td>
-			{{/each}}
 			</tr>
+			{{/each}}
+
 		</table>
 	</div>
 	{{#each curorder.paymoneylist}}

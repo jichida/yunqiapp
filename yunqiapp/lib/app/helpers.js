@@ -5,12 +5,15 @@ globalgetmyredpackage = function(conditiontype){
          var redpacakge = SystemRedPackages.findOne(usermoney.moneyid);
          var orderid = usermoney.orderid;
          var cp = _.extend(redpacakge,{
+           usermoneyid:usermoney._id,
+           invalidtime:usermoney.invalidtime,
+           usefulmoney:usermoney.usefulmoney,
            status:usermoney.status,
            orderid:orderid,
          });
 
          if(conditiontype == 'allisvalid'){
-           if(cp.status == 'notused' && cp.endtime > moment().format('YYYY-MM-DD')
+           if(cp.status == 'notused' && cp.invalidtime > moment().format('YYYY-MM-DD')
            && cp.isavaliable == true){
              redpackagelist.push(cp);
            }
@@ -36,11 +39,14 @@ globalgetmycoupon = function(conditiontype){
       var conpon = Coupons.findOne(usermoney.moneyid);
       var orderid = usermoney.orderid;
       var cp = _.extend(conpon,{
+        usermoneyid:usermoney._id,
+        invalidtime:usermoney.invalidtime,
+        usefulmoney:usermoney.usefulmoney,
         status:usermoney.status,
         orderid:orderid,
       });
       if(conditiontype == 'allisvalid'){
-        if(cp.status == 'notused' && cp.endtime > moment().format('YYYY-MM-DD')
+        if(cp.status == 'notused' && cp.invalidtime > moment().format('YYYY-MM-DD')
         && cp.isavaliable == true){
           couponlist.push(cp);
         }

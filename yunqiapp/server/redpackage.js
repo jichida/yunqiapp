@@ -73,8 +73,19 @@ Meteor.methods({
 
         'addredpackagetouser':function(userid,myredpackage){
               console.log("myredpackages:" + EJSON.stringify(myredpackage));
+              var invalidtime = '';
+              if(myredpackage.invalidtype == 'fixeddays'){
+                invalidtime = moment().add({days:myredpackage.invaliddays}).format('YYYY-MM-DD');
+              }
+              else {
+                //fixedendtime
+                invalidtime = myredpackage.endtime;
+              }
               var usermoneyDoc = {
                 userid:userid,
+                invalidtime:invalidtime,
+                usefulmoney:myredpackage.money,
+                moneytitle:myredpackage.title,
                 moneytype:'redpackage',
                 moneyid:myredpackage._id,
                 status:'notused',

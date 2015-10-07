@@ -1,7 +1,7 @@
 Template.orderselectredpackage.events({
     'click #btnselredpackage':function(){
         console.log("btnselredpackage:this" + EJSON.stringify(this));
-        this.useredpackageid.set(this._id);
+        this.useredpackageid.set(this.usermoneyid);
         this.curnewpagename.set('neworder');
     },
   });

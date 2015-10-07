@@ -3,7 +3,7 @@ Template.orderselectcoupon.events({
     'click #btnselcoupon':function(){
       //  this.curnewpagename.set('newmyorder');
        console.log("btnselcoupon:this" + EJSON.stringify(this));
-        this.usecouponid.set(this._id);
+        this.usecouponid.set(this.usermoneyid);
         this.curnewpagename.set('neworder');
     },
   });

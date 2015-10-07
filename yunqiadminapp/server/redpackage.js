@@ -75,6 +75,7 @@ Meteor.methods({
               console.log("myredpackages:" + EJSON.stringify(myredpackage));
               var usermoneyDoc = {
                 userid:userid,
+                moneytitle:myredpackage.title,
                 moneytype:'redpackage',
                 moneyid:myredpackage._id,
                 status:'notused',

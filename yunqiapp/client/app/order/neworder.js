@@ -17,23 +17,23 @@ Template.neworder.events({
       var paymoneylist = [];
       var usecouponid = this.usecouponid.get();
       var useredpackageid = this.useredpackageid.get();
-      var coupon = Coupons.findOne(usecouponid);
-      if(coupon){
+      var usermoneycoupon = UserMoney.findOne(usecouponid);
+      if(usermoneycoupon){
         paymoneylist.push({
           type:'coupon',
-          money:coupon.offamount,
+          money:usermoneycoupon.usefulmoney,
           id:usecouponid
         });
-        finalmoney = finalmoney - coupon.offamount;
+        finalmoney = finalmoney - usermoneycoupon.usefulmoney;
       }
-      var redpackage = SystemRedPackages.findOne(useredpackageid);
-      if(redpackage){
+      var usermoneyredpackage = UserMoney.findOne(useredpackageid);
+      if(usermoneyredpackage){
         paymoneylist.push({
           type:'redpackage',
-          money:redpackage.money,
+          money:usermoneyredpackage.usefulmoney,
           id:useredpackageid
         });
-        finalmoney = finalmoney - redpackage.money;
+        finalmoney = finalmoney - usermoneyredpackage.usefulmoney;
       }
 
 			var currentUserId = Meteor.userId();
@@ -97,18 +97,18 @@ Template.neworder.events({
       var useredpackage = false;
       var usecouponid = this.usecouponid.get();
       var useredpackageid = this.useredpackageid.get();
-      var coupon = Coupons.findOne(usecouponid);
+      var usermoneycoupon = UserMoney.findOne(usecouponid);
       var coupontitle = '';
       var redpackagetitle = '';
-      if(coupon){
+      if(usermoneycoupon){
         usecoupon = true;
-        coupontitle = coupon.title;
+        coupontitle = usermoneycoupon.moneytitle;
       }
 
-      var redpackage = SystemRedPackages.findOne(useredpackageid);
-      if(redpackage){
+      var usermoneyredpackage = UserMoney.findOne(useredpackageid);
+      if(usermoneyredpackage){
         useredpackage = true;
-        redpackagetitle = redpackage.title;
+        redpackagetitle = usermoneyredpackage.moneytitle;
       }
 
       var data = {
@@ -136,29 +136,23 @@ Template.neworder.events({
       var paymoneylist = [];
       var usecouponid = this.usecouponid.get();
       var useredpackageid = this.useredpackageid.get();
-      var coupon = Coupons.findOne(usecouponid);
-      if(coupon){
+      var usermoneycoupon = UserMoney.findOne(usecouponid);
+      if(usermoneycoupon){
         paymoneylist.push({
           type:'coupon',
-          money:coupon.offamount,
+          money:usermoneycoupon.usefulmoney,
           id:usecouponid
         });
-        finalmoney = finalmoney - coupon.offamount;
+        finalmoney = finalmoney - usermoneycoupon.usefulmoney;
       }
-      var redpackage = SystemRedPackages.findOne(useredpackageid);
-      if(redpackage){
+      var usermoneyredpackage = UserMoney.findOne(useredpackageid);
+      if(usermoneyredpackage){
         paymoneylist.push({
           type:'redpackage',
-          money:redpackage.money,
+          money:usermoneyredpackage.usefulmoney,
           id:useredpackageid
         });
-        finalmoney = finalmoney - redpackage.money;
-      }
-
-      var redpackage = SystemRedPackages.findOne(useredpackageid);
-      if(redpackage){
-        useredpackage = true;
-        redpackagetitle = redpackage.title;
+        finalmoney = finalmoney - usermoneyredpackage.usefulmoney;
       }
 
       var order = {
