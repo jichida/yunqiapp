@@ -1,0 +1,23 @@
+<template name="sendredpackage">
+	<div class='jcd_admin_title'>
+		发送给用户红包
+	</div>
+	<div class='row'>
+		<form class="col-xs-4">
+			<div class="form-group">
+			    <label for="title">给用户发红包</label>
+			    {{usertruename}}
+			</div>
+			<div class="form-group">
+			    <label for="coupontype">红包</label>
+				<select id="coupontype">
+          {{#each redpackages}}
+          <option value="{{_id}}">{{title}}</option>
+				  {{/each}}
+				</select>
+			</div>
+
+			<a href="#" id="btnsendredpackage" class="btn btn-primary btn-lg btn-block">发送</a>
+		</form>
+	</div>
+</template>

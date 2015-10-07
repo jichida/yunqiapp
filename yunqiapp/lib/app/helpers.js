@@ -26,6 +26,12 @@ globalgetmyredpackage = function(conditiontype){
          else if(conditiontype == 'all'){
            redpackagelist.push(cp);
          }
+         else if(conditiontype == 'allinvalid'){
+           if((cp.status == 'notused' && cp.invalidtime < moment().format('YYYY-MM-DD'))
+           || cp.isavaliable == false){
+             redpackagelist.push(cp);
+           }
+         }
        }
      );
     console.log("globalgetmyredpackage redpackagelist:" + EJSON.stringify(redpackagelist));
@@ -58,6 +64,12 @@ globalgetmycoupon = function(conditiontype){
       }
       else if(conditiontype == 'all'){
         couponlist.push(cp);
+      }
+      else if(conditiontype == 'allinvalid'){
+        if((cp.status == 'notused' && cp.invalidtime < moment().format('YYYY-MM-DD'))
+        || cp.isavaliable == false){
+          couponlist.push(cp);
+        }
       }
     }
   );

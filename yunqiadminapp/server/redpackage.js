@@ -78,9 +78,25 @@ Meteor.methods({
                 moneytitle:myredpackage.title,
                 moneytype:'redpackage',
                 moneyid:myredpackage._id,
+                invalidtime:myredpackage.endtime,
+                usefulmoney:myredpackage.money,
                 status:'notused',
               };
               UserMoney.insert(usermoneyDoc);
+        },
+        'sendredpackage':function(userid,redpackageid){
+            var cursystempackage = SystemRedPackages.findOne(redpackageid);
+            if (cursystempackage){
+                  //生成一个用户红包
+                  //将红包放入用户账户
+                  //to do
+                  Meteor.call('addredpackagetouser',userid,cursystempackage);
+                  //更新系统红包
+                  cursystempackage.leftcount--;//个数减1
+                  //更新
+                  SystemRedPackages.update(cursystempackage._id,{$set:
+                           { leftcount:cursystempackage.leftcount}});
+            }
 
         },
 

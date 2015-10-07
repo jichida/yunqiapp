@@ -144,33 +144,11 @@ Router.route('/homedetail/myorders/:_tabindex/:_id', function () {
 });
 
 //我的优惠券
-Router.route('/homedetail/mycoupons/:_tabindex/:_id', function () {
+Router.route('/homedetail/mycoupons/:_tabindex', function () {
 
     this.layout('indexdetailpagelayout',{data: {title: '我的优惠券',returnurl:'/tabhome/'+this.params._tabindex,returnhome:'/tabhome/'+this.params._tabindex}});
-    var coupons = [];
-    var usr = Meteor.users.findOne(Meteor.userId());
-    if (usr) {
-        if(usr.couponslist){
-            coupons = usr.couponslist;
-        }
-    }
-    console.log("coupons:"+EJSON.stringify(coupons));
-    if(this.params._id == "0"){
-        this.render('couponstabheader0', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
- //       this.render('allorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
-    else if(this.params._id == "1"){
-        this.render('couponstabheader1', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
- //       this.render('alltobedeliveryorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
-    else  if(this.params._id == "2"){
-        this.render('couponstabheader2', {to: 'couponstabheader',data:{tabindex:this.params._tabindex}});
-//        this.render('allclosedorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
-    }
-    this.render('mycoupons', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,mycoupons:coupons}});
+    this.render('mycoupons', {to: 'detailpagecontent'});
 
-    var id = this.params._id; // "5"
-    Session.set("mycounponscurtab",id);
 });
 
 
@@ -238,23 +216,8 @@ Router.route('/logout', function () {
 
 Router.route('/homedetail/getredpackage/:_tabindex', function () {
     var tabindex = this.params._tabindex;
-    var isavaliable = false;
-    var redpackagetoshow = {};
-    var cursysredpackagelist = SystemRedPackages.find();
-    var curtime = moment().format('YYYY-MM-DD HH:mm:ss');
-    cursysredpackagelist.forEach(function (redpackage) {
-        if(redpackage.starttime <= curtime && redpackage.endtime >=  curtime){
-                redpackagetoshow =  redpackage;
-                isavaliable = true;
-        }
-    });
-    console.log("红包显示页：:" + EJSON.stringify(redpackagetoshow));
-    var data = {
-        isavaliable:isavaliable,
-        redpackage:redpackagetoshow,
-    }
     this.layout('indexdetailpagelayout',{data: {title: '我的红包',returnurl:'/tabhome/'+tabindex,returnhome:'/tabhome/'+tabindex}});
-    this.render('getredpackage', {to: 'detailpagecontent',data:data});
+    this.render('getredpackage', {to: 'detailpagecontent'});
 
 
 });

@@ -1,5 +1,11 @@
 <template name="myredpackages">
 <div id="content">
+	<ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
+		<li class="item SwipeBtn tc active" id="tabone1">未使用</li>
+		<li class="item SwipeBtn tc"  id="tabone2">已使用</li>
+		<li class="item SwipeBtn tc" id="tabone3">已过期</li>
+	</ul>
+
 	<div class="content_m">
         {{#each myredpackages}}
     	<div style="margin-top:10px;" class="login_m">

@@ -3,9 +3,11 @@
 
   <div class="cardexplain">
 	   <div class="c-wrap">
-         <couponstabheader>
-          {{> yield "couponstabheader"}}
-        </couponstabheader>
+	 <ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
+		 <li class="item SwipeBtn tc active" id="tabone1">未使用</li>
+		 <li class="item SwipeBtn tc"  id="tabone2">已使用</li>
+		 <li class="item SwipeBtn tc" id="tabone3">已过期</li>
+	 </ul>
 
         <div style="clear:both"></div>
 		<div class="bonusViewTab" id="bonusViewTab">
@@ -24,13 +26,12 @@
 					<div class="pct95 bc pr bonus isGet mb15">
 								<div class="left vc">
 									<p class="wh mb5">
-										{{title}}
+										{{moneytitle}}
 									</p>
 
-									<p class="desc">满{{conditionamount}}减{{offamount}}</p>
+									<p class="desc">优惠金额￥{{usefulmoney}}</p>
 								</div>
 								<div class="right vc">
-									<p class="get"><a class="no_unl get_b1" href="###">立即兑换</a></p>
 									<div class="limit">
 										<p class="cc-brown mb10">有效期至</p>
 										<p class="cc-gray mb2">{{endtime}}</p>
@@ -47,28 +48,4 @@
         </div>
 
 </section>
-
-
-	</template>
-
-	<template name="couponstabheader0">
-				<ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
-			<li class="item SwipeBtn tc "> <a href="/homedetail/mycoupons/{{tabindex}}/0" class=" active">未使用</a></li>
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/1">已使用</a></li>
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/2">已过期</a></li>
-		</ul>
-	</template>
-	<template name="couponstabheader1">
-				<ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/0">未使用</a></li>
-			<li class="item SwipeBtn tc "><a href="/homedetail/mycoupons/{{tabindex}}/1" class=" active">已使用</a></li>
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/2">已过期</a></li>
-		</ul>
-	</template>
-		<template name="couponstabheader2">
-				<ul data-swipe="bonusViewTab" class="orderViewBtn fr140 bgwh mb10 SwipeBtns">
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/0">未使用</a></li>
-			<li class="item SwipeBtn tc"><a href="/homedetail/mycoupons/{{tabindex}}/1">已使用</a></li>
-			<li class="item SwipeBtn tc "><a href="/homedetail/coupons/{{tabindex}}/2" class=" active">已过期</a></li>
-		</ul>
-	</template>
+﻿</template>

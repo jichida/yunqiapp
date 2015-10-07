@@ -123,6 +123,21 @@ Router.route('/admin/addproduct', function () {
   //this.render('adminuserinfo',{data:{curuser:curuser}});
  });
 
+
+Router.route('/admin/sendredpackage/:userid', function () {
+console.log("admin adminuserinfo html");
+var userid = this.params.userid;
+this.layout('adminmainlayout');
+this.render('adminnavbar', {to: 'adminnavbar'});
+var data = {
+  userid:userid,
+  usertruename:Meteor.users.findOne(userid).profile.truename
+};
+this.layout('adminmainlayout');
+this.render('adminnavbar', {to: 'adminnavbar'});
+this.render('sendredpackage',{to: 'admincontent',data:data});
+});
+
  Router.route('/admin/sendusercoupon/:userid', function () {
  console.log("admin adminuserinfo html");
  var userid = this.params.userid;
