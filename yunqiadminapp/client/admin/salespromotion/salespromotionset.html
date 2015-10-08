@@ -40,6 +40,7 @@
 					<label>折扣</label>
 					<input type="number" id="specialdiscount" class="form-control" placeholder="打折(例:0.9)表示九折">
 			</div>
+
 			<div class="form-group">
 				<label for="isavaliable">
 			    	<input type="checkbox" id="isavaliable">是否启用
@@ -109,6 +110,9 @@
 					<input type="number" id="specialdiscount" class="form-control" value="{{cursalespromotion.specialdiscount}}">
 			</div>
 			<div class="form-group">
+			<input id="promotionimage" type="file" />
+			</div>
+			<div class="form-group">
 				<label for="isavaliable">
 					{{#if cursalespromotion.isavaliable}}
 			    	<input type="checkbox" id="isavaliable" checked="checked">是否生效
@@ -117,6 +121,7 @@
 					{{/if}}
 			    </label>
 			</div>
+			<div><a href={{imagesp.url}}>{{imagesp.name}}</a></div>
 			<a href="#" id="btnupdatesalespromotion" class="btn btn-primary btn-lg btn-block">修改</a>
 		</form>
 	</div>

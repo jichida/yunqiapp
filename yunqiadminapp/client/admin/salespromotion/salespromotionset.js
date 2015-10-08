@@ -29,6 +29,7 @@ Template.addsalespromotion.helpers({
 });
 
 Template.addsalespromotion.events({
+
     "click #btnaddsalespromotion": function () {
           console.log("click btn add salespromotion");
           event.preventDefault();
@@ -79,6 +80,14 @@ Template.addsalespromotion.events({
   }
 
 Template.updatesalespromotion.helpers({
+  'name':function(){
+    return "test";
+  },
+  'imagesp:':function(){
+    var imagesp = Images.findOne(this.cursalespromotion.imageid);
+    console.log("imagesp:" + EJSON.stringify(imagesp));
+    return imagesp;
+  },
   'promotionlist':[
     // {
     //   typevalue:'101',
@@ -109,6 +118,22 @@ Template.updatesalespromotion.helpers({
 
 
 Template.updatesalespromotion.events({
+    'change #promotionimage' : function(event, template){
+     console.log("change image...");
+     var self = this;
+     FS.Utility.eachFile(event, function(file){
+       var image = Images.insert(file, function(err, fileObj){
+         if(err){
+           //handle error
+         } else {
+
+         }
+       });
+
+       Meteor.call('updateSalespromotionImage', self.cursalespromotion._id, image);
+     });
+   },
+
     "click #btnupdatesalespromotion": function () {
           console.log("click btn add salespromotion");
           event.preventDefault();

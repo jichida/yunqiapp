@@ -11,6 +11,8 @@ Meteor.startup(function(){
         Meteor.subscribe("users");
         Meteor.subscribe('usermoney');
         Meteor.subscribe('useraddress');
+        Meteor.subscribe('images');
+        Session.set("MeteorToys_display", true);
       }
 
     if(Meteor.isServer){
@@ -62,5 +64,8 @@ Meteor.startup(function(){
          var userid = Accounts.createUser(user);
          Roles.addUsersToRoles(userid, ['admin']);
      }
+     Meteor.publish("images", function(){
+      return Images.find();
+    });
  }
 });

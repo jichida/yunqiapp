@@ -9,6 +9,7 @@
 		<table class='table jdc_admin_table'>
 			<tr>
 			<!--	<th>促销id</th>-->
+				<th>促销图片</th>
 				<th>促销名</th>
 				<th>促销类型</th>
 				<th>生成时间</th>
@@ -22,6 +23,7 @@
 			</tr>
 			{{#each salespromotions}}
 			<tr>
+				<td><img src={{imagesp.url}}></td>
 				<!--	<td>{{_id}}</td>-->
 				<td>{{title}}</td>
 				<td>{{typestring}}</td>

@@ -1,7 +1,6 @@
 Router.configure({
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
-
 });
 
 Router.route('/', function () {
@@ -85,9 +84,11 @@ Router.route('/admin/addproduct', function () {
     products.push(pd);
   });
   var cursalespromotion = SalesPromotions.findOne({_id:this.params.id});
+  var imagesp = Images.findOne({_id:cursalespromotion.imageid});
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('updatesalespromotion', {to: 'admincontent',data:{products:products,cursalespromotion:cursalespromotion}});
+  this.render('updatesalespromotion', {to: 'admincontent',data:{products:products,
+    cursalespromotion:cursalespromotion,imagesp:imagesp}});
   });
 
 
@@ -219,15 +220,22 @@ Router.route('/admin/navusers', function () {
 });
 //促销活动列表页面
 Router.route('/admin/navsalespromotions', function () {
-  var salespromotions = [];
-  SalesPromotions.find().forEach(function(sp){
-      salespromotions.push(sp);
-  });
-  console.log("展示促销活动:" + EJSON.stringify(salespromotions));
+  // var salespromotions = [];
+  // SalesPromotions.find().forEach(function(sp){
+  //     var imageurl = '';
+  //     var image = Images.findOne(sp.imageid);
+  //     console.log("image:" + EJSON.stringify(image));
+  //     if(image){
+  //        imageurl = image.name;
+  //     }
+  //     sp = _.extend(sp,{imageurl:imageurl});
+  //     salespromotions.push(sp);
+  // });
+  // console.log("展示促销活动:" + EJSON.stringify(salespromotions));
 
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('adminsalespromotions', {to: 'admincontent',data:{salespromotions:salespromotions}});
+  this.render('adminsalespromotions', {to: 'admincontent'});
 });
 //优惠券列表页面
 Router.route('/admin/navcoupons', function () {

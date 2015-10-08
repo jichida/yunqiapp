@@ -48,5 +48,9 @@ Meteor.methods({
     Orders.update(id, {$set:setDoc});
     console.log("after updateSalespromotion:" + EJSON.stringify(Orders.findOne(id)));
   },
+  'updateSalespromotionImage':function(id,image){
+    console.log("updateSalespromotionImage image...");
+    SalesPromotions.update(id, {$set:{imageid:image._id}});
+  }
 
 });

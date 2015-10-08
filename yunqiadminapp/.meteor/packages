@@ -16,4 +16,8 @@ alanning:roles
 twbs:bootstrap
 sacha:spin
 jquery
+msavin:mongol
+reactive-var
 cwohlman:pickadate
+cfs:standard-packages
+cfs:gridfs
