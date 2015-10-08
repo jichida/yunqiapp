@@ -61,12 +61,19 @@ Template.neworder.events({
       Router.go('/profile');
     },
     'click #btnuseorderselectredpackage':function(){
-      console.log("btnuseorderselectredpackage:this" + EJSON.stringify(this));
-      this.curnewpagename.set('orderselectredpackage');
+      var avaliableredpackagelist = globalgetmyredpackage('allisvalid');
+      if(avaliableredpackagelist.length > 0){
+        this.curnewpagename.set('orderselectredpackage');
+      }
+
     //  Router.go('/orderselectredpackage');
     },
     'click #btnuseorderselectcoupon':function(){
-      this.curnewpagename.set('orderselectcoupon');
+      var avaliablecouponlist = globalgetmycoupon('allisvalid');
+      if(avaliablecouponlist.length > 0){
+        this.curnewpagename.set('orderselectcoupon');
+      }
+
     //  Router.go('/orderselectcoupon');
     },
     'click #btnusemyaddress':function(){
@@ -111,6 +118,9 @@ Template.neworder.events({
         redpackagetitle = usermoneyredpackage.moneytitle;
       }
 
+      var avaliableredpackagelist = globalgetmyredpackage('allisvalid');
+      var avaliablecouponlist = globalgetmycoupon('allisvalid');
+
       var data = {
         usecoupon:usecoupon,
         coupontitle:coupontitle,
@@ -118,6 +128,8 @@ Template.neworder.events({
         redpackagetitle:redpackagetitle,
         usecouponid:usecouponid,
         useredpackageid:useredpackageid,
+        redpackagelistlength:avaliableredpackagelist.length,
+        couponlistlength:avaliablecouponlist.length,
       };
       console.log("selectordersalepromotion data:" + EJSON.stringify(data));
       return data;

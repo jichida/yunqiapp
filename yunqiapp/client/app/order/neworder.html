@@ -62,8 +62,8 @@
 
   </ul><ul class="round">
 
+    <li id="btnuseorderselectredpackage">
 
-            <li id="btnuseorderselectredpackage">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
@@ -72,7 +72,11 @@
                         {{#if selectordersalepromotion.useredpackage}}
                           {{selectordersalepromotion.redpackagetitle}}
                         {{else}}
-                          无
+                          {{#if islengthequal 0 selectordersalepromotion.redpackagelistlength}}
+                            无可用红包
+                          {{else}}
+                           {{selectordersalepromotion.redpackagelistlength}}个可用红包
+                          {{/if}}
                         {{/if}}
                       </span></td>
                     </tr>
@@ -82,9 +86,8 @@
 
   </ul>
   <ul class="round">
+        <li id="btnuseorderselectcoupon">
 
-
-            <li id="btnuseorderselectcoupon">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
@@ -93,7 +96,11 @@
                         {{#if selectordersalepromotion.usecoupon}}
                           {{selectordersalepromotion.coupontitle}}
                         {{else}}
-                        无
+                          {{#if islengthequal 0 selectordersalepromotion.couponlistlength}}
+                            无可用优惠券
+                          {{else}}
+                           {{selectordersalepromotion.couponlistlength}}张可用优惠券
+                          {{/if}}
                         {{/if}}</span>
                       </td>
                     </tr>
