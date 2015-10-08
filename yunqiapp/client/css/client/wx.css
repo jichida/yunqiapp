@@ -38,7 +38,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"], .s
 }
 button[disabled], input[disabled], .disable { cursor: default; }
 input[type="checkbox"], input[type="radio"], .form-radio, .form-checkbox { box-sizing: border-box; padding: 0; }
-fieldset { border: 1px solid #e0e0e0; background:#fff;  margin: 15px 5px 18px; border-radius:5px; padding: 0.35em 0.625em 0.75em; }
+fieldset { border: 1px solid #e0e0e0; background:#F5F5F5;  margin: 15px 5px 18px; border-radius:5px; padding: 0.35em 0.625em 0.75em; }
 legend { border: 0; padding: 0; white-space: normal; }
 button::-moz-focus-inner, input::-moz-focus-inner {
  border: 0;

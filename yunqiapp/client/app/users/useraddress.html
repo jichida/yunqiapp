@@ -6,16 +6,28 @@
 
 
 
-    <ul class="round">
+
     <form method="post" action="javascript:;">
 
        {{#each addresslist}}
-      <li class="nob bwe">
+                    <ul class="round {{#if isdefault}}murenborder{{/if}}">
+                        <li class="nob">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
-                      <th>我的地址      {{#if isdefault}}(默认){{/if}}</th>
-                      <td><span class="px1" style="color:#488cf6">{{address}}</span></td>
+                                    <th>我的地址</th>
+                                    <td>
+                                        <div style="position: relative">
+                                            <span class="px1" style="color:#488cf6">{{address}}</span>
+                                            {{#if isdefault}}
+                                                <a id="btnsetdefault" href="#" style="position: absolute ; right:0 ;top: 0; font-size:18px;margin: 0;padding: 0;display: block;line-height: 30px;height: 30px;padding: 0 8px;text-align: center;background: #06F;color: #FFF;  border: 1px solid #DDD;
+  border-radius: 4px;">默认地址</a>
+                                            {{else}}
+                                                <a id="btnsetdefault" href="#" style="position: absolute ; right:0 ;top: 0; font-size:18px;margin: 0;padding: 0;display: block;line-height: 30px;height: 30px;padding: 0 8px;text-align: center;background: #FFF;  border: 1px solid #DDD;
+  border-radius: 4px;">设为默认</a>
+                                            {{/if}}
+                                        </div>
+                                    </td>
                     </tr>
           </tbody>
                 </table>
@@ -44,32 +56,26 @@
 
                 <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
-            <tr>
-
-
-                      <td style="height:40px; padding-left:15px;">
-												<a id="btnsetdefault" class="btn-danger" href="#" style="color:#F03; font-size:18px; padding:5px;">设为当前为默认地址</a>
-                      </td>
-                    </tr>
           </tbody>
                 </table>
 
 <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
-	  <td style=" text-align: center; border-top:1px solid #eee; border-bottom:10px solid #f0eff4; height:60px;">
+                                <td style=" text-align: center; border-top:1px solid #eee; height:60px;">
 			<a class="btn-danger toggle-setdefault xiug" href="#" id="btnaddressupdate">修改</a>
 			<a class="btn-danger toggle-setdefault sc" href="#" id="btnaddressdelete">删除</a>
                       </td>
                     </tr>
           </tbody>
                 </table>
+                    </ul>
 
        {{/each}}
 
 
             </form>
-  </ul>
+
 
 
         <a href="#" id="btnaddnewaddress"  class="submit">添加新地址</a>

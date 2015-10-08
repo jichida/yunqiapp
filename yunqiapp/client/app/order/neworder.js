@@ -1,4 +1,4 @@
-Template.neworder.events({
+﻿Template.neworder.events({
     "click #btnsubmit": function () {
       console.log("click btn btnsubmit");
       event.preventDefault();
@@ -98,7 +98,7 @@ Template.neworder.events({
     }
   });
 
-  ﻿Template.neworder.helpers({
+Template.neworder.helpers({
     'selectordersalepromotion':function(){
       var usecoupon = false;
       var useredpackage = false;
@@ -182,3 +182,4 @@ Template.neworder.events({
 Template.neworder.rendered=function() {
     $('#wanttime').pickadate();
 }
+

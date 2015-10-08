@@ -1,26 +1,17 @@
 ﻿<template name="neworder">
-
-  <fieldset>
-   <!-- <legend>订单信息</legend>-->
-   {{> orderproduct getcurrentorderdata}}
-   </fieldset>
-  <form><ul class="round">
-      <li class="nob">
-        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
-                  <tbody>
-            <tr>
-                  <th>其他地址</th>
-                      <td><a href="#" id="btnusemyaddress"><span  class="swrrtt sweqq">使用我的地址</span></a></td>
-                    </tr>
-          </tbody>
-                </table>
-      </li>
-
-  </ul>
+    <div style="padding-top: 10px;">
+        <!-- <legend>订单信息</legend>-->
+        {{> orderproduct getcurrentorderdata}}
+    </div>
+  <form>
   <ul class="round">
-
-              <li class="title mb serqw">送气地址</li>
-              <li class="nob">
+    <li class="title mb serq " style="height:45px">
+        <a href="#" id="btnusemyaddress" class="sweqq" style="clear: both;float:left;height:30px;line-height:30px;font-size:18px;width:100%">使用我的地址</a>
+    </li>
+    <!--
+        <li class="title mb serq "><a href="#" id="btnusemyaddress" class="sweqq" style="clear: both">使用我的地址</a></li>
+    -->
+    <li class="nob">
         <input type="hidden" value="2be3071a" id="formhash" name="formhash">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
 
@@ -28,7 +19,7 @@
             <tr>
                       <th>送气地址</th>
                       <td>
-                        <input type="text" id="deliveryaddress"   placeholder="送气地址"></td>
+                        <input type="text" id="deliveryaddress" class="px1"   placeholder="请输入送气地址"></td>
                     </tr>
           </tbody>
                 </table>
@@ -39,7 +30,7 @@
             <tr>
                       <th>联系人</th>
                       <td>
-                         <input type="text" id="contactname"   placeholder="联系人"></td>
+                         <input type="text" id="contactname" class="px1"    placeholder="请输入联系人姓名"></td>
 
                     </tr>
           </tbody>
@@ -51,7 +42,7 @@
             <tr>
                       <th>联系电话</th>
                       <td>
-                   <input type="text" id="contacttel"   placeholder="联系电话"></td>
+                   <input type="text" id="contacttel" class="px1"    placeholder="请输入联系电话"></td>
 
                     </tr>
           </tbody>
@@ -66,9 +57,9 @@
 
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
-            <tr>
+            <tr style="border: none;">
                       <th>红包</th>
-                      <td ><span  class="swrrtt sweqq">
+                      <td ><span  class="swrrtt sweqq px1" style="border: none;padding: 5px 0 " >
                         {{#if selectordersalepromotion.useredpackage}}
                           {{selectordersalepromotion.redpackagetitle}}
                         {{else}}
@@ -90,18 +81,20 @@
 
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
-            <tr>
+                  <tr style="border: none;">
                       <th>优惠券</th>
-                      <td><span  class="swrrtt sweqq">
-                        {{#if selectordersalepromotion.usecoupon}}
-                          {{selectordersalepromotion.coupontitle}}
-                        {{else}}
-                          {{#if islengthequal 0 selectordersalepromotion.couponlistlength}}
-                            无可用优惠券
-                          {{else}}
-                           {{selectordersalepromotion.couponlistlength}}张可用优惠券
-                          {{/if}}
-                        {{/if}}</span>
+                      <td>
+                          <span  class="swrrtt sweqq px1" style="border: none;padding: 5px 0 " >
+                            {{#if selectordersalepromotion.usecoupon}}
+                              {{selectordersalepromotion.coupontitle}}
+                            {{else}}
+                              {{#if islengthequal 0 selectordersalepromotion.couponlistlength}}
+                                无可用优惠券
+                              {{else}}
+                               {{selectordersalepromotion.couponlistlength}}张可用优惠券
+                              {{/if}}
+                            {{/if}}
+                          </span>
                       </td>
                     </tr>
           </tbody>
@@ -117,9 +110,9 @@
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
-                      <th height="40px">要气时间</th>
+                      <th height="40px"><span class="px1">要气时间</span></th>
                       <td>
-                        <input type="text" id="wanttime" placeholder="要气时间">
+                        <input type="text" id="wanttime" class="px1" placeholder="要气时间">
                     </td>
                     </tr>
           </tbody>
@@ -131,7 +124,7 @@
             <tr>
                       <th>备注</th>
                       <td>
-                           <input type="text" id="yunqimemo" placeholder="备注">
+                           <input type="text" id="yunqimemo" placeholder="备注" class="px1">
 
                          </td>
                     </tr>
@@ -145,7 +138,7 @@
   </ul>
   <ul class="round">
 
-              <li class="title mb serqw">请选择支付方式</li>
+              <li class="title mb serqw" style="border: none;">请选择支付方式</li>
               <li class="nob">
 
       </li>

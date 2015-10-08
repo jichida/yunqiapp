@@ -149,7 +149,7 @@ ul.round li:last-of-type {
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	background-color: #FFFFFF;
-	 color:#888;
+	 color:#333;
 	margin: 5px  0px;
 }
 
@@ -529,10 +529,11 @@ ul.round li.pad { padding-right:15px;}
 
 
 .kuang th {
-    color: #333;padding:0; font-size:18px; font-weight:normal;text-align: left;width: 89px;
+    color: #999;padding:0; font-size:18px; font-weight:normal;text-align: left;width: 89px;
 }
 .kuang td {
     color: #666;padding:0;
+    position: relative;
 }
 .kuang th.thtop{ padding:10px 0 0 0}
 .kuang td.userinfo{
@@ -554,6 +555,15 @@ ul.round li.pad { padding-right:15px;}
     font-size:14px;
 	line-height:20px;
 }
+
+/*解决pickadate css 样式冲突*/
+.kuang .picker td,.kuang .picker th{
+     width:60px;
+}
+.kuang .picker{
+    bottom:0;
+}
+
 .green{
 	color:#090;
 }

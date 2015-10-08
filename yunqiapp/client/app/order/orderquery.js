@@ -1,4 +1,4 @@
-Template.orderquery.events({
+﻿Template.orderquery.events({
     "click #btnqueryorders": function () {
       console.log("click btn btnqueryorders");
       event.preventDefault();
@@ -34,3 +34,7 @@ Template.orderquery.events({
   console.log("Template.orderquery.onDestroyed");
   Session.set('queryorderresultlistsession',[]);
 });
+
+Template.orderquery.rendered = function() {
+    $('#queryorderdate').pickadate();
+}

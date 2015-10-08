@@ -75,7 +75,7 @@ input, select, textarea {
     border-radius: 0;
 }
 div {
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 ul, li, ol, p {
     list-style: none
@@ -268,8 +268,8 @@ a {
 }
 .shop_title {
     height:3.8rem;
-    margin-left:1em; margin-right:1em;
-    border-bottom:1px solid #ccc
+    border-bottom:1px solid #EEEEEE;
+    text-indent: 1em;
 }
 .arrow_orange {
     position:absolute;
@@ -304,7 +304,7 @@ a {
     padding-right:1.5rem;
 }
 .shop_title div {
-    font-size:1.3em;
+    font-size:1.1em;
     line-height:3.8rem; padding-top:2px;
 }
 
@@ -337,6 +337,7 @@ a {
 }
 .cart_list {
     width:100%;
+    padding-bottom: 15px;
 }
 .cart_item .c_checkbox {
     margin:3rem 1rem 0 1.5rem;
@@ -1171,11 +1172,11 @@ nav.t-nav ul li a{border-bottom:0 none;font-size:12px;}
 /** 顶部导航 **/
 .header{z-index:5;position:relative;top:0;left:0;margin:0 auto;overflow:hidden;width:100%;line-height:44px;background-color:#1b6ded;color:#ffff;}
 .header .menu{z-index:2;position:relative;float:right;width:40px;height:48px;background:url(/images/homeBTN.png) no-repeat center;background-size:22px;line-height:48px;font-size:14px;transition:background .3s;}
-.header .menu.active{}
-.header .menu.active:after{content: " ";display: block;position: absolute;right:12px;bottom: 0;width:16px;height:8px;}
+.header .menu.sel{}
+.header .menu.sel:after{content: " ";display: block;position: absolute;right:12px;bottom: 0;width:16px;height:8px;}
 .header .h_label{position:absolute;width:100%;height:44px; line-height:44px;text-align:center;font-size:1.4em;font-weight:600;color:#fff;-webkit-box-sizing:border-box;box-sizing:border-box;}
 .t-nav{width:100%;height:0;overflow:hidden;text-align:center;line-height:0;background-color:#eee;font-size:12px;transition:height .3s;}
-.t-nav.active{height:50px;border-bottom:1px solid #d8d8d8;}
+.t-nav.sel{height:50px;border-bottom:1px solid #d8d8d8;}
 .t-nav ul{display:block;list-style:none;}
 .t-nav ul:after{content:"";display:block;clear:both;height:0;}
 .t-nav ul li{display:inline-block;float:left;width:20%;}
@@ -1189,23 +1190,23 @@ nav.t-nav ul li a{border-bottom:0 none;font-size:12px;}
 	nav.t-nav ul li a{border-bottom:0 none;font-size:24px;}
 	.header{line-height:88px;}
 	.header .menu{width:80px;height:88px;background-size:28px auto;font-size:30px;}
-	.header .menu.active:after{right:24px;width:32px;height:16px;}
+	.header .menu.sel:after{right:24px;width:32px;height:16px;}
 	.t-nav{font-size:24px;}
-	.t-nav.active{height:100px;}
+	.t-nav.sel{height:100px;}
 	.t-nav ul li a{padding:80px 0 6px;background:url(/images/h-home.png) no-repeat center 16px;background-size:64px;line-height:32px;}
 }
 .nav-tabs{ overflow:hidden; margin-top:10px; background:#fff; margin:10px 10px 5px;}
 .nav-tabs li{ float:left; width:33.3%; text-align:center; font-size:1.3em}
- .nav-tabs > li.active:first-child, .nav-tabs > li.active:first-child > a {
+ .nav-tabs > li.sel:first-child, .nav-tabs > li.sel:first-child > a {
 
 }
- .nav-tabs > li.active {
+ .nav-tabs > li.sel {
     background: none repeat scroll 0 0 #468bf6; color:#fff
 }
-.nav-tabs > li.active:first-child, .nav-tabs > li.active:first-child > a {
+.nav-tabs > li.sel:first-child, .nav-tabs > li.sel:first-child > a {
 
 }
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+.nav-tabs > li.sel > a, .nav-tabs > li.sel > a:hover, .nav-tabs > li.sel > a:focus {
     border-color: -moz-use-text-color #e0e0e0 -moz-use-text-color -moz-use-text-color;
     border-radius: 0;
     border-style: none solid none none;
@@ -1224,14 +1225,12 @@ nav.t-nav ul li a{border-bottom:0 none;font-size:12px;}
 
 .m-orderfun {
     border-top: 0 none;
-    padding: 0 10px 3px;
+    padding-top:10px;
+    padding-left:1em;
 }
 .m-orderfun, .m-ordertotal {
-    border-top: 1px dashed #f1f1f1;
     color: #a7a7a7;
     font-size: 0.8em;
-    margin: 3px 0 0;
-    padding: 10px 10px 5px;
     text-align: left;
 }
 .m-orderfun > .btnq {

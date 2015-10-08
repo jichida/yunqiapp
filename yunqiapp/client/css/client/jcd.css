@@ -1,0 +1,7 @@
+/*border-radius:6px;-moz-border-radius:6px;-webkit-border-radius:6px;圆角*/
+/*filter:alpha(opacity=50);-moz-opacity:0.5;-khtml-opacity: 0.5;opacity: 0.5;透明*/
+.jcd_btn_fixedbottom{position: fixed;height:50px;line-height: 50px;text-align: center;background-color:rgba(13, 111, 6, 0.8);color: #FFF;bottom: 0;width: 100%;font-size:18px;font-weight: bold}
+
+/*我的订单*/
+.cart_item .detail p{padding-left:1em;}
+.cardexplain .murenborder{border-color: #06F;}

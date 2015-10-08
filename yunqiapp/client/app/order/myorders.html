@@ -1,6 +1,6 @@
-<template name="myorders">
+﻿<template name="myorders">
   <ul class="nav nav-tabs" role="tablist">
-       <li  id="tabone1" role="presentation" class="active"><a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
+       <li  id="tabone1" role="presentation" class="sel"><a href="/homedetail/myorders/{{tabindex}}/0" role="tab" data-toggle="tab">全部</a></li>
        <li  id="tabone2" role="presentation"><a href="/homedetail/myorders/{{tabindex}}/1" role="tab" data-toggle="tab">待送货</a></li>
        <li  id="tabone3" role="presentation"><a href="/homedetail/myorders/{{tabindex}}/2" role="tab" data-toggle="tab">待确认</a></li>
    </ul>
@@ -8,12 +8,13 @@
 <div style="" id="wrapper">
   <div style="overflow: initial; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);" class="viewport" id="scroller">
     <section class="content">
-      <div class="block">
-        <div class="cart_list">
 
-          <div id="con_one_1">
+
+
+
             {{> allorders}}
-          </div>
+        <div>
+          <div class="cart_list">
           <div id="con_one_2"  style="display:none">
             {{> alltobedeliveryorders}}
           </div>
@@ -32,12 +33,15 @@
 
 <template name="allorders">
    {{#each allorders}}
+   <div class="block" style="margin-bottom: 10px;">
+   <div class="cart_list">
+    <div id="con_one_1">
             <div class="shop_title" shop_id="6078">
-            <div class="fl"><a class="shopLink eclipse" href="#">订单编号：{{_id}}</a></div>
+            <div class="fl">订单编号：{{_id}}</div>
             <a class="fl right_arrow" href="#"></a> <a class="c_edit on" id="e__6078"></a>
             </div>
 
-          <div class="cart_item" id="1365243738" item_id="2042510373" stock="7" style="padding-left:1em">
+          <div class="cart_item" id="1365243738" item_id="2042510373" stock="7">
             <div class="detail">
               <p>订单金额：<em style="color:#f00">￥{{orderamount}}</em></p>
                <p>订单状态：<em style="color:#1b6ded">{{orderstatusstring}}</em></p>
@@ -56,6 +60,10 @@
 
           </div>
            </div>
+       </div>
+   </div>
+       </div>
+
             {{/each}}
   </template>
 

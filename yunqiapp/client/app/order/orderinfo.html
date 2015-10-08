@@ -24,12 +24,7 @@
             <tr>
                       <th>订单状态</th>
                       <td><span class="px1" style="color:#f80">{{order.orderstatusstring}}</span></td>
-											{{#if orderisnotpaid}}
-											<a href="#" id="btnpayorder">立即支付</a>
-											{{/if}}
-											{{#if orderisdevelied}}
-											<a href="#" id="btnfinishorder">立即支付</a>
-											{{/if}}
+
                     </tr>
           </tbody>
                 </table>
@@ -82,56 +77,67 @@
   {{> orderproduct}}
   </div>
 </section>
+    <br/><br/><br/>
+    {{#if orderisnotpaid}}
+        <a href="#" id="btnpayorder" class="jcd_btn_fixedbottom">立即支付</a>
+    {{/if}}
+    {{#if orderisdevelied}}
+        <a href="#" id="btnfinishorder" class="jcd_btn_fixedbottom">立即支付</a>
+    {{/if}}
 </template>
 
 <template name = "orderproduct">
-  <ul class="round">
-              <li class="title serqw">气瓶信息</li>
-              <li class="nob">
-        {{#each order.orderproductlists}}
-        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang bwe"  style=" padding:0 -10px">
-                  <tbody>
-            <tr>
-                      <th>气瓶大小</th>
-                      <td><span class="px1">{{productname}}</span></td>
-                    </tr>
-                      <tr>
-                      <th>订单数量</th>
-                      <td><span class="px1" style="color:#488cf6">{{qty}}</span></td>
-                    </tr>
-                    <tr>
-                      <th>气瓶单价</th>
-                      <td><span class="px1">￥{{productprice}}</span></td>
-                    </tr>
-										{{#if notdiscount}}
-										<tr>
-                      <th>现价</th>
-                      <td><span class="px1">￥{{price}}</span></td>
-                    </tr>
-										{{else}}
-										<tr>
-										      <th>原价</th>
-										      <td><del><span class="px1">￥{{orginprice}}</span></del></td>
-										    </tr>
-												<tr>
-										      <th>现价</th>
-										      <td><span class="px1">￥{{price}}
-													</span></td>
-										    </tr>
-										{{/if}}
-					          </tbody>
-                </table>
-                <p></p>
-      {{/each}}
 
+
+        {{#each order.orderproductlists}}
+        <ul class="round">
+        <li class="nob bwe" style="padding-top:10px">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang "  style=" padding:0 -10px">
+          <tbody>
+            <tr>
+              <th>气瓶大小</th>
+              <td><span class="px1">{{productname}}</span></td>
+              </tr>
+              <tr>
+              <th>订单数量</th>
+              <td><span class="px1" style="color:#488cf6">{{qty}}</span></td>
+            </tr>
+            <tr>
+              <th>气瓶单价</th>
+              <td><span class="px1">￥{{productprice}}</span></td>
+            </tr>
+            {{#if notdiscount}}
+            <tr style="border:none">
+              <th>现价</th>
+              <td><span class="px1">￥{{price}}</span></td>
+            </tr>
+            {{else}}
+            <tr>
+                  <th>原价</th>
+                  <td><del><span class="px1">￥{{orginprice}}</span></del></td>
+                </tr>
+            <tr style="border:none">
+                  <th>现价</th>
+                  <td><span class="px1">￥{{price}}
+                        </span></td>
+                </tr>
+            {{/if}}
+          </tbody>
+        </table>
+        <p></p>
+      </li>
+      </ul>
+      {{/each}}
+    <ul class="round">
+        <li>
 		{{#if usepaymoneylist}}
-		<a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}
+		<a  href="#"><em class="ok" style="font-weight:bold;text-align: center;padding: 10px;margin:0">订单总金额:<strong>￥{{order.orderamount}}
 			{{#each order.paymoneylist}}
 			 -￥{{money}}
 		 {{/each}} = ￥{{order.finalmoney}}
 	 </strong></em></a>
 		{{else}}
-		<a  href="#"><em class="ok">订单金额:<strong>￥{{order.orderamount}}</strong></em></a>
+		<a  href="#"><em class="ok" style="font-weight:bold;text-align: center;padding: 10px;margin:0">订单总金额:<strong>￥{{order.orderamount}}</strong></em></a>
 		{{/if}}
 
 
