@@ -12,7 +12,7 @@ Meteor.startup(function(){
         Meteor.subscribe("orders");
         Meteor.subscribe('usermoney');
         Meteor.subscribe('useraddress');
-
+        Meteor.subscribe('images');
        // FlashMessages.configure({
         //     autoHide: true,
         //     hideDelay: 3000,
@@ -62,7 +62,8 @@ Meteor.startup(function(){
      Meteor.publish("useraddress", function () {
         return UserAddress.find();
      });
-
-
+     Meteor.publish("images", function(){
+      return Images.find();
+    });
  }
 });

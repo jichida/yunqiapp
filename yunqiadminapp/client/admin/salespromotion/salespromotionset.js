@@ -125,12 +125,15 @@ Template.updatesalespromotion.events({
        var image = Images.insert(file, function(err, fileObj){
          if(err){
            //handle error
+           console.log("error:" + EJSON.stringify(err));
+           alert(err.reason);
          } else {
-
+           Meteor.call('updateSalespromotionImage', self.cursalespromotion._id, image._id);
          }
+
        });
 
-       Meteor.call('updateSalespromotionImage', self.cursalespromotion._id, image);
+
      });
    },
 
