@@ -1,4 +1,4 @@
-Router.configure({
+﻿Router.configure({
   loadingTemplate: 'loading',
   notFoundTemplate: 'notFound',
 });
@@ -235,7 +235,7 @@ Router.route('/admin/navsalespromotions', function () {
 
   this.layout('adminmainlayout');
   this.render('adminnavbar', {to: 'adminnavbar'});
-  this.render('adminsalespromotions', {to: 'admincontent'});
+  this.render('adminsalespromotions', {to: 'admincontent',data:{salespromotions:salespromotions}});
 });
 //优惠券列表页面
 Router.route('/admin/navcoupons', function () {

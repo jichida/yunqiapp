@@ -1,4 +1,4 @@
-<template name="addsalespromotion">
+﻿<template name="addsalespromotion">
 	<div class='jcd_admin_title'>
 		发布促销
 	</div>
@@ -40,7 +40,6 @@
 					<label>折扣</label>
 					<input type="number" id="specialdiscount" class="form-control" placeholder="打折(例:0.9)表示九折">
 			</div>
-
 			<div class="form-group">
 				<label for="isavaliable">
 			    	<input type="checkbox" id="isavaliable">是否启用
@@ -64,9 +63,11 @@
 			<div class="form-group">
 			    <label for="coupontype">促销类型</label>
 				<select id="saleprotomotiontype">
-					{{#each promotionlist}}
-						<option value="{{typevalue}}">{{typestring}}</option>
+
+					{{#each promotionlistsel}}
+						<option value="{{typevalue}}" selected="{{isseled}}">{{typestring}}</option>
 					{{/each}}
+
 					<!--
 					{{#each promotionlist}}
 					 {{#if cursalespromotion.typevalue == typevalue}}
@@ -74,23 +75,24 @@
 					 {{else}}
 						<option value="{{typevalue}}">{{typestring}}</option>
 					 {{/if}}
-					{{/each}}-->
+					{{/each}}
+					-->
 				</select>
 			</div>
 			<div class="form-group">
 			    <label for="starttime">开始时间</label>
-			    <input type="date" id="starttime" class="form-control" value="{{cursalespromotion.starttime}}">
+			    <input type="text" id="starttime" class="form-control" value="{{cursalespromotion.starttime}}">
 			</div>
 			<div class="form-group">
 			    <label for="endtime">结束时间</label>
-			    <input type="date" id="endtime" class="form-control" value="{{cursalespromotion.endtime}}">
+			    <input type="text" id="endtime" class="form-control" value="{{cursalespromotion.endtime}}">
 			</div>
 
 			<div class="form-group">
 			    <label for="specialproduct">指定产品</label>
 				<select id="specialproduct">
-					{{#each products}}
-						<option value="{{_id}}">{{productname}}</option>
+					{{#each productssel}}
+						<option value="{{_id}}" selected="{{isseled}}">{{productname}}</option>
 					<!--
 					   {{#if cursalespromotion.specialproductid == _id}}
 					   <option value="{{_id}}" selected="selected">{{productname}}</option>

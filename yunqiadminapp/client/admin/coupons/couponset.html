@@ -1,4 +1,4 @@
-<template name="addcoupon">
+﻿<template name="addcoupon">
 	<div class='jcd_admin_title'>
 		发布优惠券
 	</div>
@@ -64,27 +64,38 @@
 			<div class="form-group">
 			    <label for="coupontype">优惠券类型</label>
 				<select id="coupontype">
+					{{#if isequal curcoupon.coupontype '101'}}
 					<option value="101" selected="selected">满就减</option>
+					{{else}}
+    					<option value="101">满就减</option>
+					{{/if}}
 				</select>
 			</div>
 			<div class="form-group">
 					<label for="invalidtype">优惠券失效类型</label>
 				<select id="invalidtype">
+					{{#if isequal curcoupon.invalidtype 'fixedendtime'}}
 					<option value="fixedendtime" selected="selected">固定截止日期</option>
+                    	<option value="fixeddays" >固定天数</option>
+					{{else}}
+                        <option value="fixedendtime">固定截止日期</option>
 					<option value="fixeddays" selected="selected">固定天数</option>
+					{{/if}}
+
+
 				</select>
 			</div>
 			<div class="form-group">
 					<label for="invaliddays">失效天数</label>
-					<input type="text" id="invaliddays" class="form-control" placeholder="{{curcoupon.invaliddays}}">
+					<input type="text" id="invaliddays" class="form-control" value="{{curcoupon.invaliddays}}">
 			</div>
 			<div class="form-group">
 			    <label for="starttime">开始时间</label>
-			    <input type="date" id="starttime" class="form-control" value="{{curcoupon.starttime}}">
+			    <input type="text" id="starttime" class="form-control" value="{{curcoupon.starttime}}">
 			</div>
 			<div class="form-group">
 			    <label for="endtime">结束时间</label>
-			    <input type="date" id="endtime" class="form-control" value="{{curcoupon.endtime}}">
+			    <input type="text" id="endtime" class="form-control" value="{{curcoupon.endtime}}">
 			</div>
 			<div class="form-group">
 			    <label for="conditionamount">满金额</label>

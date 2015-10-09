@@ -1,4 +1,4 @@
-
+﻿
 Template.addsalespromotion.helpers({
   'promotionlist':[
     // {
@@ -29,7 +29,6 @@ Template.addsalespromotion.helpers({
 });
 
 Template.addsalespromotion.events({
-
     "click #btnaddsalespromotion": function () {
           console.log("click btn add salespromotion");
           event.preventDefault();
@@ -113,10 +112,37 @@ Template.updatesalespromotion.helpers({
       typevalue:'202',
       typestring:'购买指定商品买一赠一',
     },
-  ]
+  ],
+    //给select下拉框赋值
+    'promotionlistsel' : function(){
+        var ctypevalue = this.cursalespromotion.typevalue;
+        var arrpromotionlistsel = [];
+        var promotionlist = [
+            {
+                typevalue:'201',
+                typestring:'购买指定商品打折',
+            },
+            {
+                typevalue:'202',
+                typestring:'购买指定商品买一赠一',
+            },
+        ];
+        promotionlist.forEach(function (pd) {
+            pd.isseled = (pd.typevalue == ctypevalue) ? true : false;
+            arrpromotionlistsel.push(pd);
+        });
+        return arrpromotionlistsel;
+    },
+    'productssel': function(){
+        var productssellist = [];
+        var specialproductid = this.cursalespromotion.specialproductid;
+        this.products.forEach(function (pd) {
+            pd.isseled = (pd._id == specialproductid) ? true : false;
+            productssellist.push(pd);
+        });
+        return productssellist;
+    }
 });
-
-
 Template.updatesalespromotion.events({
     'change #promotionimage' : function(event, template){
      console.log("change image...");

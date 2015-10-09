@@ -1,4 +1,4 @@
-<template name="adminusers">
+﻿<template name="adminusers">
 	<div class='jcd_admin_title'>
 		用户管理
 	</div>
@@ -6,16 +6,16 @@
 		<!-- Table -->
 		<table class='table jdc_admin_table'>
 			<tr>
-				<th>用户id</th>
 				<th>用户名</th>
 				<th>真实姓名</th>
+                <th>用户id</th>
 				<!--<th class='jdc_admin_table_right'>备注</th>-->
 			</tr>
 			{{#each users}}
 			<tr>
-				<td><a href="/admin/adminuserinfo/{{_id}}">{{_id}}</a></td>
-				<td>{{username}}</td>
+				<td><a href="/admin/adminuserinfo/{{_id}}">{{username}}</a></td>
 				<td>{{profile.truename}}</td>
+                <td>{{_id}}</td>
 
 				<!--
 				<td class='jdc_admin_table_right'>
