@@ -140,7 +140,7 @@ Router.route('/homedetail/myorders/:_tabindex/:_id', function () {
     //     this.render('tabheader2', {to: 'tabheader',data:{tabindex:this.params._tabindex}});
     //     this.render('allclosedorders', {to: 'orderscontent',data:{tabindex:this.params._tabindex}});
     // }
-    this.render('myorders', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex}});
+    this.render('myorders', {to: 'detailpagecontent',data:{tabindex:this.params._tabindex,mycurtab:this.params._id}});
 
     var id = this.params._id; // "5"
     Session.set("curtab",id);

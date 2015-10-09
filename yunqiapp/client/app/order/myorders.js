@@ -1,3 +1,16 @@
+var curTab = new ReactiveVar(0);
+
+Template.myorders.onRendered(function () {
+   curTab.set(this.data.mycurtab);
+   var tabid = parseInt(this.data.mycurtab) + 1;
+   var tabsel = '#tabone'+tabid;
+   var consel = '#con_one_'+tabid;
+   console.log("tabsel:" + tabsel + ",consel:" + consel );
+   this.$(tabsel).addClass('active');
+   this.$(consel).css({'display':'block'});
+});
+
+
 Template.myorders.events({
   'click #tabone1':function(event,template){
     event.preventDefault();
@@ -8,7 +21,7 @@ Template.myorders.events({
     template.$('#con_one_1').css({'display':'block'});
     template.$('#con_one_2').css({'display':'none'});
     template.$('#con_one_3').css({'display':'none'});
-
+    curTab.set(0);
     console.log("click tab1");
   },
   'click #tabone2':function(event,template){
@@ -20,7 +33,7 @@ Template.myorders.events({
     template.$('#con_one_2').css({'display':'block'});
     template.$('#con_one_1').css({'display':'none'});
     template.$('#con_one_3').css({'display':'none'});
-
+    curTab.set(1);
     console.log("click tab2");
   },
   'click #tabone3':function(event,template){
@@ -32,18 +45,10 @@ Template.myorders.events({
     template.$('#con_one_3').css({'display':'block'});
     template.$('#con_one_1').css({'display':'none'});
     template.$('#con_one_2').css({'display':'none'});
-
+    curTab.set(2);
     console.log("click tab3");
   },
 });
-
-
-Template.myorders.helpers({
-      'curtab':function(){
-            console.log("curtab:"+Session.get("curtab"));
-            return Session.get("curtab");
-      },
- });
 
 
  Template.allorders.helpers({
