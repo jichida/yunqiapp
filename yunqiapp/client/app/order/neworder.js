@@ -72,38 +72,21 @@
       var avaliablecouponlist = globalgetmycoupon('allisvalid');
       if(avaliablecouponlist.length > 0){
         this.curnewpagename.set('orderselectcoupon');
-      },
+      }
         //  Router.go('/orderselectcoupon');
     },
     'click #btnusemyaddress':function(){
       //'useaddressid'
       console.log('click btnuse my address');
-      if(UserAddress.find().count > 0){
+      if(UserAddress.find().count() > 0){
         this.curnewpagename.set('orderselectaddress');
       }
-      //  var contactname = '';
-      //  var contacttel='';
-      //  var address ='';
-      //  if(Meteor.user().profile.defaultaddressid){
-      //     curaddress = UserAddress.findOne(Meteor.user().profile.defaultaddressid);
-      //  }
-      //  else{
-      //    curaddress = UserAddress.findOne();
-      //  }
-      //  if(curaddress){
-      //    contactname = curaddress.contactname;
-      //    contacttel = curaddress.contacttel;
-      //    address = curaddress.address;
-      //  }
-      //  $('#contactname').val(contactname);
-      //  $('#contacttel').val(contacttel);
-      //  $('#deliveryaddress').val(address);
     }
   });
 
 Template.neworder.helpers({
     'curuseraddress':function(){
-      var curaddressid = useaddressid.get();
+      var curaddressid = this.useaddressid.get();
       if(curaddressid == ''){
         curaddressid = Meteor.user().profile.defaultaddressid;
       }
@@ -183,7 +166,7 @@ Template.neworder.helpers({
         paymoneylist:paymoneylist,
         finalmoney:finalmoney,
       };
-      console.log("order:" + EJSON.stringify(order));
+      console.log("getcurrentorderdata --->order:" + EJSON.stringify(order));
       return {order:order};
 
     }

@@ -18,6 +18,8 @@ Router.route('/signIn',function(){
 
 Router.route('/orderselectredpackage');
 Router.route('/orderselectcoupon');
+Router.route('/orderselectaddress');
+
 Router.route('/updateuseraddress/:addressid', function () {
     this.layout('indexdetailpagelayout',{data: {title: '修改地址',returnurl:"/profile/useraddress",returnhome:'/profile'}});
     var currentaddress = UserAddress.findOne(this.params.addressid);
@@ -83,7 +85,6 @@ Router.route('/tabhome/:_tabindex', function () {
 
 });
 
-Router.route('/orderselectaddress');
 
 // Router.route('/homedetail/producttype/:_tabindex', function () {
 //     console.log("/homedetail/producttype");

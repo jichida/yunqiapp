@@ -1,14 +1,15 @@
 <template name="orderselectaddress">
 <section class="content">
   <div class="cardexplain">
-         <a href="#"> <ul class="round">
+    {{#each addresslist}}
+         <a href="#" id="btnseladdress"> <ul class="round">
     <form>
       <li class="nob">
         <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
                   <tbody>
             <tr>
                       <th>我的地址</th>
-                      <td><span class="px1" style="color:#488cf6">江苏省 南京市 白下区</span></td>
+                      <td><span class="px1" style="color:#488cf6">{{address}}</span></td>
                     </tr>
           </tbody>
                 </table>
@@ -21,7 +22,7 @@
                       <tbody>
                         <tr>
                           <th>联系人</th>
-                          <td><span class="px1" style="color:#">张三</span></td>
+                          <td><span class="px1" style="color:#">{{contactname}}</span></td>
                         </tr>
                       </tbody>
                     </table></th>
@@ -34,79 +35,15 @@
                   <tbody>
             <tr>
                       <th>联系电话</th>
-                      <td><span class="px1" style="color:#">18654248525</span></td>
+                      <td><span class="px1" style="color:#">{{contacttel}}</span></td>
                     </tr>
           </tbody>
                 </table>
       </li>
-
-
-
-
-
             </form>
   </ul></a>
+{{/each}}
 
-  <a href="#"> <ul class="round">
-    <form>
-
-
-      <li class="nob">
-        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
-                  <tbody>
-            <tr>
-                      <th>我的地址</th>
-                      <td><span class="px1" style="color:#488cf6">江苏省 南京市 白下区</span></td>
-                    </tr>
-          </tbody>
-                </table>
-      </li>
-              <li class="nob">
-                <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
-                <tbody>
-                  <tr>
-                    <th><table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
-                      <tbody>
-                        <tr>
-                          <th>联系人</th>
-                          <td><span class="px1" style="color:#">张三</span></td>
-                        </tr>
-                      </tbody>
-                    </table></th>
-                  </tr>
-                </tbody>
-                </table>
-          </li>
-              <li class="nob">
-        <table cellspacing="0" cellpadding="0" border="0" width="100%" class="kuang">
-                  <tbody>
-            <tr>
-                      <th>联系电话</th>
-                      <td><span class="px1" style="color:#">18654248525</span></td>
-                    </tr>
-          </tbody>
-                </table>
-      </li>
-
-
-
-
-
-            </form>
-  </ul></a>
-          <div class="footReturn">
-    <input type="button" onclick="location.href='dz.htm'" value="添加新地址" class="submit" id="showcard">
-    <div id="windowcenter" class="window">
-              <div class="wtitle" id="title">操作提示<span id="alertclose" class="close"></span></div>
-              <div class="content">
-        <div id="txt"></div>
-      </div>
-            </div>
-  </div>
-        </div>
-
-
-
-
+</div>
 </section>
 </template>
