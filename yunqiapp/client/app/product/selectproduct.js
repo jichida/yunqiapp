@@ -1,6 +1,5 @@
 //产品是否在促销列表中
 function isproductinsalespromotions(productdoc){
-  console.log("isproductinsalespromotions:" + EJSON.stringify(this));
 
   var isspecialproductdiscount = false;
   var isbuyonefreeone = false;
@@ -114,7 +113,6 @@ function updateandrecalc(productDoc,productid,qty){
 
 Template.selectproduct.helpers({
       'sessionorderamount':function(){
-        console.log("sessionorderamount:" + EJSON.stringify(this));
               //订单总金额
           var productlistsession = this.productlistsession.get();//Session.get("productlistsession");
           var amount = 0;
@@ -129,7 +127,7 @@ Template.selectproduct.helpers({
 
       },
       'products': function () {
-        console.log("products:" + EJSON.stringify(this));
+
           //列出所有产品,来自db
           var productlistret = [];
           var productlistdb = Products.find();
@@ -169,7 +167,6 @@ Template.oneproduct.helpers({
 
 
   'currentprice':function(template){
-    console.log("currentprice:" + EJSON.stringify(this));
 
     var currentprice = 0;
     var orginprice = 0;

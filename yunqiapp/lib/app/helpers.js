@@ -5,6 +5,7 @@ globalgetmyredpackage = function(conditiontype){
          var redpacakge = SystemRedPackages.findOne(usermoney.moneyid);
          var orderid = usermoney.orderid;
          var cp = _.extend(redpacakge,{
+           _id:usermoney._id,
            usermoneyid:usermoney._id,
            invalidtime:usermoney.invalidtime,
            usefulmoney:usermoney.usefulmoney,
@@ -45,6 +46,7 @@ globalgetmycoupon = function(conditiontype){
       var conpon = Coupons.findOne(usermoney.moneyid);
       var orderid = usermoney.orderid;
       var cp = _.extend(conpon,{
+        _id:usermoney._id,
         usermoneyid:usermoney._id,
         invalidtime:usermoney.invalidtime,
         usefulmoney:usermoney.usefulmoney,

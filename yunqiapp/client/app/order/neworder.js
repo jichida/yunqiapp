@@ -72,33 +72,43 @@
       var avaliablecouponlist = globalgetmycoupon('allisvalid');
       if(avaliablecouponlist.length > 0){
         this.curnewpagename.set('orderselectcoupon');
-      }
-
-    //  Router.go('/orderselectcoupon');
+      },
+        //  Router.go('/orderselectcoupon');
     },
     'click #btnusemyaddress':function(){
+      //'useaddressid'
       console.log('click btnuse my address');
-       var contactname = '';
-       var contacttel='';
-       var address ='';
-       if(Meteor.user().profile.defaultaddressid){
-          curaddress = UserAddress.findOne(Meteor.user().profile.defaultaddressid);
-       }
-       else{
-         curaddress = UserAddress.findOne();
-       }
-       if(curaddress){
-         contactname = curaddress.contactname;
-         contacttel = curaddress.contacttel;
-         address = curaddress.address;
-       }
-       $('#contactname').val(contactname);
-       $('#contacttel').val(contacttel);
-       $('#deliveryaddress').val(address);
+      if(UserAddress.find().count > 0){
+        this.curnewpagename.set('orderselectaddress');
+      }
+      //  var contactname = '';
+      //  var contacttel='';
+      //  var address ='';
+      //  if(Meteor.user().profile.defaultaddressid){
+      //     curaddress = UserAddress.findOne(Meteor.user().profile.defaultaddressid);
+      //  }
+      //  else{
+      //    curaddress = UserAddress.findOne();
+      //  }
+      //  if(curaddress){
+      //    contactname = curaddress.contactname;
+      //    contacttel = curaddress.contacttel;
+      //    address = curaddress.address;
+      //  }
+      //  $('#contactname').val(contactname);
+      //  $('#contacttel').val(contacttel);
+      //  $('#deliveryaddress').val(address);
     }
   });
 
 Template.neworder.helpers({
+    'curuseraddress':function(){
+      var curaddressid = useaddressid.get();
+      if(curaddressid == ''){
+        curaddressid = Meteor.user().profile.defaultaddressid;
+      }
+      return UserAddress.findOne(curaddressid);
+    },
     'selectordersalepromotion':function(){
       var usecoupon = false;
       var useredpackage = false;
@@ -182,4 +192,3 @@ Template.neworder.helpers({
 Template.neworder.rendered=function() {
     $('#wanttime').pickadate();
 }
-

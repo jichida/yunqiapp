@@ -3,6 +3,7 @@ function ClassNewOrderData() {
   this.productlistsession = new ReactiveVar([]);
   this.usecouponid = new ReactiveVar('');
   this.useredpackageid = new ReactiveVar('');
+  this.useaddressid = new ReactiveVar(Meteor.user().profile.defaultaddressid);
   this.neworderdoc = {
     createuser:'',
     contactname:'',
@@ -45,7 +46,7 @@ Template.newmyorder.events({
       console.log("click return btn:" + curpagename);
       if(curpagename == 'selectproduct'){
         event.preventDefault();
-        Router.go(this.returnhome);          
+        Router.go(this.returnhome);
       }
       else if(curpagename == 'neworder'){
         Template.instance().newOrderDataInstance.curnewpagename.set('selectproduct');

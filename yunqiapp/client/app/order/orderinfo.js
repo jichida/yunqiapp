@@ -35,8 +35,10 @@ Template.orderproduct.helpers({
   },
   'usepaymoneylist':function(){
     var result = false;
-    if(this.order.paymoneylist){
-      result = this.order.paymoneylist.length > 0;
+    if(this.order){
+      if(this.order.paymoneylist){
+        result = this.order.paymoneylist.length > 0;
+      }
     }
     console.log("usepaymoneylist" + result);
     return result;
