@@ -45,7 +45,7 @@ Template.newmyorder.events({
       console.log("click return btn:" + curpagename);
       if(curpagename == 'selectproduct'){
         event.preventDefault();
-        Router.go('/');
+        Router.go(this.returnhome);          
       }
       else if(curpagename == 'neworder'){
         Template.instance().newOrderDataInstance.curnewpagename.set('selectproduct');

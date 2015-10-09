@@ -1,6 +1,7 @@
 ﻿<template name="newmyorder">
   <header class="header"> <a href="#" id="btnreturn" class="back"></a>
     <div class="h_label">下单</div>
+    <a href="{{returnhome}}" class="menu"></a>
     </header>
   <div id="idselectproduct" style="{{#if iscurpagename 'selectproduct'}}display:block{{else}}display:none{{/if}}">
     {{> selectproduct getNewOrderDataInstance}}

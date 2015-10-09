@@ -26,7 +26,10 @@ Router.route('/updateuseraddress/:addressid', function () {
 
 });
 Router.route('/forgetpassword');
-Router.route('/newmyorder');
+
+Router.route('/newmyorder/:_tabindex', function () {
+  this.render('newmyorder',{data:{returnhome:'/tabhome/'+this.params._tabindex}});
+});
 
 Router.route('/profile', function () {
   this.layout('mainlayout');
@@ -46,7 +49,6 @@ Router.route('/profile', function () {
   else{
       console.log("not login");
       this.redirect("/signIn");
-
    }
 
 });

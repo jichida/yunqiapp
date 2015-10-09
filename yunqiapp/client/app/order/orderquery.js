@@ -4,8 +4,24 @@
       event.preventDefault();
       var queryorderid =  $('#queryorderid').val();
       var queryorderdate =  $('#queryorderdate').val();
+      var query = {};
+      if(queryorderid != ''){
+      //  query = {_id:"/.*" + queryorderid +  ".*/"};
+        query = {_id: {'$regex': queryorderid}};
+      }
+      if(queryorderdate != ''){
+        var startdate = moment(queryorderdate,'YYYY/MM/DD').format('YYYY-MM-DD');
+        var enddate = moment(queryorderdate,'YYYY/MM/DD').add({days:1}).format('YYYY-MM-DD');
+        query = _.extend(query,{
+          createtime:{
+            $gte:startdate,
+            $lt:enddate,
+          }
+        });
+      }
+      console.log("querydate:" + EJSON.stringify(query));
       var queryorderresultlistsession = [];
-      var orderlistdb = Orders.find() ;
+      var orderlistdb = Orders.find(query) ;
       orderlistdb.forEach(function(orderdb){
            queryorderresultlistsession.push(orderdb);
       });
