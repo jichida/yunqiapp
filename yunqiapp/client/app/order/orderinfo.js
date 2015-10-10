@@ -2,15 +2,15 @@ Template.orderinfo.events({
   'click #btnpayorder':function(){
     console.log("click btnpayorder:" + EJSON.stringify(this.order._id));
     var setDoc = {
-      orderstatus:'paidorder',
-      orderstatusstring:'已支付',
+      orderstatus:'tobedelivered',
+      orderstatusstring:'待发货',
     };
     Meteor.call("setOrderStatus",this.order._id,setDoc);
   },
   'click #btnfinishorder':function(){
     console.log("click btnfinishorder:" + EJSON.stringify(this.order._id));
     var setDoc = {
-      orderstatus:'finishedorder',
+      orderstatus:'finished',
       orderstatusstring:'已完成',
     };
     Meteor.call("setOrderStatus",this.order._id,setDoc);
@@ -19,10 +19,10 @@ Template.orderinfo.events({
 
 Template.orderinfo.helpers({
   'orderisnotpaid':function(){
-      return this.order.orderstatus == "neworder";
+      return this.order.orderstatus == "tobepaid";
   },
   'orderisdevelied':function(){
-      return this.order.orderstatus == "deliveredorder";
+      return this.order.orderstatus == "tobefinished";
   }
 });
 

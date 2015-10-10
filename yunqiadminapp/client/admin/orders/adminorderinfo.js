@@ -4,7 +4,7 @@ Template.adminorderinfo.events({
         var order = this.curorder;
         console.log("click btndelivery:" + EJSON.stringify(order));
         var setDoc = {
-          orderstatus:'deliveredorder',
+          orderstatus:'tobefinished',
           orderstatusstring:'已发货',
         };
         Meteor.call("setOrderStatus",order._id,setDoc);
@@ -13,9 +13,9 @@ Template.adminorderinfo.events({
 
   Template.adminorderinfo.helpers({
     'orderispaid':function(){
-        return this.curorder.orderstatus == "paidorder";
+        return this.curorder.orderstatus == "tobedelivered";
     },
     'orderisdevelied':function(){
-        return this.curorder.orderstatus == "deliveredorder";
+        return this.curorder.orderstatus == "tobefinished";
     }
   });

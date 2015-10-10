@@ -40,12 +40,12 @@ Router.route('/profile', function () {
      console.log("login");
      var currentUserId = Meteor.userId();
      var countallorders = Orders.find({createuser:currentUserId}).count();
-     var countneworders = Orders.find({createuser:currentUserId,orderstatus:'neworder'}).count();
-     var countpayedorders = Orders.find({createuser:currentUserId,orderstatus:'payedorder'}).count();
+     var counttobepaidorders = Orders.find({createuser:currentUserId,orderstatus:'tobepaid'}).count();
+     var counttobefinsihedorders = Orders.find({createuser:currentUserId,orderstatus:'tobefinished'}).count();
      this.render('profile', {to: 'content',data:{
          countallorders:countallorders,
-         countneworders:countneworders,
-         countpayedorders:countpayedorders,
+         counttobepaidorders:counttobepaidorders,
+         counttobefinsihedorders:counttobefinsihedorders,
      }});
   }
   else{

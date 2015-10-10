@@ -58,11 +58,11 @@ Template.myorders.events({
          console.log("allorders:"+EJSON.stringify(orders));
          return orders;
       },
-      'orderisnew':function(){
-          return this.orderstatus == "neworder";
+      'ordertobepaid':function(){
+          return this.orderstatus == "tobepaid";
       },
-      'orderisdevelied':function(){
-          return this.orderstatus == "deliveredorder";
+      'ordertobefinished':function(){
+          return this.orderstatus == "tobefinished";
       }
  });
 
@@ -72,35 +72,35 @@ Template.myorders.events({
    'click #btnpayorder':function(){
      console.log("click btnpayorder:" + EJSON.stringify(this._id));
      var setDoc = {
-       orderstatus:'paidorder',
-       orderstatusstring:'已支付',
+       orderstatus:'tobedelivered',
+       orderstatusstring:'待发货',
      };
      Meteor.call("setOrderStatus",this._id,setDoc);
    },
    'click #btnfinishorder':function(){
      console.log("click btnfinishorder:" + EJSON.stringify(this._id));
      var setDoc = {
-       orderstatus:'finishedorder',
+       orderstatus:'finished',
        orderstatusstring:'已完成',
      };
      Meteor.call("setOrderStatus",this._id,setDoc);
    },
  });
 
-  Template.alltobedeliveryorders.helpers({
+Template.alltobedeliveryorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
-         var orders = Orders.find({createuser:currentUserId,orderstatus:'paidorder'});
+         var orders = Orders.find({createuser:currentUserId,orderstatus:'tobedelivered'});
          console.log("alltobedeliveryorders:"+orders.count());
          return orders;
       },
  });
 
- Template.allclosedorders.events({
+ Template.alltobefinishedorders.events({
    'click #btnfinishorder':function(){
      console.log("click btnfinishorder:" + EJSON.stringify(this._id));
      var setDoc = {
-       orderstatus:'finishedorder',
+       orderstatus:'finished',
        orderstatusstring:'已完成',
      };
      Meteor.call("setOrderStatus",this._id,setDoc);
@@ -108,10 +108,10 @@ Template.myorders.events({
  });
 
 
-  Template.allclosedorders.helpers({
+  Template.alltobefinishedorders.helpers({
       'allorders':function(){
          var currentUserId = Meteor.userId();
-         var orders = Orders.find({createuser:currentUserId,orderstatus:'deliveredorder'});
+         var orders = Orders.find({createuser:currentUserId,orderstatus:'tobefinished'});
          console.log("allpayedorders:"+orders.count());
          return orders;
       },

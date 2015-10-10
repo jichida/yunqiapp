@@ -45,9 +45,9 @@
 				deliveryaddress:$('#deliveryaddress').val(),
 				yunqimemo:$('#yunqimemo').val(),
 				wanttime:$('#wanttime').val(),
-				paytype:$('#paytype').val(),
+				paytype:'paymentafterarrivalofgoods',//$('#paytype').val(),
 				paytypestring:"货到付款",
-        orderstatus:'neworder',
+        orderstatus:'tobedelivered',
         orderstatusstring:'待支付',
         orderamount:amount,
         createtime:moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -55,7 +55,18 @@
         finalmoney:finalmoney,
         paymoneylist:paymoneylist
 			};
-   		Meteor.call('insertOrder', orderData,function(error,result){
+
+       if(orderData.paytype == 'paymentafterarrivalofgoods'){
+        //货到付款
+        orderData.orderstatus = 'tobedelivered';
+        orderData.orderstatusstring = '待发货';
+      }
+      else{//支付宝orderData.paytype == 'alipay'
+        orderData.orderstatus = 'tobepaid';
+        orderData.orderstatusstring = '待支付';
+      }
+
+    	Meteor.call('insertOrder', orderData,function(error,result){
 
       });
       Router.go('/profile');
