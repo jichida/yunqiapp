@@ -6,6 +6,18 @@ Router.route('/', function () {
   this.render('home', {to: 'content'});
 });
 
+Router.route('/ios',function(){
+  Session.set('targetdevice','ios');
+  console.log("run on ios");
+  this.redirect("/");
+});
+
+Router.route('/android',function(){
+  Session.set('targetdevice','android');
+  console.log("run on android");
+  this.redirect("/");
+});
+
 Router.route('/test', function () {
   console.log("test html");
   this.render('test');
